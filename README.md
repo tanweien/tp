@@ -11,7 +11,7 @@
     <img src="docs/images/Ui.png">
   </a>
 
-<h3 align="center">NUSearch</h3>
+  <h3 align="center">NUSearch</h3>
 
   <p align="center">
     A GUI application to help you quickly search for the contacts of NUS faculty members!
@@ -204,3 +204,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [forks-url]: https://github.com/AY2122S2-CS2103T-W11-4/tp/network/members
 [issues-shield]: https://img.shields.io/github/issues/AY2122S2-CS2103T-W11-4/tp.svg
 [issues-url]: https://github.com/AY2122S2-CS2103T-W11-4/tp/issues
+
