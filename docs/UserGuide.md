@@ -112,29 +112,35 @@ Examples:
 
 ### Locating persons by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds contact whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find <NAME> [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* The search is case-insensitive. e.g `shur` will match `Shur`
+* The order of the keywords matter. e.g. `Wei En` will match `En Wei`
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+* Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+  e.g. `Eug ene` will return `Eug in`, `Nal g ene`
 
 Examples:
 * `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+
+### Locating contacts by tags: tag
+
+Finds contacts whose tags meet the search criteria.
+
+Format: `tag <Keyword> [MORE_KEYWORDS]`
+* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
+* Only tags are searched up
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the address book.
+Deletes a contact from the contact list by index.
 
-Format: `delete INDEX`
+Format: `delete <index>`
 
-* Deletes the person at the specified `INDEX`.
+* Deletes the person at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
