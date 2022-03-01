@@ -5,33 +5,41 @@ title: User Guide
 
 AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
 
-* Table of Contents
-{:toc}
-
---------------------------------------------------------------------------------------------------------------------
-
-Quick Start
-
-Features
-1. Viewing help: help
-2. Adding a person: add
-3. Listing all contacts: list
-4. Locating contacts by name: find
-5. Locating contacts by tags: tag
-6. Listing favorite contacts: list-fav
-7. Add to favorite list: fav
-8. Remove from favorite list: unfav
-9. Deleting a contact: delete
-10. Exiting the program: exit`
-
-Future features
-1. Filtering contacts: Mod, User name, Faculty, etc…
-2. Saving contacts to favourites
-3. Clearing the list 
-4. Interacting with contact 
-5. Addition of multiple modules and roles (eg /mod cs2030 cs2040)
-6. Improve on the delete feature to delete by name etc
-
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+    <li>
+      <a href="#features">Features</a>
+      <ul>
+        <li><a href="#prerequisites">Viewing Help</a></li>
+        <li><a href="#installation">Adding a person</a></li>
+        <li><a href="#installation">Listing all contacts</a></li>
+        <li><a href="#installation">Locating contacts by name</a></li>
+        <li><a href="#installation">Locating contacts by tags</a></li>
+        <li><a href="#installation">Listing favorite contacts</a></li>
+        <li><a href="#installation">Add to favorite list</a></li>
+        <li><a href="#installation">Remove from favorite list</a></li>
+        <li><a href="#installation">Deleting a contact</a></li>
+        <li><a href="#installation">Exiting the program</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#getting-started">Future Features</a>
+        <ul>
+            <li><a href="#prerequisites">Filtering contacts: Mod, User name, Faculty, etc…</a></li>
+            <li><a href="#prerequisites">Saving contacts to favourites</a></li>
+            <li><a href="#prerequisites">Clearing the list</a></li>
+            <li><a href="#prerequisites">Interacting with contact</a></li>
+            <li><a href="#prerequisites">Addition of multiple modules and roles (eg /mod cs2030 cs2040)</a></li>
+            <li><a href="#prerequisites">Improve on the delete feature to delete by name etc</a></li>
+        </ul>
+    </li>
+  </ol>
+</details>
 
 ## Quick start
 
@@ -64,8 +72,6 @@ Future features
 ## Features
 
 <div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
@@ -134,12 +140,6 @@ Examples:
 * `edit 2 n/Betsy Crower m/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing module tags.
 * `edit 2 n/Betsy Crower p/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing phone numbers.
 
-### Listing all persons : `list`
-
-Displays all contacts in the contact list.
-
-Format: `list`
-
 ### Adding a person into favourite list : `fav`
 
 Adds a person to the favorite list.
@@ -162,29 +162,45 @@ Examples:
 
 ### Listing all favourite contacts : `list-fav`
 
-Displays all favorite contacts in the contact list.
-
+Displays all favourite contacts in the contact list.
+                   
 Format: `list-fav`
+        
+### Format: `find <NAME> [MORE_KEYWORDS]`  
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+Finds contact whose names contain any of the given keywords.
+
+
+
+te contacts in the contact list.
+
+
+
+* The search is case-insensitive. e.g `shur` will match `Shur`
+* The order of the keywords matter. e.g. `Wei En` will match `En Wei`
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+* Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+  e.g. `Eug ene` will return `Eug in`, `Nal g ene`
 
 Examples:
 * `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+
+### Locating contacts by tags: tag
+
+Finds contacts whose tags meet the search criteria.
+
+Format: `tag <Keyword> [MORE_KEYWORDS]`
+* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
+* Only tags are searched up
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the address book.
+Deletes a contact from the contact list by index.
 
-Format: `delete INDEX`
+Format: `delete <index>`
 
-* Deletes the person at the specified `INDEX`.
+* Deletes the person at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
