@@ -10,13 +10,36 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 --------------------------------------------------------------------------------------------------------------------
 
+Quick Start
+
+Features
+1. Viewing help: help
+2. Adding a person: add
+3. Listing all contacts: list
+4. Locating contacts by name: find
+5. Locating contacts by tags: tag
+6. Listing favorite contacts: list-fav
+7. Add to favorite list: fav
+8. Remove from favorite list: unfav
+9. Deleting a contact: delete
+10. Exiting the program: exit`
+
+Future features
+1. Filtering contacts: Mod, User name, Faculty, etc…
+2. Saving contacts to favourites
+3. Clearing the list 
+4. Interacting with contact 
+5. Addition of multiple modules and roles (eg /mod cs2030 cs2040)
+6. Improve on the delete feature to delete by name etc
+
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
 1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -26,7 +49,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
