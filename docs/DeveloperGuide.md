@@ -289,9 +289,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `NUSearch database` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `NUSearch` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Locate contact by tag**
+**Use case 1: Viewing help**
+
+**MSS**
+
+1.  User requests to access the help page
+2.  NUSearch shows list of commands and syntax on how to use them
+
+    Use case ends.
+
+
+**Use case 2: Adding a contact**
+
+**MSS**
+
+1. User requests to add contact to the list
+2. NUSearch adds the contact in the database.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The given contact exist in the NUSearch database.
+
+    * 2a1. NUSearch shows an error message.
+
+      Use case resumes at step 2.
+
+
+
+**Use case 3: Listing all contacts**
+
+**MSS**
+
+1.  User requests to list all contacts.
+2.  NUSearch shows a list of contacts.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+
+**Use case 4: Locating contacts by name**
+
+**MSS**
+
+1.  User requests to find contacts with name.
+2.  NUSearch shows a list of contacts with the name.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The given name does not exist in the NUSearch database.
+
+    * 2a1. NUSearch shows an error message.
+
+      Use case resumes at step 2.
+    
+
+**Use case 5: Locate contact by tag**
 
 **MSS**
 
@@ -306,7 +369,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: Add contacts to favourites list**
+
+**Use case 6: Add contacts to favourites list**
 
 **MSS**
 
@@ -321,7 +385,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   The system prompts the user to key in another contact to be added
 
-**Use case: Delete a contact**
+**Use case 7: Remove contacts from favourites list**
+
+**MSS**
+
+1.  User requests to remove a contact from the favourites list
+2.  NUSearch shows an updated list of the user's favourite contacts
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The contact specified does not exist in the system.
+
+  The system prompts the user to key in another contact to be added
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+**Use case 8: Listing all favourite contacts**
+
+**MSS**
+
+1.  User requests to list all favourite contacts.
+2.  NUSearch shows a list of contacts.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+
+**Use case 9: Delete a contact**
 
 **MSS**
 
@@ -344,7 +443,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: Exit the program**
+**Use case 10: Exit the program**
 
 **MSS**
 
