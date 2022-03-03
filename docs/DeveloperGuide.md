@@ -289,7 +289,65 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `NUSearch` and the **Actor** is the `user`, unless specified otherwise)
+
+**Use case: Viewing help**
+
+**MSS**
+
+1.  User requests to access the help page
+2.  NUSearch shows list of commands and syntax on how to use them
+
+    Use case ends.
+
+
+**Use case: Adding a person**
+
+**MSS**
+
+1. User requests to add contact to the list
+2. NUSearch adds the contact in the database.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The given contact exist in the NUSearch database.
+
+    * 2a1. NUSearch shows an error message.
+
+      Use case resumes at step 2.
+
+
+
+**Use case: Listing all contacts**
+
+**MSS**
+
+1.  User requests to list all contacts.
+2.  NUSearch shows a list of contacts.
+
+    Use case ends.
+
+
+**Use case: Locating contacts by name**
+
+**MSS**
+
+1.  User requests to find contacts with name.
+2.  NUSearch shows a list of contacts with the name.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The given name does not exist in the NUSearch database.
+
+    * 2a1. NUSearch shows an error message.
+
+      Use case resumes at step 2.
+
+
 
 **Use case: Delete a person**
 
