@@ -270,14 +270,20 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                                  | So that I can…​                                                             |
+|-----| ------------------------------------------ |-----------------------------------------------|-----------------------------------------------------------------------------|
+| `* * *` | new user                                   | see usage instructions                        | refer to instructions when I forget how to use the App                      |
+| `* * *` | user                                       | add a new staff                               |                                                                             |
+| `* * *` | user                                       | delete a staff                                | remove entries that I no longer need                                        |
+| `* * *` | user                                       | find a staff by name                          | locate details of staff without having to go through the entire list        |
+| `* * *` | user                                       | find a staff by tag                           | locate details of staff associated with the tag without knowing their names |
+| `* * *` | user                                       | list all staff contacts                       | view all the staff contacts in NUSearch                                     |
+| `* * ` | user                                       | add an existing staff to favourites list      |                                                                             |
+| `* * ` | user                                       | delete an existing staff from favourites list |                                                                             |
+| `* * ` | user                                       | list all favourite contacts                   | view all my favourite staff contacts                                        |
+| `* *` | user                                       | hide private contact details                  | minimize chance of someone else seeing them by accident                     |
+| `*` | user with many persons in the address book | sort persons by name                          | locate a person easily                                                      |
+| `*` | user                                       | click on hyperlinks on a contact              | contact staff easily                                                        |
 
 *{More to be added}*
 
