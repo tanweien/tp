@@ -29,7 +29,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: `to be confirmed`
 
-### Jean Doe
+### Jia Ming
 
 <img src="images/simjm.png" width="200px">
 
@@ -39,7 +39,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: `to be confirmed`
 
-### James Doe
+### Wei En
 
 <img src="images/tanweien.png" width="200px">
 
