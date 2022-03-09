@@ -43,7 +43,15 @@ public class LogicManager implements Logic {
 
         CommandResult commandResult;
         Command command = addressBookParser.parseCommand(commandText);
+
+        //pass command to command handler with command and model.
+
+        //command execute
         commandResult = command.execute(model);
+
+        //command un execute.
+
+        //During this, model addressbook is getting updated.
 
         try {
             storage.saveAddressBook(model.getAddressBook());
