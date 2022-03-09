@@ -48,6 +48,9 @@ public class AddressBookParser {
         case FavouriteCommand.COMMAND_WORD:
             return new FavouriteCommandParser().parse(arguments);
 
+        case UnfavouriteCommand.COMMAND_WORD:
+            return new UnfavouriteCommandParser().parse(arguments);
+
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
 
