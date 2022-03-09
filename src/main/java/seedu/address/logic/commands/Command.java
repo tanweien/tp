@@ -1,16 +1,15 @@
 package seedu.address.logic.commands;
 
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
-import seedu.address.model.AddressBookMemento;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.Model;
 
 /**
  * Represents a command with hidden internal logic and the ability to be executed.
  */
 public abstract class Command {
-    AddressBook addressBook;
-    AddressBookMemento addressBookMemento;
+    Model modelState;
+    ModelMemento modelMemento;
 
     /**
      * Executes the command and returns the result message.

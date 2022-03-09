@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 
@@ -9,16 +10,23 @@ public class CommandManager implements CommandManageable{
     private int commandStackPointer = -1;
     private Stack<Command> commandStack = new Stack<>();
     private Model model;
-    private Command currentCommand;
 
-    public CommandManager(Model modelManager, Command currentCommand) {
+    public CommandManager(Model modelManager) {
         this.model = modelManager;
-        this.currentCommand = currentCommand;
     }
 
     @Override
-    public void insertCommand() {
+    public CommandResult insertCommand(Command currentCommand) throws CommandException {
+        CommandResult toReturn;
+        //if undo
+        //if redo
 
+        // else
+        refreshFutureCommands(commandStackPointer);
+        commandStack.push(currentCommand);
+        toReturn = currentCommand.execute(model);
+        commandStackPointer++;
+        return toReturn;
     }
 
     @Override
@@ -32,18 +40,20 @@ public class CommandManager implements CommandManageable{
     }
 
     @Override
-    public void undo() {
+    public CommandResult undo() throws CommandException {
         Command command = commandStack.get(commandStackPointer);
-        //command.unExecute(model);
         commandStackPointer--;
+        return command.unExecute(model);
     }
 
     @Override
-    public void redo() {
-        if(commandStackPointer == commandStack.size() - 1)
-            return;
+    public CommandResult redo() throws CommandException {
+        if(commandStackPointer == commandStack.size() - 1) {
+            //i.e no future commands to execute
+            return new CommandResult("todo", true, false);
+        }
         commandStackPointer++;
         Command command = commandStack.get(commandStackPointer);
-        //command.execute();
+        return command.execute(model);
     }
 }

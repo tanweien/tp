@@ -3,7 +3,9 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 
 /**
@@ -11,6 +13,8 @@ import seedu.address.model.person.NameContainsKeywordsPredicate;
  * Keyword matching is case insensitive.
  */
 public class FindCommand extends Command {
+    private Model currentModel;
+    private ModelMemento modelMemento;
 
     public static final String COMMAND_WORD = "find";
 
@@ -31,6 +35,11 @@ public class FindCommand extends Command {
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
+    }
+
+    @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        return null;
     }
 
     @Override

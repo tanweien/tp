@@ -2,11 +2,15 @@ package seedu.address.logic.commands;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelMemento;
 
 /**
  * Format full help instructions for every command for display.
  */
 public class HelpCommand extends Command {
+    private Model currentModel;
+    private ModelMemento modelMemento;
+
 
     public static final String COMMAND_WORD = "help";
 

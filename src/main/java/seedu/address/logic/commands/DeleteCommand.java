@@ -8,12 +8,15 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Person;
 
 /**
  * Deletes a person identified using it's displayed index from the address book.
  */
 public class DeleteCommand extends Command {
+    private Model currentModel;
+    private ModelMemento modelMemento;
 
     public static final String COMMAND_WORD = "delete";
 
@@ -40,13 +43,18 @@ public class DeleteCommand extends Command {
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+
+        //intercepts here
+        this.modelMemento = new ModelMemento();
+        modelMemento.setModel(this.modelState); //potential problems since model state is mutable -> Might need to use addressbook instead.
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        this.modelState = this.modelMemento.getModel();
+        return new CommandResult("unexecute", false, false);
     }
 
     @Override
