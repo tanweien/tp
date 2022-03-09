@@ -14,6 +14,10 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
+    /** {@code Predicate} that evaluate to true if person is a favourite */
+    Predicate<Person> PREDICATE_SHOW_FAVOURITES = person ->
+            person.getFavourite().isFavourite;
+
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
