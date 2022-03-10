@@ -26,7 +26,8 @@ public class UnfavouriteCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Added to Favourites Person: %1$s";
+    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Removed From Favourites Person: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person is already removed from favourites.";
 
     public UnfavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -41,9 +42,13 @@ public class UnfavouriteCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        // change this xddd
         Person personToUnfavourite = lastShownList.get(targetIndex.getZeroBased());
         Person unfavouritedPerson = createUnfavouritedPerson(personToUnfavourite);
+
+        if (!personToUnfavourite.isSamePerson(unfavouritedPerson) && model.hasPerson(unfavouritedPerson)) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
         model.setPerson(personToUnfavourite, unfavouritedPerson);
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, unfavouritedPerson));
     }

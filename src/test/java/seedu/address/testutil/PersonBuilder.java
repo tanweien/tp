@@ -75,6 +75,14 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Favourite} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withFavourite(boolean isFavourite) {
+        this.favourite = new Favourite(isFavourite);
+        return this;
+    }
+
+    /**
      * Sets the {@code Phone} of the {@code Person} that we are building.
      */
     public PersonBuilder withPhone(String phone) {

@@ -27,6 +27,7 @@ public class FavouriteCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Added to Favourites Person: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person is already saved to favourites.";
 
     public FavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -41,9 +42,13 @@ public class FavouriteCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        // change this xddd
         Person personToFavourite = lastShownList.get(targetIndex.getZeroBased());
         Person favouritedPerson = createFavouritedPerson(personToFavourite);
+
+        if (!personToFavourite.isSamePerson(favouritedPerson) && model.hasPerson(favouritedPerson)) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
         model.setPerson(personToFavourite, favouritedPerson);
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, favouritedPerson));
     }

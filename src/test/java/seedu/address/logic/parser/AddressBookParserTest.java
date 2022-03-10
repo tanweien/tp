@@ -13,15 +13,8 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
@@ -62,6 +55,20 @@ public class AddressBookParserTest {
         assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
     }
 
+//    @Test
+//    public void parseCommand_favourite() throws Exception {
+//        FavouriteCommand command = (FavouriteCommand) parser.parseCommand(
+//                FavouriteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+//        assertEquals(new FavouriteCommand(INDEX_FIRST_PERSON), command);
+//    }
+//
+//    @Test
+//    public void parseCommand_unfavourite() throws Exception {
+//        UnfavouriteCommand command = (UnfavouriteCommand) parser.parseCommand(
+//                UnfavouriteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+//        assertEquals(new UnfavouriteCommand(INDEX_FIRST_PERSON), command);
+//    }
+
     @Test
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
@@ -86,6 +93,12 @@ public class AddressBookParserTest {
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
+    }
+
+    @Test
+    public void parseCommand_list_favourites() throws Exception {
+        assertTrue(parser.parseCommand(ListFavouritesCommand.COMMAND_WORD) instanceof ListFavouritesCommand);
+        assertTrue(parser.parseCommand(ListFavouritesCommand.COMMAND_WORD + " 3") instanceof ListFavouritesCommand);
     }
 
     @Test
