@@ -5,8 +5,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelMemento;
 
 public class RedoCommand extends Command {
-    private Model currentModel;
-    private ModelMemento modelMemento;
 
     public static final String COMMAND_WORD = "redo";
 
@@ -16,11 +14,16 @@ public class RedoCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return null;
+        return new CommandResult("Undid command", false, false);
     }
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         return null;
+    }
+
+    @Override
+    public boolean isRedo() {
+        return true;
     }
 }

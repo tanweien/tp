@@ -6,10 +6,10 @@ import seedu.address.model.ModelManager;
 
 import java.util.Stack;
 
-public class CommandManager implements CommandManageable{
+public class CommandManager implements CommandManageable {
     private int commandStackPointer = -1;
-    private Stack<Command> commandStack = new Stack<>();
-    private Model model;
+    private final Stack<Command> commandStack = new Stack<>();
+    private final Model model;
 
     public CommandManager(Model modelManager) {
         this.model = modelManager;
@@ -18,8 +18,20 @@ public class CommandManager implements CommandManageable{
     @Override
     public CommandResult insertCommand(Command currentCommand) throws CommandException {
         CommandResult toReturn;
+        try {
+            if (currentCommand.isUndo()) {
+                String undidMessage = undo().getFeedbackToUser();
+                return new CommandResult("Undid command: " + undidMessage, false, false);
+            }
+            //if redo
+            if (currentCommand.isRedo()) {
+                String redidMessage = redo().getFeedbackToUser();
+                return new CommandResult("Undid command: " + redidMessage, false, false);
+            }
+        } catch (Exception err) {
+            //handle error
+        }
         //if undo
-        //if redo
 
         // else
         refreshFutureCommands(commandStackPointer);
@@ -34,7 +46,7 @@ public class CommandManager implements CommandManageable{
         if(commandStack.size()<1) {
             return;
         }
-        for(int i = commandStack.size()-1; i > commandStackPointer; i--) {
+        for(int i = commandStack.size()-1; i > undoRedoPointer; i--) {
             commandStack.remove(i);
         }
     }

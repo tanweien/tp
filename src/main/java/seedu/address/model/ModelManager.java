@@ -40,6 +40,16 @@ public class ModelManager implements Model {
         this(new AddressBook(), new UserPrefs());
     }
 
+    public ModelManager(AddressBook newAddressBook) {
+        this.addressBook = newAddressBook;
+        this.userPrefs = new UserPrefs();
+        this.filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+    }
+
+    public AddressBook makeCopy() {
+        return new AddressBook(this.addressBook.makeCopy());
+    }
+
     //=========== UserPrefs ==================================================================================
 
     @Override

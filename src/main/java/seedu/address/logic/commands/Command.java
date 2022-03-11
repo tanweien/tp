@@ -20,5 +20,11 @@ public abstract class Command {
      */
     public abstract CommandResult execute(Model model) throws CommandException;
     public abstract CommandResult unExecute(Model model) throws  CommandException;
+    public boolean isUndo() {
+        return false;
+    };
+    public boolean isRedo() {
+        return false;
+    }
 
 }

@@ -21,13 +21,23 @@ public class AddressBook implements ReadOnlyAddressBook {
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
      *
      * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
-     *   among constructors.
+     *   among constructors. HMMMNGGGHHHH!! Take note
      */
-    {
+//    {
+//        persons = new UniquePersonList();
+//    }
+
+    public AddressBook() {
         persons = new UniquePersonList();
     }
 
-    public AddressBook() {}
+    public AddressBook(UniquePersonList list) {
+        this.persons = list;
+    }
+
+    public UniquePersonList makeCopy() {
+        return new UniquePersonList(this.persons.makeCopy());
+    }
 
     /**
      * Creates an AddressBook using the Persons in the {@code toBeCopied}
