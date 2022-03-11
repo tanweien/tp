@@ -27,20 +27,19 @@ public class UniquePersonList implements Iterable<Person> {
     private final ObservableList<Person> internalList;
     private final ObservableList<Person> internalUnmodifiableList;
 
-    /*
-    *
+    /**
+     * Empty constructor
      */
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
     public UniquePersonList() {
         this.internalList = FXCollections.observableArrayList();
         this.internalUnmodifiableList = FXCollections
                 .unmodifiableObservableList(internalList);
     }
 
-    /*
-    *
+    /**
+     * Constructor
+     * @param persons list of persons
      */
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
     public UniquePersonList(ObservableList<Person> persons) {
         this.internalList = persons;
         this.internalUnmodifiableList = FXCollections

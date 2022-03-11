@@ -37,19 +37,17 @@ public class ModelManager implements Model {
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
 
-    /*
-     *
-     *
+    /**
+     * empty constructor
      */
     public ModelManager() {
         this(new AddressBook(), new UserPrefs());
     }
 
-    /*
-    * Creates a {@code ModelManager} with the given {@code ReadOnlyAddressBookStorage}
-    *
+    /**
+     * Constructor from given address book
+     * @param newAddressBook new one
      */
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
     public ModelManager(AddressBook newAddressBook) {
         this.addressBook = newAddressBook;
         this.userPrefs = new UserPrefs();
