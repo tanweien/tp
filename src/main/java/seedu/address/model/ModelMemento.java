@@ -1,7 +1,7 @@
 package seedu.address.model;
 
 public class ModelMemento {
-    Model modelState;
+    private Model modelState;
 
     public Model getModel() {
         return this.modelState;

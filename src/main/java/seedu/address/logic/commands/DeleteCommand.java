@@ -16,8 +16,6 @@ import seedu.address.model.person.Person;
  * Deletes a person identified using it's displayed index from the address book.
  */
 public class DeleteCommand extends Command {
-    private ModelMemento modelMemento;
-    private Person deletedPerson;
 
     public static final String COMMAND_WORD = "delete";
 
@@ -29,6 +27,8 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
     private final Index targetIndex;
+    private ModelMemento modelMemento;
+    private Person deletedPerson;
 
     public DeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -55,7 +55,7 @@ public class DeleteCommand extends Command {
         //make address book
         //make model
         //set model
-        modelMemento.setModel(new ModelManager(model.makeCopy())); //potential problems since model state is mutable -> Might need to use addressbook instead.
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
 
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));

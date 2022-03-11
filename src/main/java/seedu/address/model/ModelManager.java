@@ -24,7 +24,8 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     *
+     *
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(addressBook, userPrefs);
@@ -36,10 +37,19 @@ public class ModelManager implements Model {
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
 
+    /*
+     *
+     *
+     */
     public ModelManager() {
         this(new AddressBook(), new UserPrefs());
     }
 
+    /*
+    * Creates a {@code ModelManager} with the given {@code ReadOnlyAddressBookStorage}
+    *
+     */
+    @SuppressWarnings("checkstyle:MissingJavadocMethod")
     public ModelManager(AddressBook newAddressBook) {
         this.addressBook = newAddressBook;
         this.userPrefs = new UserPrefs();

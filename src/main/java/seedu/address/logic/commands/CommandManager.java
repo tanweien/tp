@@ -1,10 +1,8 @@
 package seedu.address.logic.commands;
+import java.util.Stack;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-
-import java.util.Stack;
 
 public class CommandManager implements CommandManageable {
     private int commandStackPointer = -1;
@@ -43,11 +41,11 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public void refreshFutureCommands(int undoRedoPointer) {
-        if(commandStack.size()<1) {
+        if (commandStack.size() < 1) {
             return;
         }
-        for(int i = commandStack.size()-1; i > undoRedoPointer; i--) {
-            commandStack.remove(i);
+        if (commandStack.size() > undoRedoPointer + 1) {
+            commandStack.subList(undoRedoPointer + 1, commandStack.size()).clear();
         }
     }
 
@@ -60,7 +58,7 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public CommandResult redo() throws CommandException {
-        if(commandStackPointer == commandStack.size() - 1) {
+        if (commandStackPointer == commandStack.size() - 1) {
             //i.e no future commands to execute
             return new CommandResult("todo", true, false);
         }
