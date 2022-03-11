@@ -5,6 +5,8 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 
 /**
  * Clears the address book.
@@ -13,16 +15,28 @@ public class ClearCommand extends Command {
     public static final String COMMAND_WORD = "clear";
     public static final String MESSAGE_SUCCESS = "Address book has been cleared!";
 
+    private ModelMemento modelMemento;
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
+        //intercept here
+        this.modelMemento = new ModelMemento();
+        //from current model, get address book
+        //from address book get unique persons list
+        //from unique persons list get internal list
+        //copy internal list and make unique persons list
+        //make address book
+        //make model
+        //set model
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setAddressBook(new AddressBook());
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult(MESSAGE_SUCCESS, false, false);
     }
 }

@@ -24,7 +24,7 @@ public class CommandManager implements CommandManageable {
             //if redo
             if (currentCommand.isRedo()) {
                 String redidMessage = redo().getFeedbackToUser();
-                return new CommandResult("Undid command: " + redidMessage, false, false);
+                return new CommandResult("Redid command: " + redidMessage, false, false);
             }
         } catch (Exception err) {
             //handle error
@@ -60,7 +60,7 @@ public class CommandManager implements CommandManageable {
     public CommandResult redo() throws CommandException {
         if (commandStackPointer == commandStack.size() - 1) {
             //i.e no future commands to execute
-            return new CommandResult("todo", true, false);
+            return new CommandResult("There are no commands to redo!", true, false);
         }
         commandStackPointer++;
         Command command = commandStack.get(commandStackPointer);

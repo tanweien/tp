@@ -63,7 +63,6 @@ public class DeleteCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedPerson), false, false);
     }
