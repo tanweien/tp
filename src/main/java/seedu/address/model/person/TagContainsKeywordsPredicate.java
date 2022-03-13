@@ -18,14 +18,14 @@ public class TagContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-         for (String keyword : keywords) {
-             for (Tag tag : person.getTags()) {
-                 if (StringUtil.containsWordIgnoreCase(tag.tagName, keyword)) {
-                     return true;
-                 }
+        for (String keyword : keywords) {
+            for (Tag tag : person.getTags()) {
+                if (StringUtil.containsWordIgnoreCase(tag.tagName, keyword)) {
+                    return true;
+                }
             }
         }
-         return false;
+        return false;
     }
 
     @Override
