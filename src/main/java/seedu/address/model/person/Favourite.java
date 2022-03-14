@@ -1,8 +1,5 @@
 package seedu.address.model.person;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
-
 public class Favourite {
 
     public static final String MESSAGE_IS_FAVOURTIE = "true";
@@ -14,16 +11,6 @@ public class Favourite {
     public Favourite(boolean isFavourite) {
         this.isFavourite = isFavourite;
     }
-
-//    public Favourite(String isFavourite) {
-//        requireNonNull(isFavourite);
-//        checkArgument(isValidFavourite(isFavourite), MESSAGE_CONSTRAINTS);
-//        if (isFavourite.toLowerCase().equals("true")) {
-//            this.isFavourite = true;
-//        } else {
-//            this.isFavourite = false;
-//        }
-//    }
 
     @Override
     public String toString() {
@@ -46,11 +33,4 @@ public class Favourite {
         return this.toString().hashCode();
     }
 
-//    public static Boolean isValidFavourite(String isFavourite) {
-//        if (isFavourite.equals("true") || isFavourite.equals("false")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 }

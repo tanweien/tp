@@ -1,13 +1,12 @@
 package seedu.address.logic.parser;
 
-import seedu.address.commons.core.index.Index;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.UnfavouriteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
-public class UnfavouriteCommandParser implements Parser<UnfavouriteCommand>  {
+public class UnfavouriteCommandParser implements Parser<UnfavouriteCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the {@code FavouriteCommand}
      * and returns a {@code FavouriteCommand} object for execution.
