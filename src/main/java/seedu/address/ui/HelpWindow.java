@@ -14,7 +14,6 @@ import seedu.address.commons.core.LogsCenter;
  * Controller for a help page
  */
 public class HelpWindow extends UiPart<Stage> {
-    
     public static final String USERGUIDE_URL =
         "https://github.com/AY2122S2-CS2103T-W11-4/tp/blob/master/docs/UserGuide.md";
     public static final String HELP_MESSAGE = "Refer to the user guide for more details: " + USERGUIDE_URL
@@ -29,7 +28,6 @@ public class HelpWindow extends UiPart<Stage> {
             + "\nTo delete a contact:\n        delete {index}\n"
             + "\nTo delete all contacts:\n        clear\n"
             + "\nTo exit:\n        exit\n";
-
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
