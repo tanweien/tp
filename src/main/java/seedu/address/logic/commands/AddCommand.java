@@ -46,6 +46,11 @@ public class AddCommand extends Command {
         toAdd = person;
     }
 
+    // returns the person, only used in testing, delete before submission
+    public Person getToAdd() {
+        return toAdd;
+    }
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

@@ -30,6 +30,8 @@ public class AddressBookParserTest {
     public void parseCommand_add() throws Exception {
         Person person = new PersonBuilder().build();
         AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(person));
+//        assertTrue(person.isSamePerson(command.getToAdd()));
+        // the 2 persons are the same, but the commands are not equal what the fk
         assertEquals(new AddCommand(person), command);
     }
 
