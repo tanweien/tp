@@ -14,15 +14,15 @@ import seedu.address.commons.core.LogsCenter;
  * Controller for a help page
  */
 public class HelpWindow extends UiPart<Stage> {
-
-//    public static final String USERGUIDE_URL = "https://se-education.org/addressbook-level3/UserGuide.html";
-    public static final String USERGUIDE_URL = "https://github.com/AY2122S2-CS2103T-W11-4/tp/blob/master/docs/UserGuide.md";
+    
+    public static final String USERGUIDE_URL =
+        "https://github.com/AY2122S2-CS2103T-W11-4/tp/blob/master/docs/UserGuide.md";
     public static final String HELP_MESSAGE = "Refer to the user guide for more details: " + USERGUIDE_URL
             + "\n\nTo add contact:\n        add n/{name} e/{email} a/{address}\n"
             + "\nTo display all contacts:\n        list (IMPT: use 'list' to view index of contact when required)\n"
             + "\nTo edit:\n        edit {index} [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]\n"
             + "\nTo add a contact to favourites:\n        fav {index}\n"
-            + "\nTo remove a contact from favourites:\n        unfav {index} (IMPT: use 'list-fav' to view index of contact)\n"
+            + "\nTo remove a contact from favourites:\n        unfav {index} (IMPT: use 'list-fav' to view index)\n"
             + "\nTo display all favourite contacts:\n        list-fav\n"
             + "\nTo find contacts that contains any of the given keywords:\n        find {name} [MORE_KEYWORDS]\n"
             + "\nTo find contacts that contains any of the given tags:\n        tag {Keyword} [MORE_KEYWORDS]\n"
