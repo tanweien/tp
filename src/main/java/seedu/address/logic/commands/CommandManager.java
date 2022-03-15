@@ -29,6 +29,7 @@ public class CommandManager implements CommandManageable {
     public CommandResult insertCommand(Command currentCommand) throws CommandException {
         CommandResult toReturn;
         try {
+            //if undo
             if (currentCommand.isUndo()) {
                 String undidMessage = undo().getFeedbackToUser();
                 return new CommandResult("Undid command: " + undidMessage, false, false);
@@ -41,7 +42,6 @@ public class CommandManager implements CommandManageable {
         } catch (Exception err) {
             //handle error
         }
-        //if undo
 
         // else
         refreshFutureCommands(commandStackPointer);
