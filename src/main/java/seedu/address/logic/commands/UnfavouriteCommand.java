@@ -63,7 +63,7 @@ public class UnfavouriteCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof DeleteCommand // instanceof handles nulls
+                || (other instanceof UnfavouriteCommand // instanceof handles nulls
                 && targetIndex.equals(((UnfavouriteCommand) other).targetIndex)); // state check
     }
 

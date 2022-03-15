@@ -21,7 +21,7 @@ public class FavouriteCommandParserTest {
     private FavouriteCommandParser parser = new FavouriteCommandParser();
 
     @Test
-    public void parse_validArgs_returnsDeleteCommand() {
+    public void parse_validArgs_returnsFavouriteCommand() {
         assertParseSuccess(parser, "1", new FavouriteCommand(INDEX_FIRST_PERSON));
     }
 
