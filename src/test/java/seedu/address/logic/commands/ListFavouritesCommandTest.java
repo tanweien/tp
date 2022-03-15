@@ -26,12 +26,6 @@ public class ListFavouritesCommandTest {
         expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
     }
 
-    // This test fails
-//    @Test
-//    public void execute_listIsNotFiltered_showsSameList() {
-//        assertCommandSuccess(new ListFavouritesCommand(), model, ListFavouritesCommand.MESSAGE_SUCCESS, expectedModel);
-//    }
-
     @Test
     public void execute_listIsFiltered_showsEverything() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
