@@ -1,22 +1,20 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.person.Person;
-import seedu.address.testutil.PersonBuilder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Stack;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.ModelManager;
+import seedu.address.model.person.Person;
+import seedu.address.testutil.PersonBuilder;
+
 
 class CommandManagerTest {
-    private ModelManager modelManager = new ModelManager();
-    private CommandManager commandManager = new CommandManager(modelManager);
+    private final ModelManager modelManager = new ModelManager();
+    private final CommandManager commandManager = new CommandManager(modelManager);
 
     @Test
     public void constructor() {
