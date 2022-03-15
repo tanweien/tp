@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FACULTY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -19,8 +20,11 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Faculty;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -30,7 +34,6 @@ import seedu.address.model.tag.Tag;
  * Edits the details of an existing person in the address book.
  */
 public class EditCommand extends Command {
-
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
@@ -40,6 +43,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
+            + "[" + PREFIX_FACULTY + "FACULTY] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -52,6 +56,8 @@ public class EditCommand extends Command {
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
+    private ModelMemento modelMemento;
+    private Person editedPerson;
 
     /**
      * @param index of the person in the filtered person list to edit
@@ -81,9 +87,27 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        this.editedPerson = personToEdit;
+
+        //intercept here
+        this.modelMemento = new ModelMemento();
+        //from current model, get address book
+        //from address book get unique persons list
+        //from unique persons list get internal list
+        //copy internal list and make unique persons list
+        //make address book
+        //make model
+        //set model
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+    }
+
+    @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson), false, false);
     }
 
     /**
@@ -96,10 +120,11 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
+        Faculty updatedFaculty = editPersonDescriptor.getFaculty().orElse(personToEdit.getFaculty());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedAddress, updatedTags);
     }
 
     @Override
@@ -128,6 +153,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
+        private Faculty faculty;
         private Address address;
         private Set<Tag> tags;
 
@@ -141,6 +167,7 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
+            setFaculty(toCopy.faculty);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
@@ -149,7 +176,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, faculty, address, tags);
         }
 
         public void setName(Name name) {
@@ -174,6 +201,14 @@ public class EditCommand extends Command {
 
         public Optional<Email> getEmail() {
             return Optional.ofNullable(email);
+        }
+
+        public void setFaculty(Faculty faculty) {
+            this.faculty = faculty;
+        }
+
+        public Optional<Faculty> getFaculty() {
+            return Optional.ofNullable(faculty);
         }
 
         public void setAddress(Address address) {
@@ -219,6 +254,7 @@ public class EditCommand extends Command {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
+                    && getFaculty().equals(e.getFaculty())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }
