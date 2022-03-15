@@ -30,7 +30,7 @@ public class UnfavouriteCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Removed From Favourites Person: %1$s";
+    public static final String MESSAGE_UNFAVOURITE_PERSON_SUCCESS = "Removed From Favourites Person: %1$s";
 
     public static final String MESSAGE_DUPLICATE_PERSON = "This person is already removed from favourites.";
 
@@ -57,7 +57,7 @@ public class UnfavouriteCommand extends Command {
         }
 
         model.setPerson(personToUnfavourite, unfavouritedPerson);
-        return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, unfavouritedPerson));
+        return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS, unfavouritedPerson));
     }
 
     @Override
