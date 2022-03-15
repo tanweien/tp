@@ -102,6 +102,7 @@ public class Person {
                 && otherPerson.getTags().equals(getTags());
     }
 
+
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
