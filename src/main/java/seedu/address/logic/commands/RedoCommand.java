@@ -13,7 +13,7 @@ public class RedoCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return new CommandResult("Undid command", false, false);
+        return new CommandResult("Redid command", false, false);
     }
 
     @Override

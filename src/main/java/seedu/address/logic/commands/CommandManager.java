@@ -13,6 +13,18 @@ public class CommandManager implements CommandManageable {
         this.model = modelManager;
     }
 
+    public int getCommandStackPointer() {
+        return commandStackPointer;
+    }
+
+    public Stack<Command> getCommandStack() {
+        return commandStack;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
     @Override
     public CommandResult insertCommand(Command currentCommand) throws CommandException {
         CommandResult toReturn;

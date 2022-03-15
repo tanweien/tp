@@ -85,6 +85,17 @@ public class CommandTestUtil {
         }
     }
 
+    public static void assertCommandUnExecuteSuccess(Command command, Model actualModel, Model expectedModel) {
+        try {
+            command.execute(actualModel);
+            command.unExecute(actualModel);
+
+            assertEquals(expectedModel, actualModel);
+        } catch (CommandException ce) {
+            throw new AssertionError("Execution of command should not fail.", ce);
+        }
+    }
+
     /**
      * Convenience wrapper to {@link #assertCommandSuccess(Command, Model, CommandResult, Model)}
      * that takes a string {@code expectedMessage}.

@@ -37,6 +37,7 @@ public class TagCommand extends Command {
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
     }
 
+    //todo: unExecute undo tag command
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         return null;
