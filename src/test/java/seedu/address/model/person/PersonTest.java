@@ -95,8 +95,8 @@ public class PersonTest {
     }
 
     @Test
-    public void testEquals_Symmetric() {
-        Person x = ALICE;  // equals and hashCode check name field value
+    public void testEqualsSymmetric() {
+        Person x = ALICE; // equals and hashCode check name field value
         Person y = ALICE;
         assertTrue(x.equals(y) && y.equals(x));
         assertTrue(x.hashCode() == y.hashCode());

@@ -35,8 +35,8 @@ public class FacultyTest {
     }
 
     @Test
-    public void testEquals_Symmetric() {
-        Faculty x = new Faculty("Computing");  // equals and hashCode check name field value
+    public void testEqualsSymmetric() {
+        Faculty x = new Faculty("Computing"); // equals and hashCode check name field value
         Faculty y = new Faculty("Computing");
         assertTrue(x.equals(y) && y.equals(x));
         assertTrue(x.hashCode() == y.hashCode());
