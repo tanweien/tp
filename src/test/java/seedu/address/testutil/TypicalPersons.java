@@ -73,7 +73,39 @@ public class TypicalPersons {
         return ab;
     }
 
+    public static AddressBook getMinusAddressBook() {
+        AddressBook ab = new AddressBook();
+        for (Person person : getTypicalPersonsMinusAlice()) {
+            ab.addPerson(person);
+        }
+        return ab;
+    }
+
+    public static AddressBook getEditedAddressBook() {
+        AddressBook ab = new AddressBook();
+        for (Person person : getTypicalPersonsEditedAlice()) {
+            ab.addPerson(person);
+        }
+        return ab;
+    }
+
     public static List<Person> getTypicalPersons() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+    }
+
+    public static List<Person> getTypicalPersonsMinusAlice() {
+        return new ArrayList<>(Arrays.asList(BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+    }
+
+    public static List<Person> getTypicalPersonsEditedAlice() {
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+    }
+
+    public static List<Person> getTypicalPersonsAddHoon() {
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, HOON));
+    }
+
+    public static List<Person> getTypicalPersonsTaggedFriends() {
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, DANIEL));
     }
 }

@@ -20,6 +20,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
@@ -32,7 +34,6 @@ import seedu.address.model.tag.Tag;
  * Edits the details of an existing person in the address book.
  */
 public class EditCommand extends Command {
-
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
@@ -55,6 +56,8 @@ public class EditCommand extends Command {
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
+    private ModelMemento modelMemento;
+    private Person editedPerson;
 
     /**
      * @param index of the person in the filtered person list to edit
@@ -84,9 +87,27 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        this.editedPerson = personToEdit;
+
+        //intercept here
+        this.modelMemento = new ModelMemento();
+        //from current model, get address book
+        //from address book get unique persons list
+        //from unique persons list get internal list
+        //copy internal list and make unique persons list
+        //make address book
+        //make model
+        //set model
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+    }
+
+    @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson), false, false);
     }
 
     /**

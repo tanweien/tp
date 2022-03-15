@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-NUSearch is a GUI application that allows students to easily and conveniently find the contacts of faculty members so that 
+NUSearch is a GUI application that allows students to easily and conveniently find the contacts of faculty members so that
 they may contact members of faculty more easily.
 
 The product is not an official NUS project, although the project was conceived by and worked on by NUS students
