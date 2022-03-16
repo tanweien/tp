@@ -7,11 +7,8 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
-<<<<<<< HEAD
-import seedu.address.model.person.Favourite;
-=======
 import seedu.address.model.person.Faculty;
->>>>>>> 903ec28611de0694faf2ec0163ecda0c7b44334b
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;

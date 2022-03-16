@@ -19,10 +19,9 @@ public class UnfavouriteCommandTest {
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Person benson = new PersonBuilder().withName("Benson Meier")
-                .withAddress("311, Clementi Ave 2, #02-25")
-                .withEmail("johnd@example.com").withPhone("98765432")
-                .withFavourite(false)
-                .withTags("owesMoney", "friends").build();
+                .withEmail("johnd@example.com").withAddress("311, Clementi Ave 2, #02-25")
+                .withPhone("98765432").withFaculty("Computing")
+                .withFavourite(false).withTags("owesMoney", "friends").build();
         UnfavouriteCommand unfavouriteCommand =
                 new UnfavouriteCommand(INDEX_SECOND_PERSON);
 

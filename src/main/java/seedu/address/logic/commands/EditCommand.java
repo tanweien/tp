@@ -105,7 +105,8 @@ public class EditCommand extends Command {
         Favourite updatedFavourite = personToEdit.getFavourite(); // does not allow editing favourite
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedAddress, updatedFavourite, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
+                updatedAddress, updatedFavourite, updatedTags);
     }
 
     @Override

@@ -21,6 +21,7 @@ public class FavouriteCommandTest {
 
         Person alice = new PersonBuilder().withName("Alice Pauline")
                 .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
+                .withFaculty("Business")
                 .withFavourite(true)
                 .withPhone("94351253")
                 .withTags("friends").build();

@@ -11,6 +11,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Faculty;
 import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -76,11 +77,13 @@ public class FavouriteCommand extends Command {
         Phone updatedPhone = personToFavourite.getPhone();
         Email updatedEmail = personToFavourite.getEmail();
 
+        Faculty updatedFaculty = personToFavourite.getFaculty();
         Address updatedAddress = personToFavourite.getAddress();
         Favourite updatedFavourite = new Favourite(true); // edit command does not allow editing favourite status
         Set<Tag> updatedTags = personToFavourite.getTags();
 
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedFavourite, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
+                updatedAddress, updatedFavourite, updatedTags);
     }
 }
