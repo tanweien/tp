@@ -4,13 +4,13 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Contact's faculty in the contact list.
- * Guarantees: immutable; is valid as declared in {@link #isValidFaculty(String)}
+ * Represents a Contact's role in the contact list.
+ * Guarantees: immutable; is valid as declared in {@link #isValidRole(String)}
  */
-public class Faculty {
+public class Role {
 
 
-    public static final String MESSAGE_CONSTRAINTS = "Faculty can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Role can take any values, and it should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,
@@ -20,20 +20,20 @@ public class Faculty {
     public final String value;
 
     /**
-     * Constructs a {@code Faculty}.
+     * Constructs a {@code Role}.
      *
-     * @param faculty A valid faculty.
+     * @param role A valid role.
      */
-    public Faculty(String faculty) {
-        requireNonNull(faculty);
-        checkArgument(isValidFaculty(faculty), MESSAGE_CONSTRAINTS);
-        value = faculty;
+    public Role(String role) {
+        requireNonNull(role);
+        checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS);
+        value = role;
     }
 
     /**
-     * Returns true if a given string is a valid faculty.
+     * Returns true if a given string is a valid role.
      */
-    public static boolean isValidFaculty(String test) {
+    public static boolean isValidRole(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
@@ -45,8 +45,8 @@ public class Faculty {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Faculty // instanceof handles nulls
-                && value.equals(((Faculty) other).value)); // state check
+                || (other instanceof Role // instanceof handles nulls
+                && value.equals(((Role) other).value)); // state check
     }
 
     @Override

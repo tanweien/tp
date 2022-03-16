@@ -5,6 +5,7 @@
     "phone" : "94351253",
     "email" : "alice@example.com",
     "faculty" : "Business",
+    "role" : "Professor",
     "address" : "123, Jurong West Ave 6, #08-111",
     "tagged" : [ "friends" ]
   }, {
@@ -12,6 +13,7 @@
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "faculty" : "Computing",
+    "role" : "TA",
     "address" : "311, Clementi Ave 2, #02-25",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
@@ -19,6 +21,7 @@
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "faculty" : "Dentistry",
+    "role" : "Professor",
     "address" : "wall street",
     "tagged" : [ ]
   }, {
@@ -26,6 +29,7 @@
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "faculty" : "Law",
+    "role" : "TA",
     "address" : "10th street",
     "tagged" : [ "friends" ]
   }, {
@@ -33,6 +37,7 @@
     "phone" : "9482224",
     "email" : "werner@example.com",
     "faculty" : "Nursing",
+    "role" : "Professor",
     "address" : "michegan ave",
     "tagged" : [ ]
   }, {
@@ -40,6 +45,7 @@
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "faculty" : "Music",
+    "role" : "TA",
     "address" : "little tokyo",
     "tagged" : [ ]
   }, {
@@ -47,6 +53,7 @@
     "phone" : "9482442",
     "email" : "anna@example.com",
     "faculty" : "Pharmacy",
+    "role" : "Professor",
     "address" : "4th street",
     "tagged" : [ ]
   } ]

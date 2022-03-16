@@ -20,6 +20,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final Faculty faculty;
+    private final Role role;
 
     // Data fields
     private final Address address;
@@ -28,12 +29,13 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Faculty faculty, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Faculty faculty, Role role, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, role, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.faculty = faculty;
+        this.role = role;
         this.address = address;
         this.tags.addAll(tags);
     }
@@ -52,6 +54,10 @@ public class Person {
 
     public Faculty getFaculty() {
         return faculty;
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     public Address getAddress() {
@@ -98,6 +104,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getFaculty().equals(getFaculty())
+                && otherPerson.getRole().equals(getRole())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getTags().equals(getTags());
     }
@@ -105,7 +112,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, faculty, address, tags);
+        return Objects.hash(name, phone, email, faculty, role, address, tags);
     }
 
     @Override
@@ -118,6 +125,8 @@ public class Person {
                 .append(getEmail())
                 .append("; Faculty: ")
                 .append(getFaculty())
+                .append("; Role: ")
+                .append(getRole())
                 .append("; Address: ")
                 .append(getAddress());
 
