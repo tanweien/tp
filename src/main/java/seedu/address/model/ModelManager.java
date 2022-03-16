@@ -24,7 +24,8 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     *
+     *
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(addressBook, userPrefs);
@@ -36,8 +37,25 @@ public class ModelManager implements Model {
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
 
+    /**
+     * empty constructor
+     */
     public ModelManager() {
         this(new AddressBook(), new UserPrefs());
+    }
+
+    /**
+     * Constructor from given address book
+     * @param newAddressBook new one
+     */
+    public ModelManager(AddressBook newAddressBook) {
+        this.addressBook = newAddressBook;
+        this.userPrefs = new UserPrefs();
+        this.filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+    }
+
+    public AddressBook makeCopy() {
+        return new AddressBook(this.addressBook.makeCopy());
     }
 
     //=========== UserPrefs ==================================================================================

@@ -10,13 +10,14 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Person;
 
 /**
  * Adds a person to the address book.
  */
 public class AddCommand extends Command {
-
     public static final String COMMAND_WORD = "add";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
@@ -40,6 +41,7 @@ public class AddCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
 
     private final Person toAdd;
+    private ModelMemento modelMemento;
 
     /**
      * Creates an AddCommand to add the specified {@code Person}
@@ -62,8 +64,24 @@ public class AddCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        //intercepts here
+        this.modelMemento = new ModelMemento();
+        //from current model, get address book
+        //from address book get unique persons list
+        //from unique persons list get internal list
+        //copy internal list and make unique persons list
+        //make address book
+        //make model
+        //set model
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.addPerson(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+    }
+
+    @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), false, false);
     }
 
     @Override

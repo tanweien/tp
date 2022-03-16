@@ -64,6 +64,11 @@ public class FavouriteCommand extends Command {
     }
 
     @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        return null;
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof FavouriteCommand // instanceof handles nulls

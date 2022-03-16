@@ -23,11 +23,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
      *   among constructors.
      */
-    {
+    public AddressBook() {
         persons = new UniquePersonList();
     }
 
-    public AddressBook() {}
+    public AddressBook(UniquePersonList list) {
+        this.persons = list;
+    }
 
     /**
      * Creates an AddressBook using the Persons in the {@code toBeCopied}
@@ -37,7 +39,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         resetData(toBeCopied);
     }
 
-    //// list overwrite operations
+    public UniquePersonList makeCopy() {
+        return new UniquePersonList(this.persons.makeCopy());
+    }
 
     /**
      * Replaces the contents of the person list with {@code persons}.

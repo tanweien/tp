@@ -18,6 +18,8 @@ public interface Model {
     Predicate<Person> PREDICATE_SHOW_FAVOURITES = person ->
             person.getFavourite().isFavourite;
 
+    AddressBook makeCopy();
+
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */

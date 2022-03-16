@@ -109,6 +109,23 @@ public class CommandTestUtil {
     }
 
     /**
+     * Stuff
+     * @param command command
+     * @param actualModel am
+     * @param expectedModel em
+     */
+    public static void assertCommandUnExecuteSuccess(Command command, Model actualModel, Model expectedModel) {
+        try {
+            command.execute(actualModel);
+            command.unExecute(actualModel);
+
+            assertEquals(expectedModel, actualModel);
+        } catch (CommandException ce) {
+            throw new AssertionError("Execution of command should not fail.", ce);
+        }
+    }
+
+    /**
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>

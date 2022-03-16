@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_FAVOURITES;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
 /**
@@ -20,5 +21,10 @@ public class ListFavouritesCommand extends Command {
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_FAVOURITES);
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public CommandResult unExecute(Model model) throws CommandException {
+        return null;
     }
 }

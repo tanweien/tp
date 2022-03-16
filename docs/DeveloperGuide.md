@@ -352,7 +352,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. NUSearch shows an error message.
 
       Use case resumes at step 2.
-    
 
 **Use case 5: Locate contact by tag**
 
