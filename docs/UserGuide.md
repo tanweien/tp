@@ -132,7 +132,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, these existing tags will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without 
+* You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
 
 Examples:
@@ -162,10 +162,10 @@ Examples:
 ### Listing all favourite contacts : `list-fav`
 
 Displays all favourite contacts in the contact list.
-                   
+
 Format: `list-fav`
-        
-### Format: `find <NAME> [MORE_KEYWORDS]`  
+
+### Format: `find <NAME> [MORE_KEYWORDS]`
 
 Finds contact whose names contain any of the given keywords.
 
