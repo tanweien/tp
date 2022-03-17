@@ -63,6 +63,11 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public CommandResult undo() throws CommandException {
+        if (commandStackPointer < 1) {
+            //i.e no future commands to execute
+            return new CommandResult("There are no commands to undo!", true, false);
+        }
+
         Command command = commandStack.get(commandStackPointer);
         commandStackPointer--;
         return command.unExecute(model);
