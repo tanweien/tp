@@ -45,16 +45,7 @@ public class DeleteCommand extends Command {
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
         this.deletedPerson = personToDelete;
-
-        //intercepts here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
 
         model.deletePerson(personToDelete);
@@ -64,7 +55,7 @@ public class DeleteCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedPerson), false, false);
+        return new CommandResult(String.format("Deletion of: ", deletedPerson), false, false);
     }
 
     @Override

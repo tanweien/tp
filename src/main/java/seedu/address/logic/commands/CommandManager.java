@@ -31,13 +31,17 @@ public class CommandManager implements CommandManageable {
         try {
             //if undo
             if (currentCommand.isUndo()) {
-                String undidMessage = undo().getFeedbackToUser();
-                return new CommandResult("Undid command: " + undidMessage, false, false);
+                CommandResult undidCommand = undo();
+                String undidMessage = undidCommand.getFeedbackToUser();
+                boolean isShowHelp = undidCommand.isShowHelp();
+                return new CommandResult("Undid command: " + undidMessage, isShowHelp, false);
             }
             //if redo
             if (currentCommand.isRedo()) {
-                String redidMessage = redo().getFeedbackToUser();
-                return new CommandResult("Redid command: " + redidMessage, false, false);
+                CommandResult redidCommand = redo();
+                String redidMessage = redidCommand.getFeedbackToUser();
+                boolean isShowHelp = redidCommand.isShowHelp();
+                return new CommandResult("Redid command: " + redidMessage, isShowHelp, false);
             }
         } catch (Exception err) {
             //handle error
@@ -63,9 +67,9 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public CommandResult undo() throws CommandException {
-        if (commandStackPointer < 1) {
-            //i.e no future commands to execute
-            return new CommandResult("There are no commands to undo!", true, false);
+        if (commandStackPointer < 0) {
+            //i.e no past commands to execute
+            return new CommandResult("There are no commands to undo!", false, false);
         }
 
         Command command = commandStack.get(commandStackPointer);
@@ -77,10 +81,11 @@ public class CommandManager implements CommandManageable {
     public CommandResult redo() throws CommandException {
         if (commandStackPointer == commandStack.size() - 1) {
             //i.e no future commands to execute
-            return new CommandResult("There are no commands to redo!", true, false);
+            return new CommandResult("There are no commands to redo!", false, false);
         }
         commandStackPointer++;
         Command command = commandStack.get(commandStackPointer);
+        System.out.println(command);
         return command.execute(model);
     }
 }

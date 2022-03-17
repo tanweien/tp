@@ -18,7 +18,7 @@ public class RedoCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        throw new CommandException("Redo command should not be un-executed.");
     }
 
     @Override

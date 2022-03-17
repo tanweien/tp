@@ -2,12 +2,15 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.function.Predicate;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ModelMemento;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Person;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -23,6 +26,7 @@ public class FindCommand extends Command {
 
     private final NameContainsKeywordsPredicate predicate;
     private ModelMemento modelMemento;
+    private Predicate<Person> findPredicate;
 
     public FindCommand(NameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
@@ -32,16 +36,10 @@ public class FindCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
 
-        //intercept here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
+        this.findPredicate = model.getModelPredicate();
+
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
@@ -50,7 +48,8 @@ public class FindCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult("Filter contacts list.", false, false);
+        model.updateFilteredPersonList(this.predicate);
+        return new CommandResult("Find contacts with specified keywords.");
     }
 
     @Override

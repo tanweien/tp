@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandUnExecuteSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -14,7 +15,7 @@ import seedu.address.testutil.PersonBuilder;
 
 public class UnfavouriteCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
@@ -36,4 +37,13 @@ public class UnfavouriteCommandTest {
         assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
     }
 
+    @Test
+    public void unExecute_unfavourite_successful() {
+        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        UnfavouriteCommand command =
+                new UnfavouriteCommand(INDEX_SECOND_PERSON);
+
+        assertCommandUnExecuteSuccess(command, model, expectedModel);
+    }
 }

@@ -9,6 +9,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
@@ -38,6 +40,9 @@ public class FavouriteCommand extends Command {
 
     private final Index targetIndex;
 
+    private ModelMemento modelMemento;
+    private Person personToFavourite;
+
     public FavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
@@ -51,7 +56,9 @@ public class FavouriteCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToFavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.personToFavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.modelMemento = new ModelMemento();
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         Person favouritedPerson = createFavouritedPerson(personToFavourite);
 
         if (!personToFavourite.isSamePerson(favouritedPerson) && model.hasPerson(favouritedPerson)) {
@@ -65,7 +72,8 @@ public class FavouriteCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult("Favourite contact.");
     }
 
     @Override

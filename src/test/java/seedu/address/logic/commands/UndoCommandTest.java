@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -26,9 +26,10 @@ class UndoCommandTest {
     void unExecute() throws CommandException {
         UndoCommand command = new UndoCommand();
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        CommandResult shouldBeNull = command.unExecute(model);
 
-        assertNull(shouldBeNull);
+        assertThrows(CommandException.class, () -> {
+            command.unExecute(model);
+        });
     }
 
     @Test
