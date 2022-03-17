@@ -100,7 +100,7 @@ public class EditCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format("Editing of: ", editedPerson), false, false);
+        return new CommandResult("Editing of contact.", false, false);
     }
 
     /**

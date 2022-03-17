@@ -29,6 +29,6 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult("Clearing of contact list", false, false);
+        return new CommandResult("Clearing of contact list.", false, false);
     }
 }

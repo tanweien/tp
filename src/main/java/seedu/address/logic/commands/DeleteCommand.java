@@ -55,7 +55,7 @@ public class DeleteCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format("Deletion of: ", deletedPerson), false, false);
+        return new CommandResult("Deletion of contact.", false, false);
     }
 
     @Override

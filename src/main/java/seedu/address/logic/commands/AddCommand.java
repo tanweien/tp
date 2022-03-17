@@ -68,7 +68,7 @@ public class AddCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format("Addition of: ", toAdd), false, false);
+        return new CommandResult("Addition of contact.", false, false);
     }
 
     @Override
