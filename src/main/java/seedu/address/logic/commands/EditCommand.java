@@ -25,6 +25,7 @@ import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -122,9 +123,11 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Faculty updatedFaculty = editPersonDescriptor.getFaculty().orElse(personToEdit.getFaculty());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Favourite updatedFavourite = personToEdit.getFavourite(); // does not allow editing favourite
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
+                updatedAddress, updatedFavourite, updatedTags);
     }
 
     @Override
@@ -155,6 +158,7 @@ public class EditCommand extends Command {
         private Email email;
         private Faculty faculty;
         private Address address;
+        private Favourite favourite;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -169,6 +173,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setFaculty(toCopy.faculty);
             setAddress(toCopy.address);
+            setFavourite(toCopy.favourite);
             setTags(toCopy.tags);
         }
 
@@ -217,6 +222,14 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setFavourite(Favourite favourite) {
+            this.favourite = favourite;
+        }
+
+        public Optional<Favourite> getFavourite() {
+            return Optional.ofNullable(favourite);
         }
 
         /**
