@@ -26,6 +26,7 @@ import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -46,7 +47,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_FACULTY + "FACULTY] "
-            + "[" + PREFIX_FACULTY + "ROLE] "
+            + "[" + PREFIX_ROLE + "ROLE] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -126,9 +127,12 @@ public class EditCommand extends Command {
         Faculty updatedFaculty = editPersonDescriptor.getFaculty().orElse(personToEdit.getFaculty());
         Role updatedRole = editPersonDescriptor.getRole().orElse(personToEdit.getRole());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Favourite updatedFavourite = personToEdit.getFavourite(); // does not allow editing favourite
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole, updatedAddress, updatedTags);
+
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole, updatedAddress,
+                updatedFavourite, updatedTags);
     }
 
     @Override
@@ -160,6 +164,7 @@ public class EditCommand extends Command {
         private Faculty faculty;
         private Role role;
         private Address address;
+        private Favourite favourite;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -175,6 +180,7 @@ public class EditCommand extends Command {
             setFaculty(toCopy.faculty);
             setRole(toCopy.role);
             setAddress(toCopy.address);
+            setFavourite(toCopy.favourite);
             setTags(toCopy.tags);
         }
 
@@ -231,6 +237,14 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setFavourite(Favourite favourite) {
+            this.favourite = favourite;
+        }
+
+        public Optional<Favourite> getFavourite() {
+            return Optional.ofNullable(favourite);
         }
 
         /**

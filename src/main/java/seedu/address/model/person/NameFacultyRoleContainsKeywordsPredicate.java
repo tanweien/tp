@@ -18,9 +18,9 @@ public class NameFacultyRoleContainsKeywordsPredicate implements Predicate<Perso
     @Override
     public boolean test(Person person) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword) ||
-                StringUtil.containsWordIgnoreCase(person.getFaculty().value, keyword) ||
-                StringUtil.containsWordIgnoreCase(person.getRole().value, keyword));
+                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword)
+                        || StringUtil.containsWordIgnoreCase(person.getFaculty().value, keyword)
+                        || StringUtil.containsWordIgnoreCase(person.getRole().value, keyword));
     }
 
     @Override

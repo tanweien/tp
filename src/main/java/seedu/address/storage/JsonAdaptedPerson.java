@@ -13,6 +13,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
     private final String faculty;
     private final String role;
     private final String address;
+    private final boolean favourite;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -41,6 +43,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("faculty") String faculty,
                              @JsonProperty("role") String role, @JsonProperty("address") String address,
+                             @JsonProperty("favourite") boolean favourite,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
@@ -48,6 +51,7 @@ class JsonAdaptedPerson {
         this.faculty = faculty;
         this.role = role;
         this.address = address;
+        this.favourite = favourite;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -63,6 +67,7 @@ class JsonAdaptedPerson {
         faculty = source.getFaculty().value;
         role = source.getRole().value;
         address = source.getAddress().value;
+        favourite = source.getFavourite().isFavourite;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -127,8 +132,12 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        final Favourite modelFavourite = new Favourite(favourite);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelFaculty, modelRole, modelAddress, modelTags);
+
+        return new Person(modelName, modelPhone, modelEmail, modelFaculty, modelRole, modelAddress,
+                modelFavourite, modelTags);
     }
 
 }

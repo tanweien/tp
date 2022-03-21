@@ -25,11 +25,13 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Favourite favourite;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Faculty faculty, Role role, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Faculty faculty, Role role, Address address,
+                  Favourite favourite, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, role, address, tags);
         this.name = name;
         this.phone = phone;
@@ -37,6 +39,7 @@ public class Person {
         this.faculty = faculty;
         this.role = role;
         this.address = address;
+        this.favourite = favourite;
         this.tags.addAll(tags);
     }
 
@@ -62,6 +65,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Favourite getFavourite() {
+        return favourite;
     }
 
     /**
@@ -106,13 +113,15 @@ public class Person {
                 && otherPerson.getFaculty().equals(getFaculty())
                 && otherPerson.getRole().equals(getRole())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getFavourite().equals(getFavourite())
                 && otherPerson.getTags().equals(getTags());
     }
+
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, faculty, role, address, tags);
+        return Objects.hash(name, phone, email, faculty, role, address, favourite, tags);
     }
 
     @Override
@@ -128,13 +137,16 @@ public class Person {
                 .append("; Role: ")
                 .append(getRole())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Favourite: ")
+                .append(getFavourite());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+
         return builder.toString();
     }
 

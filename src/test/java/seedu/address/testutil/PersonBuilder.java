@@ -6,6 +6,7 @@ import java.util.Set;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -24,6 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_FACULTY = "Computing";
     public static final String DEFAULT_ROLE = "Professor";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final boolean DEFAULT_FAVOURITE = false;
 
     private Name name;
     private Phone phone;
@@ -31,6 +33,7 @@ public class PersonBuilder {
     private Faculty faculty;
     private Role role;
     private Address address;
+    private Favourite favourite;
     private Set<Tag> tags;
 
     /**
@@ -43,6 +46,7 @@ public class PersonBuilder {
         faculty = new Faculty(DEFAULT_FACULTY);
         role = new Role(DEFAULT_ROLE);
         address = new Address(DEFAULT_ADDRESS);
+        favourite = new Favourite(DEFAULT_FAVOURITE);
         tags = new HashSet<>();
     }
 
@@ -56,6 +60,7 @@ public class PersonBuilder {
         faculty = personToCopy.getFaculty();
         role = personToCopy.getRole();
         address = personToCopy.getAddress();
+        favourite = personToCopy.getFavourite();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -80,6 +85,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withAddress(String address) {
         this.address = new Address(address);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Favourite} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withFavourite(boolean isFavourite) {
+        this.favourite = new Favourite(isFavourite);
         return this;
     }
 
@@ -116,7 +129,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, faculty, role, address, tags);
+        return new Person(name, phone, email, faculty, role, address, favourite, tags);
     }
 
 }
