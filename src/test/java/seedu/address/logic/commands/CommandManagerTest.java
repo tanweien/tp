@@ -40,6 +40,34 @@ class CommandManagerTest {
         assertEquals(0, commandManager.getCommandStackPointer());
     }
 
+    @Test
+    void insertCommand_undo() throws CommandException {
+        //insert undo command
+        //check if stack is the same
+        Stack<Command> checkStack = new Stack<>();
+        ModelManager modelManager = new ModelManager();
+        CommandManager commandManager = new CommandManager(modelManager);
+
+        //insert undo Command
+        commandManager.insertCommand(new UndoCommand());
+        assertEquals(checkStack, commandManager.getCommandStack());
+        assertEquals(-1, commandManager.getCommandStackPointer());
+    }
+
+    @Test
+    void insertCommand_redo() throws CommandException {
+        //insert undo command
+        //check if stack is the same
+        Stack<Command> checkStack = new Stack<>();
+        ModelManager modelManager = new ModelManager();
+        CommandManager commandManager = new CommandManager(modelManager);
+
+        //insert undo Command
+        commandManager.insertCommand(new RedoCommand());
+        assertEquals(checkStack, commandManager.getCommandStack());
+        assertEquals(-1, commandManager.getCommandStackPointer());
+    }
+
     //todo: this seems odd
     @Test
     void refreshFutureCommands() throws CommandException {
