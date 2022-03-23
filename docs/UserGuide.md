@@ -33,7 +33,7 @@ If you can type fast, NUSearch can get your contact management tasks done faster
       </ul>
     </li>
     <li>
-        <a href="#data-matter">Data matters</a>
+        <a href="#data-matters">Data matters</a>
         <ul>
             <li><a href="#saving-the-data">Saving the data</a></li>
             <li><a href="#editing-the-data-file">Editing the data file</a></li>
@@ -45,7 +45,7 @@ If you can type fast, NUSearch can get your contact management tasks done faster
         </ul>
     </li>
     <li>
-        <a href="#command-summary">Command Summary</a>
+        <a href="#command-summary">Command summary</a>
         <ul>
         </ul>
     </li>
