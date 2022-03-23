@@ -1,6 +1,7 @@
 # NUSearch User guide v1.2
 
 NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
+
 If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- TABLE OF CONTENTS -->
