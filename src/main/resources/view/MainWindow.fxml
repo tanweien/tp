@@ -19,7 +19,7 @@
   <scene>
     <Scene>
       <stylesheets>
-        <URL value="@DarkTheme.css" />
+        <URL value="@NusTheme.css" />
         <URL value="@Extensions.css" />
       </stylesheets>
 
