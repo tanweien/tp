@@ -17,7 +17,7 @@ public class UndoCommand extends Command {
     //not used
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        throw new CommandException("Undo command should not be un-executed.");
     }
 
     @Override

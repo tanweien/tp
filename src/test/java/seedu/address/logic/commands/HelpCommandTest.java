@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandUnExecuteSuccess;
 import static seedu.address.logic.commands.HelpCommand.SHOWING_HELP_MESSAGE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -13,8 +13,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
 public class HelpCommandTest {
-    private Model model = new ModelManager();
-    private Model expectedModel = new ModelManager();
+    private final Model model = new ModelManager();
+    private final Model expectedModel = new ModelManager();
 
     @Test
     public void execute_help_success() {
@@ -25,9 +25,9 @@ public class HelpCommandTest {
     @Test
     public void unExecute_help_successful() throws CommandException {
         HelpCommand command = new HelpCommand();
+        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        CommandResult shouldBeNull = command.unExecute(model);
 
-        assertTrue(shouldBeNull == null);
+        assertCommandUnExecuteSuccess(command, model, expectedModel);
     }
 }

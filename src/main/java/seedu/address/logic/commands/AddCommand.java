@@ -54,11 +54,6 @@ public class AddCommand extends Command {
         toAdd = person;
     }
 
-    // returns the person, only used in testing, delete before submission
-    public Person getToAdd() {
-        return toAdd;
-    }
-
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -67,15 +62,7 @@ public class AddCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        //intercepts here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.addPerson(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
@@ -84,7 +71,7 @@ public class AddCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), false, false);
+        return new CommandResult("Addition of contact.", false, false);
     }
 
     @Override

@@ -22,6 +22,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private Predicate<Person> predicate;
 
     /**
      *
@@ -141,8 +142,14 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Predicate<Person> getModelPredicate() {
+        return this.predicate;
+    }
+
+    @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
+        this.predicate = predicate;
         filteredPersons.setPredicate(predicate);
     }
 

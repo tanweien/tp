@@ -9,6 +9,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
@@ -37,6 +39,8 @@ public class UnfavouriteCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person is already removed from favourites.";
 
     private final Index targetIndex;
+    private ModelMemento modelMemento;
+    private Person personToUnfavourite;
 
     public UnfavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -51,7 +55,9 @@ public class UnfavouriteCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToUnfavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.personToUnfavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.modelMemento = new ModelMemento();
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         Person unfavouritedPerson = createUnfavouritedPerson(personToUnfavourite);
 
         if (!personToUnfavourite.isSamePerson(unfavouritedPerson) && model.hasPerson(unfavouritedPerson)) {
@@ -64,7 +70,8 @@ public class UnfavouriteCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult("Un-favourite contact.");
     }
 
     @Override

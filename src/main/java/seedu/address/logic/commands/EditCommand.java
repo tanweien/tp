@@ -93,15 +93,7 @@ public class EditCommand extends Command {
 
         this.editedPerson = personToEdit;
 
-        //intercept here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -111,7 +103,7 @@ public class EditCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson), false, false);
+        return new CommandResult("Editing of contact.", false, false);
     }
 
     /**

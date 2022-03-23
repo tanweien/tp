@@ -21,6 +21,6 @@ public class HelpCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        return new CommandResult("Show help", false, false);
     }
 }
