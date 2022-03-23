@@ -1,4 +1,4 @@
-#NUSearch User guide v1.2
+# NUSearch User guide v1.2
 
 NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
 If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
@@ -11,29 +11,42 @@ If you can type fast, NUSearch can get your contact management tasks done faster
       <a href="#quick-start">Quickstart</a>
     </li>
     <li>
-      <a href="#features">Features</a>
+      <a href="#notes-before-use">Notes before use</a>
+    </li>
+    <li>
+      <a href="#commands">Commands</a>
       <ul>
-        <li><a href="#viewing-help">Viewing Help</a></li>
-        <li><a href="#adding-a-person">Adding a person</a></li>
-        <li><a href="#listing-all-contacts">Listing all contacts</a></li>
-        <li><a href="#editing a person">Locating contacts by name</a></li>
-        <li><a href="#adding-a-person-into-favourite-list">Locating contacts by tags</a></li>
-        <li><a href="#remvoing-a-person-from-favourite-list">Listing favorite contacts</a></li>
-        <li><a href="#list-all-favourite-contacts">Add to favorite list</a></li>
-        <li><a href="#locating-contacts-by-tags">Remove from favorite list</a></li>
-        <li><a href="#installation">Deleting a contact</a></li>
-        <li><a href="#installation">Exiting the program</a></li>
+        <li><a href="#view-help--help">View Help</a></li>
+        <li><a href="#list-all-contacts--list">List all contacts</a></li>
+        <li><a href="#add-a-contact-add-">Add a contact</a></li>
+        <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
+        <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
+        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
+        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+        <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
+        <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
+        <li><a href="#undo-a-command--undo">Undo a command</a></li>
+        <li><a href="#redo-a-command--redo">Redo a command</a></li>
+        <li><a href="#exiting-the-program--exit">Exit NUSearch</a></li>
       </ul>
     </li>
     <li>
-        <a href="#getting-started">Future Features</a>
+        <a href="#data-matter">Data matters</a>
         <ul>
-            <li><a href="#prerequisites">Filtering contacts: Mod, User name, Faculty, etc…</a></li>
-            <li><a href="#prerequisites">Saving contacts to favourites</a></li>
-            <li><a href="#prerequisites">Clearing the list</a></li>
-            <li><a href="#prerequisites">Interacting with contact</a></li>
-            <li><a href="#prerequisites">Addition of multiple modules and roles (eg /mod cs2030 cs2040)</a></li>
-            <li><a href="#prerequisites">Improve on the delete feature to delete by name etc</a></li>
+            <li><a href="#saving-the-data">Saving the data</a></li>
+            <li><a href="#editing-the-data-file">Editing the data file</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#faq">Frequently asked questions</a>
+        <ul>
+        </ul>
+    </li>
+    <li>
+        <a href="#command-summary">Command Summary</a>
+        <ul>
         </ul>
     </li>
   </ol>
@@ -110,32 +123,20 @@ ________________________________________________________________________________
 <details open>
   <summary>Command list</summary>
   <ol>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-    </li>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-    </li>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-    </li>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-      <ul>
-            <li><a href="#prerequisites">Filtering contacts: Mod, User name, Faculty, etc…</a></li>
-            <li><a href="#prerequisites">Saving contacts to favourites</a></li>
-            <li><a href="#prerequisites">Clearing the list</a></li>
-            <li><a href="#prerequisites">Interacting with contact</a></li>
-            <li><a href="#prerequisites">Addition of multiple modules and roles (eg /mod cs2030 cs2040)</a></li>
-            <li><a href="#prerequisites">Improve on the delete feature to delete by name etc</a></li>
-        </ul>
-    </li>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-    </li>
-    <li>
-      <a href="#quick-start">Quickstart</a>
-    </li>
+    <li><a href="#view-help--help">View Help</a></li>
+        <li><a href="#list-all-contacts--list">List all contacts</a></li>
+        <li><a href="#add-a-contact-add-">Add a contact</a></li>
+        <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
+        <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
+        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
+        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+        <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
+        <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
+        <li><a href="#undo-a-command--undo">Undo a command</a></li>
+        <li><a href="#redo-a-command--redo">Redo a command</a></li>
+        <li><a href="#exiting-the-program--exit">Exit NUSearch</a></li>
   </ol>
 </details>
 
@@ -157,6 +158,14 @@ Format: `help`
 
 > :bulb: **TIP:** Click on `Copy URL button to copy the link to our user guide.`
 
+### List all contacts : `list`
+
+Displays all contacts in the contact list.
+
+> :bulb: **TIP:** Contacts listed will be sorted according to the time of addition.
+
+Format: `list`
+
 ### Add a contact: `add ...`
 
 Adds a contact to the contact list.
@@ -168,14 +177,6 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [t/TAG]…​`
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
 * `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA t/CS2103T t/KentRidge`
-
-### List all contacts : `list`
-
-Displays all contacts in the contact list.
-
-> :bulb: **TIP:** Contacts listed will be sorted according to the time of addition.
-
-Format: `list`
 
 ### Edit a contact : `edit ...`
 
@@ -326,7 +327,8 @@ Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
 
 > :bulb: **TIP** This function only works if there are commands to undo.
 
-Format: `undo
+
+Format: `undo`
 
 ### Redo a command : `redo`
 
@@ -342,7 +344,7 @@ Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
 
 > :bulb: **TIP** This function only works if there are commands to redo.
 > 
-> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot my redid.
+> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot my redone.
 
 Format: `undo`
 
@@ -351,6 +353,10 @@ Format: `undo`
 Exits the program.
 
 Format: `exit`
+
+______________________________________________________________________
+
+## Data matters:
 
 ### Saving the data
 
@@ -368,7 +374,7 @@ If your changes to the data file makes its format invalid, NUSearch will discard
 
 _Details coming soon ..._
 
---------------------------------------------------------------------------------------------------------------------
+______________________________________________________________________________________
 
 ## FAQ
 
@@ -380,13 +386,39 @@ _Details coming soon ..._
 ## Command summary
 Action | Format, Examples
  --------|------------------
+**Help** | `help`
+**List** | `list`
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com m/CS2103, f/Computing, r/TA`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Favourite** | `fav INDEX`<br> e.g., `fav 3`
 **Unfavourite** | `unfav INDEX`<br> e.g., `unfav 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
 **List Favourites** | `list-fav`
-**Help** | `help`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Clear** | `clear`
+**Undo** | `undo`
+**Redo** | `redo`
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+
+<h3 align="center">NUSearch</h3>
+
+  <p align="center">
+    A GUI application to help you quickly search for the contacts of NUS faculty members!
+    <br />
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">View Demo</a>
+    ·
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+
