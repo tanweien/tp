@@ -14,6 +14,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -109,6 +110,21 @@ public class ParserUtil {
             throw new ParseException(Faculty.MESSAGE_CONSTRAINTS);
         }
         return new Faculty(trimmedFaculty);
+    }
+
+    /**
+     * Parses a {@code String role} into an {@code Role}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code role} is invalid.
+     */
+    public static Role parseRole(String role) throws ParseException {
+        requireNonNull(role);
+        String trimmedRole = role.trim();
+        if (!Role.isValidRole(trimmedRole)) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS);
+        }
+        return new Role(trimmedRole);
     }
 
     /**
