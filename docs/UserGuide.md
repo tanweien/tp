@@ -51,7 +51,16 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 
 
 4. Double-click the file to start the app. The GUI (aka Screen) similar to the below should appear in a few seconds. Note how the app already contains some sample data.<br>
-   ![Ui](images/Ui.png)  
+
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/Ui.png" width="62%">
+  </a>
+
+  <h5 align="center">Fig 1. NUSearch home page</h3>
+</div>
+
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    > Some example commands you can try:
@@ -136,16 +145,17 @@ ________________________________________________________________________________
 
 Shows a summative list of available commands for you to input.
 
-<figure style="width: 50%">
-  <img class="fit-picture"
-       src="../docs/images/helpMessage.png"
-       alt="Help Message"
-       style="width:100%">
-  <figcaption align="center"><b>Fig.1 - Help Message</b></figcaption>
-</figure>
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/helpMessage.png" width="62%">
+  </a>
+
+  <h5 align="center">Fig 2. Help message screen</h3>
+</div>
 
 Format: `help`
 
+> :bulb: Click on `Copy URL button to copy the link to our user guide.`
 
 ### Adding a contact: `add ...`
 
