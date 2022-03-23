@@ -1,12 +1,10 @@
----
-layout: page
-title: User Guide
----
+#NUSearch User guide v1.2
 
-NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
+NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
+If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<details open>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -15,14 +13,14 @@ NUSearch is a **desktop app for managing NUS staff contacts, optimized for use v
     <li>
       <a href="#features">Features</a>
       <ul>
-        <li><a href="#prerequisites">Viewing Help</a></li>
-        <li><a href="#installation">Adding a person</a></li>
-        <li><a href="#installation">Listing all contacts</a></li>
-        <li><a href="#installation">Locating contacts by name</a></li>
-        <li><a href="#installation">Locating contacts by tags</a></li>
-        <li><a href="#installation">Listing favorite contacts</a></li>
-        <li><a href="#installation">Add to favorite list</a></li>
-        <li><a href="#installation">Remove from favorite list</a></li>
+        <li><a href="#viewing-help">Viewing Help</a></li>
+        <li><a href="#adding-a-person">Adding a person</a></li>
+        <li><a href="#listing-all-contacts">Listing all contacts</a></li>
+        <li><a href="#editing a person">Locating contacts by name</a></li>
+        <li><a href="#adding-a-person-into-favourite-list">Locating contacts by tags</a></li>
+        <li><a href="#remvoing-a-person-from-favourite-list">Listing favorite contacts</a></li>
+        <li><a href="#list-all-favourite-contacts">Add to favorite list</a></li>
+        <li><a href="#locating-contacts-by-tags">Remove from favorite list</a></li>
         <li><a href="#installation">Deleting a contact</a></li>
         <li><a href="#installation">Exiting the program</a></li>
       </ul>
@@ -41,74 +39,123 @@ NUSearch is a **desktop app for managing NUS staff contacts, optimized for use v
   </ol>
 </details>
 
-## Quick start
+## Quick start:
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure that you have Java `11` or above installed in your Computer.
 
-1. Download the latest `NUSearch.jar` from [here](https://github.com/se-edu/NUSearch/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
+2. Download the latest `NUSearch.jar` from [here](https://github.com/se-edu/NUSearch/releases).
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+3. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
 
-   * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
+4. Double-click the file to start the app. The GUI (aka Screen) similar to the below should appear in a few seconds. Note how the app already contains some sample data.<br>
+   ![Ui](images/Ui.png)  
+   
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
-   * **`clear`** : Deletes all contacts.
-
-   * **`exit`** : Exits the app.
-
-1. Refer to the [Features](#features) below for details of each command.
-
---------------------------------------------------------------------------------------------------------------------
-
-## Features
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+   > Some example commands you can try:
+   > * **`list`** : Lists all contacts.
+   > * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
+   > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   > * **`clear`** : Deletes all contacts.
+   > * **`exit`** : Exits the app.
+   
+_____________________________________________________
+## Notes before use:
 
 <div markdown="block" class="alert alert-info">
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `add n/NAME`, 
+  > `NAME` is a parameter which can be used as `add n/John Doe`.
+
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [m/MODULE]` can be used as `n/John Doe m/CS2103T` or as `n/John Doe`.
+  e.g `n/NAME [m/MODULE]`,
+  > `[m/MODULE]` is an optional parameter, hence`n/John Doe m/CS2103T` and  `n/John Doe` are both valid commands.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[m/MODULE]…​` can be used as ` ` (i.e. 0 times), `m/cs2103T`, `m/CS2103T m/CS2100` etc.
+
+* Items with `…`​ after them can be used multiple times or not at all (i.e zero times).<br>
+  e.g. `[m/MODULE]…​`,
+  > `[m/MODULE]…​` can be used as ` ` (i.e. 0 times), `m/cs2103T`, `m/CS2103T m/CS2100` etc.
+
 
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  > If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
 
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
+  > If you specify `p/12341234 /56785678`, only `p/56785678` will be taken.
+
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+  > if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
 
+__________________________________________________________________________________________________________________________________
+
+## Commands:
+
+<details open>
+  <summary>Command list</summary>
+  <ol>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+      <ul>
+            <li><a href="#prerequisites">Filtering contacts: Mod, User name, Faculty, etc…</a></li>
+            <li><a href="#prerequisites">Saving contacts to favourites</a></li>
+            <li><a href="#prerequisites">Clearing the list</a></li>
+            <li><a href="#prerequisites">Interacting with contact</a></li>
+            <li><a href="#prerequisites">Addition of multiple modules and roles (eg /mod cs2030 cs2040)</a></li>
+            <li><a href="#prerequisites">Improve on the delete feature to delete by name etc</a></li>
+        </ul>
+    </li>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+    <li>
+      <a href="#quick-start">Quickstart</a>
+    </li>
+  </ol>
+</details>
+
+
+
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a summative list of available commands for you to input.
 
-![help message](images/helpMessage.png)
+<figure style="width: 50%">
+  <img class="fit-picture"
+       src="../docs/images/helpMessage.png"
+       alt="Help Message"
+       style="width:100%">
+  <figcaption align="center"><b>Fig.1 - Help Message</b></figcaption>
+</figure>
 
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a contact: `add ...`
 
 Adds a person to the contact list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">
+:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 

@@ -28,6 +28,7 @@ public class CommandManager implements CommandManageable {
     @Override
     public CommandResult insertCommand(Command currentCommand) throws CommandException {
         CommandResult toReturn;
+        assert currentCommand == null;
         try {
             //if undo
             if (currentCommand.isUndo()) {
@@ -45,6 +46,7 @@ public class CommandManager implements CommandManageable {
             }
         } catch (Exception err) {
             //handle error
+            System.out.println("Assertion error");
         }
 
         // else
@@ -83,6 +85,7 @@ public class CommandManager implements CommandManageable {
             //i.e no future commands to execute
             return new CommandResult("There are no commands to redo!", false, false);
         }
+
         commandStackPointer++;
         Command command = commandStack.get(commandStackPointer);
         System.out.println(command);
