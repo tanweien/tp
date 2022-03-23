@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandUnExecuteSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
@@ -9,7 +9,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -40,11 +39,10 @@ public class ListCommandTest {
     }
 
     @Test
-    public void unExecute_list_successful() throws CommandException {
-        ListCommand command = new ListCommand();
-        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        CommandResult shouldBeNull = command.unExecute(model);
+    public void unExecute_list_successful() {
+        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showPersonAtIndex(expectedModel, INDEX_FIRST_PERSON);
 
-        assertTrue(shouldBeNull == null);
+        assertCommandUnExecuteSuccess(new ListCommand(), model, expectedModel);
     }
 }

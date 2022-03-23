@@ -10,6 +10,7 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -22,6 +23,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_FACULTY = "Computing";
+    public static final String DEFAULT_ROLE = "Professor";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final boolean DEFAULT_FAVOURITE = false;
 
@@ -29,6 +31,7 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private Faculty faculty;
+    private Role role;
     private Address address;
     private Favourite favourite;
     private Set<Tag> tags;
@@ -41,9 +44,9 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         faculty = new Faculty(DEFAULT_FACULTY);
+        role = new Role(DEFAULT_ROLE);
         address = new Address(DEFAULT_ADDRESS);
         favourite = new Favourite(DEFAULT_FAVOURITE);
-
         tags = new HashSet<>();
     }
 
@@ -55,6 +58,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         faculty = personToCopy.getFaculty();
+        role = personToCopy.getRole();
         address = personToCopy.getAddress();
         favourite = personToCopy.getFavourite();
         tags = new HashSet<>(personToCopy.getTags());
@@ -116,8 +120,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Role} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRole(String role) {
+        this.role = new Role(role);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, faculty, address, favourite, tags);
+        return new Person(name, phone, email, faculty, role, address, favourite, tags);
     }
 
 }

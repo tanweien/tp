@@ -19,7 +19,7 @@ public class ExitCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        throw new CommandException("It is impossible to un-execute an exit command.");
     }
 
 }

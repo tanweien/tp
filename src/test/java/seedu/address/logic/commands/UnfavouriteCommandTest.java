@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandUnExecuteSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -14,13 +15,13 @@ import seedu.address.testutil.PersonBuilder;
 
 public class UnfavouriteCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Person benson = new PersonBuilder().withName("Benson Meier")
                 .withEmail("johnd@example.com").withAddress("311, Clementi Ave 2, #02-25")
-                .withPhone("98765432").withFaculty("Computing")
+                .withPhone("98765432").withFaculty("Computing").withRole("TA")
                 .withFavourite(false).withTags("owesMoney", "friends").build();
         UnfavouriteCommand unfavouriteCommand =
                 new UnfavouriteCommand(INDEX_SECOND_PERSON);
@@ -36,4 +37,13 @@ public class UnfavouriteCommandTest {
         assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
     }
 
+    @Test
+    public void unExecute_unfavourite_successful() {
+        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        UnfavouriteCommand command =
+                new UnfavouriteCommand(INDEX_SECOND_PERSON);
+
+        assertCommandUnExecuteSuccess(command, model, expectedModel);
+    }
 }

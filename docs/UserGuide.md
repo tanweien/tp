@@ -57,7 +57,7 @@ NUSearch is a **desktop app for managing NUS staff contacts, optimized for use v
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing r/Professor a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 

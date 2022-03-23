@@ -20,15 +20,7 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        //intercept here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setAddressBook(new AddressBook());
         return new CommandResult(MESSAGE_SUCCESS);
@@ -37,6 +29,6 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(MESSAGE_SUCCESS, false, false);
+        return new CommandResult("Clearing of contact list.", false, false);
     }
 }

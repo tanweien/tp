@@ -9,6 +9,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ModelMemento;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
@@ -16,6 +18,7 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -38,6 +41,9 @@ public class FavouriteCommand extends Command {
 
     private final Index targetIndex;
 
+    private ModelMemento modelMemento;
+    private Person personToFavourite;
+
     public FavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
@@ -51,7 +57,9 @@ public class FavouriteCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToFavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.personToFavourite = lastShownList.get(targetIndex.getZeroBased());
+        this.modelMemento = new ModelMemento();
+        modelMemento.setModel(new ModelManager(model.makeCopy()));
         Person favouritedPerson = createFavouritedPerson(personToFavourite);
 
         if (!personToFavourite.isSamePerson(favouritedPerson) && model.hasPerson(favouritedPerson)) {
@@ -65,7 +73,8 @@ public class FavouriteCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
-        return null;
+        model.setAddressBook(this.modelMemento.getModel().getAddressBook());
+        return new CommandResult("Favourite contact.");
     }
 
     @Override
@@ -81,14 +90,14 @@ public class FavouriteCommand extends Command {
         Name updatedName = personToFavourite.getName();
         Phone updatedPhone = personToFavourite.getPhone();
         Email updatedEmail = personToFavourite.getEmail();
-
         Faculty updatedFaculty = personToFavourite.getFaculty();
+        Role updatedRole = personToFavourite.getRole();
         Address updatedAddress = personToFavourite.getAddress();
         Favourite updatedFavourite = new Favourite(true); // edit command does not allow editing favourite status
         Set<Tag> updatedTags = personToFavourite.getTags();
 
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole,
                 updatedAddress, updatedFavourite, updatedTags);
     }
 }

@@ -17,6 +17,7 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,6 +31,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String faculty;
+    private final String role;
     private final String address;
     private final boolean favourite;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
@@ -39,14 +41,15 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("faculty")
-                                         String faculty, @JsonProperty("address") String address,
-            @JsonProperty("favourite") boolean favourite, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
-
+            @JsonProperty("email") String email, @JsonProperty("faculty") String faculty,
+                             @JsonProperty("role") String role, @JsonProperty("address") String address,
+                             @JsonProperty("favourite") boolean favourite,
+                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.faculty = faculty;
+        this.role = role;
         this.address = address;
         this.favourite = favourite;
         if (tagged != null) {
@@ -62,6 +65,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         faculty = source.getFaculty().value;
+        role = source.getRole().value;
         address = source.getAddress().value;
         favourite = source.getFavourite().isFavourite;
         tagged.addAll(source.getTags().stream()
@@ -112,6 +116,14 @@ class JsonAdaptedPerson {
         }
         final Faculty modelFaculty = new Faculty(faculty);
 
+        if (role == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Role.class.getSimpleName()));
+        }
+        if (!Role.isValidRole(role)) {
+            throw new IllegalValueException(Role.MESSAGE_CONSTRAINTS);
+        }
+        final Role modelRole = new Role(role);
+
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
@@ -124,7 +136,8 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelName, modelPhone, modelEmail, modelFaculty, modelAddress, modelFavourite, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelFaculty, modelRole, modelAddress,
+                modelFavourite, modelTags);
     }
 
 }

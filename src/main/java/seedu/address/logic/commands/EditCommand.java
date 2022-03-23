@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FACULTY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
@@ -29,6 +30,7 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -45,6 +47,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_FACULTY + "FACULTY] "
+            + "[" + PREFIX_ROLE + "ROLE] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -90,15 +93,7 @@ public class EditCommand extends Command {
 
         this.editedPerson = personToEdit;
 
-        //intercept here
         this.modelMemento = new ModelMemento();
-        //from current model, get address book
-        //from address book get unique persons list
-        //from unique persons list get internal list
-        //copy internal list and make unique persons list
-        //make address book
-        //make model
-        //set model
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -108,7 +103,7 @@ public class EditCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson), false, false);
+        return new CommandResult("Editing of contact.", false, false);
     }
 
     /**
@@ -122,12 +117,14 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Faculty updatedFaculty = editPersonDescriptor.getFaculty().orElse(personToEdit.getFaculty());
+        Role updatedRole = editPersonDescriptor.getRole().orElse(personToEdit.getRole());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Favourite updatedFavourite = personToEdit.getFavourite(); // does not allow editing favourite
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
-                updatedAddress, updatedFavourite, updatedTags);
+
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole, updatedAddress,
+                updatedFavourite, updatedTags);
     }
 
     @Override
@@ -157,6 +154,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Faculty faculty;
+        private Role role;
         private Address address;
         private Favourite favourite;
         private Set<Tag> tags;
@@ -172,6 +170,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setFaculty(toCopy.faculty);
+            setRole(toCopy.role);
             setAddress(toCopy.address);
             setFavourite(toCopy.favourite);
             setTags(toCopy.tags);
@@ -181,7 +180,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, faculty, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, faculty, role, address, tags);
         }
 
         public void setName(Name name) {
@@ -214,6 +213,14 @@ public class EditCommand extends Command {
 
         public Optional<Faculty> getFaculty() {
             return Optional.ofNullable(faculty);
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
         }
 
         public void setAddress(Address address) {
@@ -268,6 +275,7 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getFaculty().equals(e.getFaculty())
+                    && getRole().equals(e.getRole())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }
