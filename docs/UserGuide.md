@@ -141,7 +141,7 @@ ________________________________________________________________________________
 
 
 
-### Viewing help : `help`
+### View help : `help`
 
 Shows a summative list of available commands for you to input.
 
@@ -155,49 +155,57 @@ Shows a summative list of available commands for you to input.
 
 Format: `help`
 
-> :bulb: Click on `Copy URL button to copy the link to our user guide.`
+> :bulb: **TIP:** Click on `Copy URL button to copy the link to our user guide.`
 
-### Adding a contact: `add ...`
+### Add a contact: `add ...`
 
-Adds a person to the contact list.
+Adds a contact to the contact list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">
-:bulb: **Tip:**
-A person can have any number of tags (including 0)
-</div>
+> :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
 * `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA t/CS2103T t/KentRidge`
 
-### Listing all persons : `list`
+### List all contacts : `list`
 
 Displays all contacts in the contact list.
 
+> :bulb: **TIP:** Contacts listed will be sorted according to the time of addition.
+
 Format: `list`
 
-### Editing a person : `edit`
+### Edit a contact : `edit ...`
 
-Edits an existing person in NUSearch database.
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…​`
+Edits an existing contact in NUSearch database.
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, these existing tags will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+* Existing values will be updated according to the input values.
+* When editing tags, the existing tags will be removed i.e adding of tags is not cumulative.
+* You can remove all the person’s tags by typing `t/` without specifying any tags after it.
+
+> :bulb: **TIP** The edit command features multiple permutations, allowing you to edit multiple fields of a single contact in one command.
+
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…​`
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 
-### Adding a person into favourite list : `fav`
+### Favourite a contact : `fav ...`
 
-Adds a person to the favorite list.
+Adds a contact to the favorite list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/fav.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 3. Favourite contact</h3>
+</div>
 
 Format: `fav INDEX`
 
@@ -205,9 +213,11 @@ Examples:
 * `fav 1`
 * `fav 2`
 
-### Removing a person from favourite list : `unfav`
+### Un-favourite a contact : `unfav ...`
 
-Removes a person from the favorite list.
+Removes a contact from the favorite list.
+
+> NUSearch screen will appear somewhat similar to the image displayed above for the `fav` command
 
 Format: `unfav INDEX`
 
@@ -215,21 +225,23 @@ Examples:
 * `unfav 1`
 * `unfav 2`
 
-### Listing all favourite contacts : `list-fav`
+### List all favourite contacts : `list-fav`
 
-Displays all favourite contacts in the contact list.
+Displays all favoured contacts in the contact list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/fav.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 4. List favourite contacts</h3>
+</div>
 
 Format: `list-fav`
 
-### Format: `find <NAME> [MORE_KEYWORDS]`
+### Find contacts by name : `find ...`
 
-Finds contact whose names contain any of the given keywords.
-
-
-
-te contacts in the contact list.
-
-
+Find contacts with names that contain any of the given keywords.
 
 * The search is case-insensitive. e.g `shur` will match `Shur`
 * The order of the keywords matter. e.g. `Wei En` will match `En Wei`
@@ -238,40 +250,101 @@ te contacts in the contact list.
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Eug ene` will return `Eug in`, `Nal g ene`
 
+Format: `find <NAME> [MORE_KEYWORDS]`
+
 Examples:
 * `find John` returns `john` and `John Doe`
 
-### Locating contacts by tags: tag
+### Find contacts by tags: `tag ...`
 
-Finds contacts whose tags meet the search criteria.
+Find contacts whose attributed tags meet the given keywords.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/tag-family.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Finding contacts with the 'family' tag</h3>
+</div>
+
+* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
+* Only tags are included in the search, other fields are ignored.
+
+> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `prof` tag to your professor's contact.
 
 Format: `tag <Keyword> [MORE_KEYWORDS]`
-* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
-* Only tags are searched up
 
 Examples:
 * `tag CS2103T` Lists all contacts that have CS2103T tag
 * `tag Sheares` Lists all contacts that have Sheares tag
 
-### Deleting a person : `delete`
+### Delete a contact : `delete ...`
 
-Deletes a contact from the contact list by index.
+Deletes a contact from the contact list by an index.
 
-Format: `delete <index>`
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/delete-contact.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Delete a contact</h3>
+</div>
 
 * Deletes the person at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
+> :bulb: **TIP** Accidentally deleted the wrong contact? Don't worry checkout our <a href="#undo-a-command">undo</a> function!
+
+Format: `delete <index>`
+
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the NUSearch database.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-### Clearing all entries : `clear`
+### Clear all entries : `clear`
 
 Clears all entries from the NUSearch database.
 
+> :exclamation: **WARNING** This command clears **ALL** contacts in the NUSearch database!
+> 
+> :bulb: **TIP** Accidentally cleared the database? Don't worry checkout our <a href="#undo-a-command">undo</a> function!
+
 Format: `clear`
+
+### Undo a command : `undo`
+
+Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/undo-delete.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Undo a delete command</h3>
+</div>
+
+> :bulb: **TIP** This function only works if there are commands to undo.
+
+Format: `undo
+
+### Redo a command : `redo`
+
+Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/redo-delete.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Undo a delete command</h3>
+</div>
+
+> :bulb: **TIP** This function only works if there are commands to redo.
+> 
+> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot my redid.
+
+Format: `undo`
 
 ### Exiting the program : `exit`
 

@@ -28,7 +28,6 @@ public class CommandManager implements CommandManageable {
     @Override
     public CommandResult insertCommand(Command currentCommand) throws CommandException {
         CommandResult toReturn;
-        assert currentCommand == null;
         try {
             //if undo
             if (currentCommand.isUndo()) {
