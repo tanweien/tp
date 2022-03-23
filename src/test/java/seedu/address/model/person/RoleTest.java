@@ -38,7 +38,8 @@ public class RoleTest {
     public void testEqualsSymmetric() {
         Role x = new Role("Professor"); // equals and hashCode check name field value
         Role y = new Role("Professor");
-        assertTrue(x.equals(y) && y.equals(x));
+        assertTrue(x.equals(y));
+        assertTrue(y.equals(x));
         assertTrue(x.hashCode() == y.hashCode());
     }
 }
