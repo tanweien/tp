@@ -18,6 +18,7 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -86,14 +87,14 @@ public class UnfavouriteCommand extends Command {
         Name updatedName = personToUnfavourite.getName();
         Phone updatedPhone = personToUnfavourite.getPhone();
         Email updatedEmail = personToUnfavourite.getEmail();
-
         Faculty updatedFaculty = personToUnfavourite.getFaculty();
+        Role updatedRole = personToUnfavourite.getRole();
         Address updatedAddress = personToUnfavourite.getAddress();
         Favourite updatedFavourite = new Favourite(false); // edit command does not allow editing favourite status
         Set<Tag> updatedTags = personToUnfavourite.getTags();
 
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty,
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole,
                 updatedAddress, updatedFavourite, updatedTags);
     }
 }

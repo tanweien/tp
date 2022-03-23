@@ -7,7 +7,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ModelMemento;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.NameFacultyRoleContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -21,10 +21,10 @@ public class FindCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " alice bob charlie";
 
-    private final NameContainsKeywordsPredicate predicate;
+    private final NameFacultyRoleContainsKeywordsPredicate predicate;
     private ModelMemento modelMemento;
 
-    public FindCommand(NameContainsKeywordsPredicate predicate) {
+    public FindCommand(NameFacultyRoleContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 

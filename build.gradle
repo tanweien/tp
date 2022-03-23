@@ -42,7 +42,7 @@ task coverage(type: JacocoReport) {
 
 dependencies {
     String jUnitVersion = '5.4.0'
-    String javaFxVersion = '14'
+    String javaFxVersion = '11'
 
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'
@@ -67,6 +67,10 @@ dependencies {
 
 shadowJar {
     archiveName = 'NUSearch.jar'
+}
+
+run {
+    enableAssertions = true
 }
 
 run {
