@@ -49,7 +49,6 @@ public class CopyCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-//        showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         Person personToCopy = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         CopyCommand copyCommand = new CopyCommand(INDEX_FIRST_PERSON);
