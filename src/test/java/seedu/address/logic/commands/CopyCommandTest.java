@@ -34,14 +34,6 @@ public class CopyCommandTest {
     }
 
     @Test
-    public void execute_invalidIndexUnfilteredList_throwsCommandException() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        CopyCommand copyCommand = new CopyCommand(outOfBoundIndex);
-
-        assertCommandFailure(copyCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-    }
-
-    @Test
     public void execute_validIndexFilteredList_success() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
@@ -51,27 +43,6 @@ public class CopyCommandTest {
         String expectedMessage = String.format(CopyCommand.MESSAGE_COPY_PERSON_SUCCESS, personToCopy.getEmail());
 
         assertCommandSuccess(copyCommand, model, expectedMessage, model);
-    }
-
-    @Test
-    public void execute_invalidIndexFilteredList_throwsCommandException() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
-
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
-        // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
-
-        CopyCommand copyCommand = new CopyCommand(outOfBoundIndex);
-
-        assertCommandFailure(copyCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-    }
-
-    @Test
-    public void unExecute_copy_successful() {
-        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        CopyCommand copyFirstCommand = new CopyCommand(INDEX_FIRST_PERSON);
-        assertCommandUnExecuteSuccess(copyFirstCommand, model, expectedModel);
     }
 
     @Test
