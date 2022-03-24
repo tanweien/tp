@@ -8,6 +8,8 @@ public class ModelMemento {
     }
 
     public void setModel(Model newModelState) {
-        this.modelState = newModelState;
+        if (this.modelState == null) {
+            this.modelState = newModelState;
+        }
     }
 }

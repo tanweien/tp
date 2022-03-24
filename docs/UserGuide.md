@@ -1,147 +1,212 @@
----
-layout: page
-title: User Guide
----
+# NUSearch User guide v1.2
 
-NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
+NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
+If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<details open>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#quick-start">Quickstart</a>
     </li>
     <li>
-      <a href="#features">Features</a>
+      <a href="#notes-before-use">Notes before use</a>
+    </li>
+    <li>
+      <a href="#commands">Commands</a>
       <ul>
-        <li><a href="#prerequisites">Viewing Help</a></li>
-        <li><a href="#installation">Adding a person</a></li>
-        <li><a href="#installation">Listing all contacts</a></li>
-        <li><a href="#installation">Locating contacts by name</a></li>
-        <li><a href="#installation">Locating contacts by tags</a></li>
-        <li><a href="#installation">Listing favorite contacts</a></li>
-        <li><a href="#installation">Add to favorite list</a></li>
-        <li><a href="#installation">Remove from favorite list</a></li>
-        <li><a href="#installation">Deleting a contact</a></li>
-        <li><a href="#installation">Exiting the program</a></li>
+        <li><a href="#view-help--help">View Help</a></li>
+        <li><a href="#list-all-contacts--list">List all contacts</a></li>
+        <li><a href="#add-a-contact-add-">Add a contact</a></li>
+        <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
+        <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
+        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
+        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+        <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
+        <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
+        <li><a href="#undo-a-command--undo">Undo a command</a></li>
+        <li><a href="#redo-a-command--redo">Redo a command</a></li>
+        <li><a href="#exiting-the-program--exit">Exit NUSearch</a></li>
       </ul>
     </li>
     <li>
-        <a href="#getting-started">Future Features</a>
+        <a href="#data-matters">Data matters</a>
         <ul>
-            <li><a href="#prerequisites">Filtering contacts: Mod, User name, Faculty, etc…</a></li>
-            <li><a href="#prerequisites">Saving contacts to favourites</a></li>
-            <li><a href="#prerequisites">Clearing the list</a></li>
-            <li><a href="#prerequisites">Interacting with contact</a></li>
-            <li><a href="#prerequisites">Addition of multiple modules and roles (eg /mod cs2030 cs2040)</a></li>
-            <li><a href="#prerequisites">Improve on the delete feature to delete by name etc</a></li>
+            <li><a href="#saving-the-data">Saving the data</a></li>
+            <li><a href="#editing-the-data-file">Editing the data file</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#faq">Frequently asked questions</a>
+        <ul>
+        </ul>
+    </li>
+    <li>
+        <a href="#command-summary">Command summary</a>
+        <ul>
         </ul>
     </li>
   </ol>
 </details>
 
-## Quick start
+## Quick start:
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure that you have Java `11` or above installed in your Computer.
 
-1. Download the latest `NUSearch.jar` from [here](https://github.com/se-edu/NUSearch/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
+2. Download the latest `NUSearch.jar` from [here](https://github.com/se-edu/NUSearch/releases).
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+3. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
 
-   * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing r/Professor a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
+4. Double-click the file to start the app. The GUI (aka Screen) similar to the below should appear in a few seconds. Note how the app already contains some sample data.<br>
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
-   * **`clear`** : Deletes all contacts.
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/Ui.png" width="62%">
+  </a>
 
-   * **`exit`** : Exits the app.
+  <h5 align="center">Fig 1. NUSearch home page</h3>
+</div>
 
-1. Refer to the [Features](#features) below for details of each command.
 
---------------------------------------------------------------------------------------------------------------------
-
-## Features
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+   > Some example commands you can try:
+   > * **`list`** : Lists all contacts.
+   > * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the NUSearch.
+   > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   > * **`clear`** : Deletes all contacts.
+   > * **`exit`** : Exits the app.
+   
+_____________________________________________________
+## Notes before use:
 
 <div markdown="block" class="alert alert-info">
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `add n/NAME`, 
+  > `NAME` is a parameter which can be used as `add n/John Doe`.
+
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [m/MODULE]` can be used as `n/John Doe m/CS2103T` or as `n/John Doe`.
+  e.g `n/NAME [m/MODULE]`,
+  > `[m/MODULE]` is an optional parameter, hence`n/John Doe m/CS2103T` and  `n/John Doe` are both valid commands.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[m/MODULE]…​` can be used as ` ` (i.e. 0 times), `m/cs2103T`, `m/CS2103T m/CS2100` etc.
+
+* Items with `…`​ after them can be used multiple times or not at all (i.e zero times).<br>
+  e.g. `[m/MODULE]…​`,
+  > `[m/MODULE]…​` can be used as ` ` (i.e. 0 times), `m/cs2103T`, `m/CS2103T m/CS2100` etc.
+
 
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  > If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
 
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
+  > If you specify `p/12341234 /56785678`, only `p/56785678` will be taken.
+
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+  > if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
 
-### Viewing help : `help`
+__________________________________________________________________________________________________________________________________
 
-Shows a message explaning how to access the help page.
+## Commands:
 
-![help message](images/helpMessage.png)
+<details open>
+  <summary>Command list</summary>
+  <ol>
+    <li><a href="#view-help--help">View Help</a></li>
+        <li><a href="#list-all-contacts--list">List all contacts</a></li>
+        <li><a href="#add-a-contact-add-">Add a contact</a></li>
+        <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
+        <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
+        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
+        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+        <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
+        <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
+        <li><a href="#undo-a-command--undo">Undo a command</a></li>
+        <li><a href="#redo-a-command--redo">Redo a command</a></li>
+        <li><a href="#exiting-the-program--exit">Exit NUSearch</a></li>
+  </ol>
+</details>
+
+
+
+### View help : `help`
+
+Shows a summative list of available commands for you to input.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/helpMessage.png" width="62%">
+  </a>
+
+  <h5 align="center">Fig 2. Help message screen</h3>
+</div>
 
 Format: `help`
 
+> :bulb: **TIP:** Click on `Copy URL button to copy the link to our user guide.`
 
-### Adding a person: `add`
+### List all contacts : `list`
 
-Adds a person to the contact list.
+Displays all contacts in the contact list.
+
+> :bulb: **TIP:** Contacts listed will be sorted according to the time of addition.
+
+Format: `list`
+
+### Add a contact: `add ...`
+
+Adds a contact to the contact list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
-</div>
+> :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
 * `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA t/CS2103T t/KentRidge`
 
-### Listing all persons : `list`
+### Edit a contact : `edit ...`
 
-Displays all contacts in the contact list.
-
-Format: `list`
-
-### Editing a person : `edit`
-
-Edits an existing person in NUSearch database.
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…​`
+Edits an existing contact in NUSearch database.
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, these existing tags will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+* Existing values will be updated according to the input values.
+* When editing tags, the existing tags will be removed i.e adding of tags is not cumulative.
+* You can remove all the person’s tags by typing `t/` without specifying any tags after it.
+
+> :bulb: **TIP** The edit command features multiple permutations, allowing you to edit multiple fields of a single contact in one command.
+
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…​`
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 
-### Adding a person into favourite list : `fav`
+### Favourite a contact : `fav ...`
 
-Adds a person to the favorite list.
+Adds a contact to the favorite list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/fav.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 3. Favourite contact</h3>
+</div>
 
 Format: `fav INDEX`
 
@@ -149,9 +214,11 @@ Examples:
 * `fav 1`
 * `fav 2`
 
-### Removing a person from favourite list : `unfav`
+### Un-favourite a contact : `unfav ...`
 
-Removes a person from the favorite list.
+Removes a contact from the favorite list.
+
+> NUSearch screen will appear somewhat similar to the image displayed above for the `fav` command
 
 Format: `unfav INDEX`
 
@@ -159,21 +226,23 @@ Examples:
 * `unfav 1`
 * `unfav 2`
 
-### Listing all favourite contacts : `list-fav`
+### List all favourite contacts : `list-fav`
 
-Displays all favourite contacts in the contact list.
+Displays all favoured contacts in the contact list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/fav.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 4. List favourite contacts</h3>
+</div>
 
 Format: `list-fav`
 
-### Format: `find <NAME> [MORE_KEYWORDS]`
+### Find contacts by name : `find ...`
 
-Finds contact whose names contain any of the given keywords.
-
-
-
-te contacts in the contact list.
-
-
+Find contacts with names that contain any of the given keywords.
 
 * The search is case-insensitive. e.g `shur` will match `Shur`
 * The order of the keywords matter. e.g. `Wei En` will match `En Wei`
@@ -182,46 +251,112 @@ te contacts in the contact list.
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Eug ene` will return `Eug in`, `Nal g ene`
 
+Format: `find <NAME> [MORE_KEYWORDS]`
+
 Examples:
 * `find John` returns `john` and `John Doe`
 
-### Locating contacts by tags: tag
+### Find contacts by tags: `tag ...`
 
-Finds contacts whose tags meet the search criteria.
+Find contacts whose attributed tags meet the given keywords.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/tag-family.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Finding contacts with the 'family' tag</h3>
+</div>
+
+* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
+* Only tags are included in the search, other fields are ignored.
+
+> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `prof` tag to your professor's contact.
 
 Format: `tag <Keyword> [MORE_KEYWORDS]`
-* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
-* Only tags are searched up
 
 Examples:
 * `tag CS2103T` Lists all contacts that have CS2103T tag
 * `tag Sheares` Lists all contacts that have Sheares tag
 
-### Deleting a person : `delete`
+### Delete a contact : `delete ...`
 
-Deletes a contact from the contact list by index.
+Deletes a contact from the contact list by an index.
 
-Format: `delete <index>`
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/delete-contact.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Delete a contact</h3>
+</div>
 
 * Deletes the person at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
+> :bulb: **TIP** Accidentally deleted the wrong contact? Don't worry checkout our <a href="#undo-a-command">undo</a> function!
+
+Format: `delete <index>`
+
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the NUSearch database.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-### Clearing all entries : `clear`
+### Clear all entries : `clear`
 
 Clears all entries from the NUSearch database.
 
+> :exclamation: **WARNING** This command clears **ALL** contacts in the NUSearch database!
+> 
+> :bulb: **TIP** Accidentally cleared the database? Don't worry checkout our <a href="#undo-a-command">undo</a> function!
+
 Format: `clear`
+
+### Undo a command : `undo`
+
+Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/undo-delete.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Undo a delete command</h3>
+</div>
+
+> :bulb: **TIP** This function only works if there are commands to undo.
+
+
+Format: `undo`
+
+### Redo a command : `redo`
+
+Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/redo-delete.png" width="62%">
+  </a>
+
+<h5 align="center">Fig 5. Undo a delete command</h3>
+</div>
+
+> :bulb: **TIP** This function only works if there are commands to redo.
+> 
+> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot my redone.
+
+Format: `undo`
 
 ### Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
+
+______________________________________________________________________
+
+## Data matters:
 
 ### Saving the data
 
@@ -239,7 +374,7 @@ If your changes to the data file makes its format invalid, NUSearch will discard
 
 _Details coming soon ..._
 
---------------------------------------------------------------------------------------------------------------------
+______________________________________________________________________________________
 
 ## FAQ
 
@@ -251,13 +386,39 @@ _Details coming soon ..._
 ## Command summary
 Action | Format, Examples
  --------|------------------
+**Help** | `help`
+**List** | `list`
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com m/CS2103, f/Computing, r/TA`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Favourite** | `fav INDEX`<br> e.g., `fav 3`
 **Unfavourite** | `unfav INDEX`<br> e.g., `unfav 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
 **List Favourites** | `list-fav`
-**Help** | `help`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Clear** | `clear`
+**Undo** | `undo`
+**Redo** | `redo`
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+
+<h3 align="center">NUSearch</h3>
+
+  <p align="center">
+    A GUI application to help you quickly search for the contacts of NUS faculty members!
+    <br />
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">View Demo</a>
+    ·
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+
