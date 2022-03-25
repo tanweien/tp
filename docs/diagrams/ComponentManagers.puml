@@ -35,3 +35,4 @@ LogicManager --> CommandManageable
 CommandManager --> Model
 LogicManager --> Storage
 @enduml
+
