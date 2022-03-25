@@ -63,26 +63,44 @@ Each of the four main components (also shown in the diagram above),
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
-<img src="images/ComponentManagers.png" width="300" />
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/ComponentManagers.png" width="280" />
+  </a>
+<h5 align="center">Fig 1.3. Component Managers</h5>
+</div>
 
-The sections below give more details of each component.
+The following section gives more details of each component.
 
-### UI component
+### Components
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+In this section of the developer guide, we go through the structure of the 5 main components in NUSearch:
 
-![Structure of the UI Component](images/UiClassDiagram.png)
+> //todo
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI Component
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The API of this component is specified in [Ui.java](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The `UI` component,
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UiClassDiagram.png" width="280" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
-* executes user commands using the `Logic` component.
-* listens for changes to `Model` data so that the UI can be updated with the modified data.
-* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+The UI consists of a MainWindow that is made up of parts e.g.CommandBox, ResultDisplay, PersonListPanel, StatusBarFooter etc. All these, including the MainWindow, inherit from the abstract UiPart class which captures the commonalities between classes that represent parts of the visible GUI.
+
+The UI component uses the JavaFx UI framework. The layout of these UI parts are defined in matching .fxml files that are in the src/main/resources/view folder. For example, the layout of the [MainWindow](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [MainWindow.fxml](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+
+The UI component,
+
+* executes user commands using the Logic component.
+* listens for changes to Model data so that the UI can be updated with the modified data.
+* keeps a reference to the Logic component, because the UI relies on the Logic to execute commands.
+* depends on some classes in the Model component, as it displays Person object residing in the Model.
+
+> :memo: NOTE The Command Manager component is not reflected in the diagram since there are no direct dependencies with the UI component
 
 ### Logic component
 
