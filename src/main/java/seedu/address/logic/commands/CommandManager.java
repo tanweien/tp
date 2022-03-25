@@ -1,10 +1,13 @@
 package seedu.address.logic.commands;
 import java.util.Stack;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
 public class CommandManager implements CommandManageable {
+    private static final Logger logger = LogsCenter.getLogger(CommandManager.class);
     private int commandStackPointer = -1;
     private final Stack<Command> commandStack = new Stack<>();
     private final Model model;
@@ -57,6 +60,7 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public void refreshFutureCommands(int undoRedoPointer) {
+        logger.fine("Attempting to insert new command");
         if (commandStack.size() < 1) {
             return;
         }
@@ -67,6 +71,7 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public CommandResult undo() throws CommandException {
+        logger.fine("Attempting to undo command");
         if (commandStackPointer < 0) {
             //i.e no past commands to execute
             return new CommandResult("There are no commands to undo!", false, false);
@@ -79,6 +84,7 @@ public class CommandManager implements CommandManageable {
 
     @Override
     public CommandResult redo() throws CommandException {
+        logger.fine("Attempting to redo command");
         if (commandStackPointer == commandStack.size() - 1) {
             //i.e no future commands to execute
             return new CommandResult("There are no commands to redo!", false, false);
