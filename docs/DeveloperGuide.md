@@ -53,20 +53,26 @@ The rest of the App consists of four components.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [`CommandManager`](#command-manager-component): Receives commands from the logic component and handles its execution/un-execution appropriately.
+
+How the architecture components interact with each other
+
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command delete 1.
 
 
-**How the architecture components interact with each other**
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/ArchitectureSequenceDiagram.png" width="280" />
+  </a>
+<h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
+</div>
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+Each of the five main components (also shown in the diagram above),
 
-<img src="images/ArchitectureSequenceDiagram.png" width="574" />
+* defines its *API* in an interface with the same name as the Component.
+* implements its functionality using a concrete {Component Name}Manager class (which follows the corresponding API interface mentioned in the previous point.
 
-Each of the four main components (also shown in the diagram above),
-
-* defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
-
-For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
+For example, the Model component defines its API in the Model.java interface and implements its functionality using the ModelManager.java class which follows the Model interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
 <img src="images/ComponentManagers.png" width="300" />
 
