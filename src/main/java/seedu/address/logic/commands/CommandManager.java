@@ -45,7 +45,6 @@ public class CommandManager implements CommandManageable {
             }
         } catch (Exception err) {
             //handle error
-            System.out.println("Assertion error");
         }
 
         // else

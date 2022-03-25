@@ -1,6 +1,7 @@
 # NUSearch User guide v1.2
 
 NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
+
 If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- TABLE OF CONTENTS -->
@@ -70,8 +71,7 @@ If you can type fast, NUSearch can get your contact management tasks done faster
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/Ui.png" width="62%">
   </a>
-
-  <h5 align="center">Fig 1. NUSearch home page</h3>
+  <h5 align="center">Fig 1. NUSearch home page</h5>
 </div>
 
 
@@ -150,8 +150,7 @@ Shows a summative list of available commands for you to input.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/helpMessage.png" width="62%">
   </a>
-
-  <h5 align="center">Fig 2. Help message screen</h3>
+  <h5 align="center">Fig 2. Help message screen</h5>
 </div>
 
 Format: `help`
@@ -204,8 +203,7 @@ Adds a contact to the favorite list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/fav.png" width="62%">
   </a>
-
-<h5 align="center">Fig 3. Favourite contact</h3>
+<h5 align="center">Fig 3. Favourite contact</h5>
 </div>
 
 Format: `fav INDEX`
@@ -234,8 +232,7 @@ Displays all favoured contacts in the contact list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/fav.png" width="62%">
   </a>
-
-<h5 align="center">Fig 4. List favourite contacts</h3>
+<h5 align="center">Fig 4. List favourite contacts</h5>
 </div>
 
 Format: `list-fav`
@@ -264,8 +261,7 @@ Find contacts whose attributed tags meet the given keywords.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/tag-family.png" width="62%">
   </a>
-
-<h5 align="center">Fig 5. Finding contacts with the 'family' tag</h3>
+<h5 align="center">Fig 5. Finding contacts with the 'family' tag</h5>
 </div>
 
 * The search is case-insensitive. e.g `shurvir` will match `Shurvir`
@@ -287,8 +283,7 @@ Deletes a contact from the contact list by an index.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/delete-contact.png" width="62%">
   </a>
-
-<h5 align="center">Fig 5. Delete a contact</h3>
+<h5 align="center">Fig 5. Delete a contact</h5>
 </div>
 
 * Deletes the person at the specified `<index>`.
@@ -321,8 +316,7 @@ Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/undo-delete.png" width="62%">
   </a>
-
-<h5 align="center">Fig 5. Undo a delete command</h3>
+<h5 align="center">Fig 5. Undo a delete command</h5>
 </div>
 
 > :bulb: **TIP** This function only works if there are commands to undo.
@@ -338,8 +332,7 @@ Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/redo-delete.png" width="62%">
   </a>
-
-<h5 align="center">Fig 5. Undo a delete command</h3>
+<h5 align="center">Fig 5. Undo a delete command</h5>
 </div>
 
 > :bulb: **TIP** This function only works if there are commands to redo.
