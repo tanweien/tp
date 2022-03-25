@@ -19,20 +19,25 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## Design
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+> :bulb: TIP: The .puml files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-4/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
 ### Architecture
 
-<img src="images/ArchitectureDiagram.png" width="280" />
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/ArchitectureDiagram.png" width="280" />
+  </a>
+<h5 align="center">Fig 1.1. Architecture Diagram</h5>
+</div>
 
 The ***Architecture Diagram*** given above explains the high-level design of the App.
 
-Given below is a quick overview of main components and how they interact with each other.
+Given below is a quick overview of Main components and how they interact with each other.
 
 **Main components of the architecture**
 
@@ -48,41 +53,65 @@ The rest of the App consists of four components.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [`CommandManager`](#command-manager-component): Receives commands from the logic component and handles its execution/un-execution appropriately.
+
+How the architecture components interact with each other
+
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command delete 1.
 
 
-**How the architecture components interact with each other**
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/ArchitectureSequenceDiagram.png" width="280" />
+  </a>
+<h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
+</div>
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+Each of the five main components (also shown in the diagram above),
 
-<img src="images/ArchitectureSequenceDiagram.png" width="574" />
+* defines its *API* in an interface with the same name as the Component.
+* implements its functionality using a concrete {Component Name}Manager class (which follows the corresponding API interface mentioned in the previous point.
 
-Each of the four main components (also shown in the diagram above),
+For example, the Model component defines its API in the Model.java interface and implements its functionality using the ModelManager.java class which follows the Model interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
-* defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/ComponentManagers.png" width="280" />
+  </a>
+<h5 align="center">Fig 1.3. Component Managers</h5>
+</div>
 
-For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
+The following section gives more details of each component.
 
-<img src="images/ComponentManagers.png" width="300" />
+### Components
 
-The sections below give more details of each component.
+In this section of the developer guide, we go through the structure of the 5 main components in NUSearch:
 
-### UI component
+> //todo
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The UI Component
 
-![Structure of the UI Component](images/UiClassDiagram.png)
+The API of this component is specified in [Ui.java](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UiClassDiagram.png" width="280" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The UI consists of a MainWindow that is made up of parts e.g.CommandBox, ResultDisplay, PersonListPanel, StatusBarFooter etc. All these, including the MainWindow, inherit from the abstract UiPart class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component,
+The UI component uses the JavaFx UI framework. The layout of these UI parts are defined in matching .fxml files that are in the src/main/resources/view folder. For example, the layout of the [MainWindow](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [MainWindow.fxml](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
-* executes user commands using the `Logic` component.
-* listens for changes to `Model` data so that the UI can be updated with the modified data.
-* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+The UI component,
+
+* executes user commands using the Logic component.
+* listens for changes to Model data so that the UI can be updated with the modified data.
+* keeps a reference to the Logic component, because the UI relies on the Logic to execute commands.
+* depends on some classes in the Model component, as it displays Person object residing in the Model.
+
+> :memo: NOTE The Command Manager component is not reflected in the diagram since there are no direct dependencies with the UI component
 
 ### Logic component
 
