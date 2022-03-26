@@ -21,8 +21,8 @@ import seedu.address.model.person.Person;
 /**
  * Copies the email address of person identified using it's displayed index from the address book.
  */
-public class CopyCommand extends Command {
-    public static final String COMMAND_WORD = "copy";
+public class CopyEmailCommand extends Command {
+    public static final String COMMAND_WORD = "copy-email";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Copies the email address of person identified by the index number used in the displayed person list.\n"
@@ -30,14 +30,14 @@ public class CopyCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_COPY_PERSON_SUCCESS = "Copied email address: %1$s";
-    private static final Logger logger = LogsCenter.getLogger(CopyCommand.class);
+    private static final Logger logger = LogsCenter.getLogger(CopyEmailCommand.class);
 
 
     private final Index targetIndex;
     private ModelMemento modelMemento;
     private Person copyPerson;
 
-    public CopyCommand(Index targetIndex) {
+    public CopyEmailCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
@@ -74,7 +74,7 @@ public class CopyCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof CopyCommand // instanceof handles nulls
-                && targetIndex.equals(((CopyCommand) other).targetIndex)); // state check
+                || (other instanceof CopyEmailCommand // instanceof handles nulls
+                && targetIndex.equals(((CopyEmailCommand) other).targetIndex)); // state check
     }
 }
