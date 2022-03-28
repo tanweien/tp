@@ -408,22 +408,22 @@ ________________________________________________________________________________
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-| Action              | Format, Examples                                                                                                                                                           |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**             | `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com tele/@JamesHo f/Computing r/TA` |
-| **Clear**           | `clear`                                                                                                                                                                    |
-| **Copy Email**      | `copy-email INDEX` <br> e.g., `copy-email 1`                                                                                                                               |
-| **Copy Phone**      | `copy-phone INDEX` <br> e.g., `copy-phone 2`                                                                                                                               |
-| **Delete**          | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                        |
-| **Edit**            | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                            |
-| **Favourite**       | `fav INDEX`<br> e.g., `fav 3`                                                                                                                                              |
-| **Find**            | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                 |
-| **Help**            | `help`                                                                                                                                                                     |
-| **List**            | `list`                                                                                                                                                                     |
-| **List Favourites** | `list-fav`                                                                                                                                                                 |
-| **Redo**            | `redo`                                                                                                                                                                     |
-| **Undo**            | `undo`                                                                                                                                                                     |
-| **Unfavourite**     | `unfav INDEX`<br> e.g., `unfav 3`                                                                                                                                          |
+ Action              | Format, Examples                                                                                                                                                           
+---------------------|--------------------------
+ **Add**             | `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com tele/@JamesHo f/Computing r/TA` 
+ **Clear**           | `clear`
+ **Copy Email**      | `copy-email INDEX` <br> e.g., `copy-email 1`
+ **Copy Phone**      | `copy-phone INDEX` <br> e.g., `copy-phone 2`
+ **Delete**          | `delete INDEX`<br> e.g., `delete 3`
+ **Edit**            | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+ **Favourite**       | `fav INDEX`<br> e.g., `fav 3`
+ **Find**            | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+ **Help**            | `help`
+ **List**            | `list`
+ **List Favourites** | `list-fav`
+ **Redo**            | `redo`
+ **Undo**            | `undo`
+ **Unfavourite**     | `unfav INDEX`<br> e.g., `unfav 3`
 
 <!-- PROJECT LOGO -->
 <br />
