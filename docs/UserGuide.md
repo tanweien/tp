@@ -64,14 +64,14 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 3. Copy the file to the folder you want to use as the _home folder_ for your NUSearch.
 
 
-4. Double-click the file to start the app. The GUI (aka Screen) similar to the below should appear in a few seconds. Note how the app already contains some sample data.<br>
+4. Double-click the file to start the app. The GUI (aka Screen) similar to the one below should appear in a few seconds. <br>
 
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="../docs/images/Ui.png" width="62%">
   </a>
-  <h5 align="center">Fig 1. NUSearch home page</h5>
+  <h5 align="center">Figure 1. NUSearch home page</h5>
 </div>
 
 
@@ -94,13 +94,13 @@ _____________________________________________________
 
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [m/MODULE]`,
-  > `[m/MODULE]` is an optional parameter, hence`n/John Doe m/CS2103T` and  `n/John Doe` are both valid commands.
+  e.g `n/NAME [tele/USERNAME]`,
+  > `[tele/TELEGRAM]` is an optional parameter, hence`n/John Doe tele/@JohnDoe` and  `n/John Doe` are both valid commands.
 
 
 * Items with `…`​ after them can be used multiple times or not at all (i.e zero times).<br>
-  e.g. `[m/MODULE]…​`,
-  > `[m/MODULE]…​` can be used as ` ` (i.e. 0 times), `m/cs2103T`, `m/CS2103T m/CS2100` etc.
+  e.g. `[t/TAG]…​`,
+  > `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/CS2103T`, `t/CS2103T t/friend` etc.
 
 
 * Parameters can be in any order.<br>
@@ -140,17 +140,15 @@ ________________________________________________________________________________
   </ol>
 </details>
 
-
-
 ### View help : `help`
 
 Shows a summative list of available commands for you to input.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/helpMessage.png" width="62%">
+    <img src="../docs/images/help-message.png" width="62%">
   </a>
-  <h5 align="center">Fig 2. Help message screen</h5>
+  <h5 align="center">Figure 2. Help message screen</h5>
 </div>
 
 Format: `help`
@@ -169,13 +167,13 @@ Format: `list`
 
 Adds a contact to the contact list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​`
 
 > :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
-* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA t/CS2103T t/KentRidge`
+* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA tele/@BetsyCrowe t/CS2103T t/KentRidge`
 
 ### Edit a contact : `edit ...`
 
@@ -195,63 +193,30 @@ Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 
-### Favourite a contact : `fav ...`
+### Find contacts by keywords : `find ...`
 
-Adds a contact to the favorite list.
-
-<div align="center">
-  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/fav.png" width="62%">
-  </a>
-<h5 align="center">Fig 3. Favourite contact</h5>
-</div>
-
-Format: `fav INDEX`
-
-Examples:
-* `fav 1`
-* `fav 2`
-
-### Un-favourite a contact : `unfav ...`
-
-Removes a contact from the favorite list.
-
-> NUSearch screen will appear somewhat similar to the image displayed above for the `fav` command
-
-Format: `unfav INDEX`
-
-Examples:
-* `unfav 1`
-* `unfav 2`
-
-### List all favourite contacts : `list-fav`
-
-Displays all favoured contacts in the contact list.
+Find contacts that contain any of the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/fav.png" width="62%">
+    <img src="../docs/images/find.png" width="100%">
   </a>
-<h5 align="center">Fig 4. List favourite contacts</h5>
+<h5 align="center">Figure 3. Finding contacts with the keywords Daniel and TA </h5>
 </div>
 
-Format: `list-fav`
-
-### Find contacts by name : `find ...`
-
-Find contacts with names that contain any of the given keywords.
-
+* Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
 * The search is case-insensitive. e.g `shur` will match `Shur`
-* The order of the keywords matter. e.g. `Wei En` will match `En Wei`
-* Only the name is searched.
+* The order of the keywords do not matter. e.g. `Wei En` will match `En Wei`
 * Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Eug ene` will return `Eug in`, `Nal g ene`
+* Persons matching at least one keyword will be returned e.g. `Eug ene` will return `Eug in`, `Nal g ene`
 
-Format: `find <NAME> [MORE_KEYWORDS]`
+Format: `find <KEYWORD> [MORE_KEYWORDS]`
 
 Examples:
 * `find John` returns `john` and `John Doe`
+
+> :bulb: **TIP** Use more keywords if you want to broaden your search range
+
 
 ### Find contacts by tags: `tag ...`
 
@@ -259,15 +224,15 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/tag-family.png" width="62%">
+    <img src="../docs/images/tag-friends.png" width="40%">
   </a>
-<h5 align="center">Fig 5. Finding contacts with the 'family' tag</h5>
+<h5 align="center">Figure 4. Finding contacts with the 'family' tag</h5>
 </div>
 
 * The search is case-insensitive. e.g `shurvir` will match `Shurvir`
 * Only tags are included in the search, other fields are ignored.
 
-> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `prof` tag to your professor's contact.
+> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `CS2103T` tag to your professor's contact.
 
 Format: `tag <Keyword> [MORE_KEYWORDS]`
 
@@ -281,9 +246,9 @@ Deletes a contact from the contact list by an index.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/delete-contact.png" width="62%">
+    <img src="../docs/images/delete.png" width="100%">
   </a>
-<h5 align="center">Fig 5. Delete a contact</h5>
+<h5 align="center">Figure 5. Delete a contact</h5>
 </div>
 
 * Deletes the person at the specified `<index>`.
@@ -308,15 +273,83 @@ Clears all entries from the NUSearch database.
 
 Format: `clear`
 
+### Favourite a contact : `fav ...`
+
+Adds a contact to the favorite list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/fav.png" width="100%">
+  </a>
+<h5 align="center">Figure 6. Favourite contact</h5>
+</div>
+
+Format: `fav INDEX`
+
+Examples:
+* `fav 1`
+* `fav 2`
+
+> :bulb: **TIP** Use this function on contacts that you view frequently!
+
+### Unfavourite a contact : `unfav ...`
+
+Removes a contact from the favorite list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/unfav.png" width="100%">
+  </a>
+<h5 align="center">Figure 7. Favourite contact</h5>
+</div>
+
+Format: `unfav INDEX`
+
+Examples:
+* `unfav 1`
+* `unfav 2`
+
+### List all favourite contacts : `list-fav`
+
+Displays all favoured contacts in the contact list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="../docs/images/list-fav.png" width="100%">
+  </a>
+<h5 align="center">Figure 8. List favourite contacts</h5>
+</div>
+
+Format: `list-fav`
+
+### Copy email address : `copy-email ...`
+
+Copies a contact's email address to your clipboard by index
+
+* Copies the email address of the contact at the specified `<index>`.
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+> :bulb: **TIP** You can paste the copied email into any text field using the shortcut key combination Ctrl + V on a PC or Command + V on a Mac
+
+
+### Copy phone number : `copy-phone ...`
+
+Copies a contact's phone number to your clipboard by index
+
+* Copies the phone number of the contact at the specified `<index>`.
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
 ### Undo a command : `undo`
 
 Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/undo-delete.png" width="62%">
+    <img src="../docs/images/undo.png" width="100%">
   </a>
-<h5 align="center">Fig 5. Undo a delete command</h5>
+<h5 align="center">Figure 9. Undo a delete command</h5>
 </div>
 
 > :bulb: **TIP** This function only works if there are commands to undo.
@@ -330,14 +363,14 @@ Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/redo-delete.png" width="62%">
+    <img src="../docs/images/redo.png" width="100%">
   </a>
-<h5 align="center">Fig 5. Undo a delete command</h5>
+<h5 align="center">Figure 10. Redo a delete command</h5>
 </div>
 
 > :bulb: **TIP** This function only works if there are commands to redo.
 > 
-> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot my redone.
+> If a command other than undo and redo are entered, all commands following the inserted command will be cleared and cannot be redone.
 
 Format: `undo`
 
@@ -363,13 +396,11 @@ NUSearch data are saved as a JSON file `[JAR file location]/data/NUSearch.json`.
 If your changes to the data file makes its format invalid, NUSearch will discard all data and start with an empty data file at the next run.
 </div>
 
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
-
 ______________________________________________________________________________________
 
 ## FAQ
+**Q**: Is my data private? <br>
+**A**: Your data is not saved online and is only accessible by you.
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSearch home folder.
@@ -377,20 +408,22 @@ ________________________________________________________________________________
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-Action | Format, Examples
- --------|------------------
-**Help** | `help`
-**List** | `list`
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com m/CS2103, f/Computing, r/TA`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Favourite** | `fav INDEX`<br> e.g., `fav 3`
-**Unfavourite** | `unfav INDEX`<br> e.g., `unfav 3`
-**List Favourites** | `list-fav`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Clear** | `clear`
-**Undo** | `undo`
-**Redo** | `redo`
+ Action              | Format, Examples                                                                                                                                                           
+---------------------|--------------------------
+ **Add**             | `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com tele/@JamesHo f/Computing r/TA` 
+ **Clear**           | `clear`
+ **Copy Email**      | `copy-email INDEX` <br> e.g., `copy-email 1`
+ **Copy Phone**      | `copy-phone INDEX` <br> e.g., `copy-phone 2`
+ **Delete**          | `delete INDEX`<br> e.g., `delete 3`
+ **Edit**            | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+ **Favourite**       | `fav INDEX`<br> e.g., `fav 3`
+ **Find**            | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+ **Help**            | `help`
+ **List**            | `list`
+ **List Favourites** | `list-fav`
+ **Redo**            | `redo`
+ **Undo**            | `undo`
+ **Unfavourite**     | `unfav INDEX`<br> e.g., `unfav 3`
 
 <!-- PROJECT LOGO -->
 <br />
