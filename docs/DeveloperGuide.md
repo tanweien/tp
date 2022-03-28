@@ -1,5 +1,7 @@
-# NUSearch Developer Guide v1.2
-
+---
+layout: page
+title: NUSearch Developer Guide V1.3
+---
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements**
