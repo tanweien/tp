@@ -25,9 +25,9 @@ If you can type fast, NUSearch can get your contact management tasks done faster
         <li><a href="#add-a-contact-add-">Add a contact</a></li>
         <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
         <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
-        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#unfavourite-a-contact--unfav-">Un-favourite a contact</a></li>
         <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
-        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-keywords--find-">Find contacts by keywords</a></li>
         <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
         <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
         <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
@@ -72,7 +72,7 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/Ui.png" width="62%">
+    <img src="images/Ui.png" width="62%">
   </a>
   <h5 align="center">Figure 1. NUSearch home page</h5>
 </div>
@@ -131,9 +131,9 @@ ________________________________________________________________________________
         <li><a href="#add-a-contact-add-">Add a contact</a></li>
         <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
         <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
-        <li><a href="#un-favourite-a-contact--unfav-">Un-favourite a contact</a></li>
+        <li><a href="#unfavourite-a-contact--unfav-">Un-favourite a contact</a></li>
         <li><a href="#list-all-favourite-contacts--list-fav">List all favourite contacts</a></li>
-        <li><a href="#find-contacts-by-name--find-">Find contacts by name</a></li>
+        <li><a href="#find-contacts-by-keywords--find-">Find contacts by name</a></li>
         <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
         <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
         <li><a href="#clear-all-entries--clear">Clear all entries</a></li>
@@ -149,7 +149,7 @@ Shows a summative list of available commands for you to input.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/help-message.png" width="62%">
+    <img src="images/help-message.png" width="62%">
   </a>
   <h5 align="center">Figure 2. Help message screen</h5>
 </div>
@@ -202,7 +202,7 @@ Find contacts that contain any of the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/find.png" width="100%">
+    <img src="images/find.png" width="100%">
   </a>
 <h5 align="center">Figure 3. Finding contacts with the keywords Daniel and TA </h5>
 </div>
@@ -227,7 +227,7 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/tag-friends.png" width="40%">
+    <img src="images/tag-friends.png" width="40%">
   </a>
 <h5 align="center">Figure 4. Finding contacts with the 'family' tag</h5>
 </div>
@@ -249,7 +249,7 @@ Deletes a contact from the contact list by an index.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/delete.png" width="100%">
+    <img src="images/delete.png" width="100%">
   </a>
 <h5 align="center">Figure 5. Delete a contact</h5>
 </div>
@@ -282,7 +282,7 @@ Adds a contact to the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/fav.png" width="100%">
+    <img src="images/fav.png" width="100%">
   </a>
 <h5 align="center">Figure 6. Favourite contact</h5>
 </div>
@@ -301,7 +301,7 @@ Removes a contact from the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/unfav.png" width="100%">
+    <img src="images/unfav.png" width="100%">
   </a>
 <h5 align="center">Figure 7. Favourite contact</h5>
 </div>
@@ -318,7 +318,7 @@ Displays all favoured contacts in the contact list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/list-fav.png" width="100%">
+    <img src="images/list-fav.png" width="100%">
   </a>
 <h5 align="center">Figure 8. List favourite contacts</h5>
 </div>
@@ -350,7 +350,7 @@ Undo a command that was <a href="#delete-a-contact">erroneously</a> keyed in.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/undo.png" width="100%">
+    <img src="images/undo.png" width="100%">
   </a>
 <h5 align="center">Figure 9. Undo a delete command</h5>
 </div>
@@ -366,7 +366,7 @@ Redo a command that was <a href="#undo-a-command">erroneously</a> undone.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="../docs/images/redo.png" width="100%">
+    <img src="images/redo.png" width="100%">
   </a>
 <h5 align="center">Figure 10. Redo a delete command</h5>
 </div>
