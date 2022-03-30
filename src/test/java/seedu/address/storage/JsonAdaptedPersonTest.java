@@ -140,4 +140,11 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
+    @Test
+    public void toModelType_invalidTelegram_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_FACULTY, VALID_ROLE,
+                        INVALID_TELEGRAM, VALID_FAVOURITE, VALID_TAGS);
+        assertThrows(IllegalValueException.class, person::toModelType);
+    }
 }
