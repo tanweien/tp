@@ -7,25 +7,25 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ModelMemento;
-import seedu.address.model.person.NameFacultyRoleContainsAllKeywordsPredicate;
+import seedu.address.model.person.NameFacultyRoleContainsAnyKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
-public class FindCommand extends Command {
-    public static final String COMMAND_WORD = "find";
+public class FindWideCommand extends Command {
+    public static final String COMMAND_WORD = "find-wide";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Finds all persons whose name, role or faculty contain all of "
+            + ": Finds all persons whose name, role or faculty contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice computing professor";
+            + "Example: " + COMMAND_WORD + " alice bob computing";
 
-    private final NameFacultyRoleContainsAllKeywordsPredicate predicate;
+    private final NameFacultyRoleContainsAnyKeywordsPredicate predicate;
     private ModelMemento modelMemento;
 
-    public FindCommand(NameFacultyRoleContainsAllKeywordsPredicate predicate) {
+    public FindWideCommand(NameFacultyRoleContainsAnyKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -35,6 +35,7 @@ public class FindCommand extends Command {
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
+
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
@@ -50,7 +51,7 @@ public class FindCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof FindCommand // instanceof handles nulls
-                && predicate.equals(((FindCommand) other).predicate)); // state check
+                || (other instanceof FindWideCommand // instanceof handles nulls
+                && predicate.equals(((FindWideCommand) other).predicate)); // state check
     }
 }
