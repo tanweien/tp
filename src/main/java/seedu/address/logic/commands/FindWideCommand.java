@@ -16,7 +16,8 @@ import seedu.address.model.person.NameFacultyRoleContainsAnyKeywordsPredicate;
 public class FindWideCommand extends Command {
     public static final String COMMAND_WORD = "find-wide";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose name, role or faculty contain any of "
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Finds all persons whose name, role or faculty contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " alice bob computing";

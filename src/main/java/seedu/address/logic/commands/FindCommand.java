@@ -16,7 +16,8 @@ import seedu.address.model.person.NameFacultyRoleContainsAllKeywordsPredicate;
 public class FindCommand extends Command {
     public static final String COMMAND_WORD = "find";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose name, role or faculty contain all of "
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Finds all persons whose name, role or faculty contain all of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " alice computing professor";
@@ -34,7 +35,6 @@ public class FindCommand extends Command {
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
-
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
