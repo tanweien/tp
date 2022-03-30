@@ -27,13 +27,13 @@
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="name" styleClass="cell_big_label" text="\$first" />
+        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="favourite" styleClass="cell_small_label" text="\$favourite" />
       </HBox>
       <FlowPane fx:id="tags" prefWidth="130.0" />
       <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
       <Pane fx:id="telegram" prefWidth="130.0" />
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
-      <Label fx:id="favourite" styleClass="cell_small_label" text="\$favourite" />
       <Label fx:id="faculty" styleClass="cell_small_label" text="\$faculty" />
       <Label fx:id="role" styleClass="cell_small_label" text="\$role" />
     </VBox>
