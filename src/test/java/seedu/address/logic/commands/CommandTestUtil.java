@@ -39,7 +39,7 @@ public class CommandTestUtil {
     public static final String VALID_ROLE_AMY = "Professor";
     public static final String VALID_ROLE_BOB = "TA";
     public static final String VALID_TELEGRAM_AMY = "@Amy23";
-    public static final String VALID_TELEGRAM_BOB = "@Boby92";
+    public static final String VALID_TELEGRAM_BOB = "@bobTheBuilder";
     public static final boolean VALID_FAVOURITE_AMY = true;
     public static final boolean VALID_FAVOURITE_BOB = false;
     public static final String VALID_TAG_HUSBAND = "husband";

@@ -147,8 +147,8 @@ public class NameFacultyRoleContainsKeywordsPredicateTest {
         NameFacultyRoleContainsKeywordsPredicate predicate = new NameFacultyRoleContainsKeywordsPredicate(
                 Arrays.asList("Computing"));
         assertTrue(predicate.test(new PersonBuilder().withName("Ms Computing").withPhone("67891")
-                .withEmail("@doesNotMatch").withFaculty("Computing").withRole("Computing Professor")
-                .withTelegram("Baker street").build()));
+                .withEmail("doesNotMatch@gmail.com").withFaculty("Computing").withRole("Computing Professor")
+                .withTelegram("@doesNotMatch").build()));
     }
 
     @Test

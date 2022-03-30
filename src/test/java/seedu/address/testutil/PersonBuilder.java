@@ -25,7 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_FACULTY = "Computing";
     public static final String DEFAULT_ROLE = "Professor";
-    public static final String DEFAULT_TELEGRAM = "@AmbeeDex2";
+    public static final String DEFAULT_TELEGRAM = "@Amy23";
     public static final boolean DEFAULT_FAVOURITE = false;
 
     private Name name;

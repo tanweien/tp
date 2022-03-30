@@ -122,12 +122,12 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_PERSON;
-        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
+        String userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + TAG_DESC_HUSBAND
                 + EMAIL_DESC_AMY + FACULTY_DESC_AMY + ROLE_DESC_AMY + TELEGRAM_DESC_AMY + NAME_DESC_AMY
                 + TAG_DESC_FRIEND;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withFaculty(VALID_FACULTY_AMY)
+                .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withFaculty(VALID_FACULTY_AMY)
                 .withRole(VALID_ROLE_AMY).withTelegram(VALID_TELEGRAM_AMY)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
@@ -221,9 +221,9 @@ public class EditCommandParserTest {
 
         // other valid values specified
         userInput = targetIndex.getOneBased() + EMAIL_DESC_BOB + FACULTY_DESC_BOB + ROLE_DESC_BOB
-                + INVALID_PHONE_DESC + TELEGRAM_DESC_BOB + PHONE_DESC_BOB;
+                + INVALID_PHONE_DESC + PHONE_DESC_BOB;
         descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withFaculty(VALID_FACULTY_BOB).withRole(VALID_ROLE_BOB).withTelegram(VALID_TELEGRAM_BOB).build();
+                .withFaculty(VALID_FACULTY_BOB).withRole(VALID_ROLE_BOB).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
