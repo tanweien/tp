@@ -165,7 +165,7 @@ public class NameFacultyRoleContainsAllKeywordsPredicateTest {
                 Arrays.asList("Alice", "Computing", "Professor"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice").withPhone("67891")
                 .withEmail("bryce@gmail.com").withFaculty("Computing").withRole("Professor")
-                .withAddress("Baker street").build()));
+                .withTelegram("@AliceInBorderland9393").build()));
     }
 
     @Test
@@ -175,20 +175,20 @@ public class NameFacultyRoleContainsAllKeywordsPredicateTest {
                 Arrays.asList("Alice", "Business", "TA"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
                 .withEmail("alice@email.com").withFaculty("Business").withRole("Professor")
-                .withAddress("Main Street").build()));
+                .withTelegram("@AliceInBorderland9393").build()));
 
         // Keywords match name and role but not faculty
         predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
                 Arrays.asList("Alice", "Computing", "Professor"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
                 .withEmail("alice@email.com").withFaculty("Business").withRole("Professor")
-                .withAddress("Main Street").build()));
+                .withTelegram("@AliceInBorderland9393").build()));
 
         // Keywords match faculty and role but not name
         predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
                 Arrays.asList("Benson", "Business", "Professor"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
                 .withEmail("alice@email.com").withFaculty("Business").withRole("Professor")
-                .withAddress("Main Street").build()));
+                .withTelegram("@AliceInBorderland9393").build()));
     }
 }

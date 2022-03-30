@@ -142,13 +142,13 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
 
     @Test
     public void test_nameFacultyRoleContainKeywords_returnsTrue() {
-        // Keywords match name, faculty and role but not email and address.
+        // Keywords match name, faculty and role but not email and Telegram.
         // Same keyword is present in name, faculty and role
         NameFacultyRoleContainsAnyKeywordsPredicate predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(
                 Arrays.asList("Computing"));
         assertTrue(predicate.test(new PersonBuilder().withName("Ms Computing").withPhone("67891")
-                .withEmail("bryce@gmail.com").withFaculty("Computing").withRole("Computing Professor")
-                .withAddress("Baker street").build()));
+                .withEmail("doesNotMatch@gmail.com").withFaculty("Computing").withRole("Computing Professor")
+                .withTelegram("@doesNotMatch").build()));
     }
 
     @Test
@@ -158,6 +158,6 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
                 Arrays.asList("12345", "alice@email.com", "Computing", "Professor", "Main", "Street"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
                 .withEmail("alice@email.com").withFaculty("Business").withRole("Dishwasher")
-                .withAddress("Main Street").build()));
+                .withTelegram("@MainStreet").build()));
     }
 }

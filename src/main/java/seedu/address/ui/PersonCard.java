@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
 
@@ -17,7 +18,7 @@ public class PersonCard extends UiPart<Region> {
     private static final String FXML = "PersonListCard.fxml";
     private static final String heart = new String(Character.toChars(10084));
     private static final String empty = "";
-    private static final String addressField = "Address : ";
+    private static final String telegramField = "Telegram : ";
     private static final String phoneField = "Phone   : ";
     private static final String emailField = "Email   : ";
     private static final String facultyField = "Faculty : ";
@@ -45,7 +46,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label favourite;
     @FXML
-    private Label address;
+    private Pane telegram;
     @FXML
     private Label email;
     @FXML
@@ -64,7 +65,7 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ".");
         name.setText(person.getName().fullName);
         phone.setText(phoneField + person.getPhone().value);
-        address.setText(addressField + person.getAddress().value);
+        person.getTelegram().value.ifPresent(handle -> telegram.getChildren().add(new Label(telegramField + handle)));
         favourite.setText(person.getFavourite().isFavourite ? heart : empty);
         email.setText(emailField + person.getEmail().value);
         faculty.setText(facultyField + person.getFaculty().value);

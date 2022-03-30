@@ -21,7 +21,7 @@ public class FavouriteCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
 
         Person alice = new PersonBuilder().withName("Alice Pauline")
-                .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
+                .withTelegram("@AliceInBorderland9393").withEmail("alice@example.com")
                 .withFaculty("Business").withRole("Professor").withFavourite(true).withPhone("94351253")
                 .withTags("friends").build();
 

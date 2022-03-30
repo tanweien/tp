@@ -11,7 +11,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ModelMemento;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Faculty;
 import seedu.address.model.person.Favourite;
@@ -20,6 +19,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Role;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.telegram.Telegram;
 
 /**
  * Changes the favourite status of an existing person in the address book.
@@ -89,12 +89,12 @@ public class UnfavouriteCommand extends Command {
         Email updatedEmail = personToUnfavourite.getEmail();
         Faculty updatedFaculty = personToUnfavourite.getFaculty();
         Role updatedRole = personToUnfavourite.getRole();
-        Address updatedAddress = personToUnfavourite.getAddress();
+        Telegram updatedTelegram = personToUnfavourite.getTelegram();
         Favourite updatedFavourite = new Favourite(false); // edit command does not allow editing favourite status
         Set<Tag> updatedTags = personToUnfavourite.getTags();
 
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedFaculty, updatedRole,
-                updatedAddress, updatedFavourite, updatedTags);
+                updatedTelegram, updatedFavourite, updatedTags);
     }
 }

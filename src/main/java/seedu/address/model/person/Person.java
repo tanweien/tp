@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.model.tag.Tag;
+import seedu.address.model.telegram.Telegram;
 
 /**
  * Represents a Person in the address book.
@@ -23,22 +24,22 @@ public class Person {
     private final Role role;
 
     // Data fields
-    private final Address address;
+    private final Telegram telegram;
     private final Set<Tag> tags = new HashSet<>();
     private final Favourite favourite;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Faculty faculty, Role role, Address address,
+    public Person(Name name, Phone phone, Email email, Faculty faculty, Role role, Telegram telegram,
                   Favourite favourite, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, role, address, tags);
+        requireAllNonNull(name, phone, email, role, telegram, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.faculty = faculty;
         this.role = role;
-        this.address = address;
+        this.telegram = telegram;
         this.favourite = favourite;
         this.tags.addAll(tags);
     }
@@ -63,8 +64,8 @@ public class Person {
         return role;
     }
 
-    public Address getAddress() {
-        return address;
+    public Telegram getTelegram() {
+        return telegram;
     }
 
     public Favourite getFavourite() {
@@ -112,7 +113,7 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getFaculty().equals(getFaculty())
                 && otherPerson.getRole().equals(getRole())
-                && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getTelegram().equals(getTelegram())
                 && otherPerson.getFavourite().equals(getFavourite())
                 && otherPerson.getTags().equals(getTags());
     }
@@ -121,7 +122,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, faculty, role, address, favourite, tags);
+        return Objects.hash(name, phone, email, faculty, role, telegram, favourite, tags);
     }
 
     @Override
@@ -136,10 +137,11 @@ public class Person {
                 .append(getFaculty())
                 .append("; Role: ")
                 .append(getRole())
-                .append("; Address: ")
-                .append(getAddress())
+                .append("; Telegram: ")
+                .append(getTelegram())
                 .append("; Favourite: ")
                 .append(getFavourite());
+
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
