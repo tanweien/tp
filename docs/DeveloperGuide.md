@@ -1,5 +1,7 @@
-# NUSearch Developer Guide v1.2
-
+---
+layout: page
+title: NUSearch Developer Guide V1.3
+---
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements**
@@ -7,8 +9,6 @@
 * Adapted from [AddressBook3](https://github.com/nus-cs2103-AY2122S2/tp)
 
 ___________________________________________________________________________________________________________________
-
---------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
 
@@ -18,15 +18,14 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ## Design
 
-<div markdown="span" class="alert alert-primary">
+> :bulb: **TIP:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-4/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.  
 
-> :bulb: **TIP:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-4/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 
 ### Architecture
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureDiagram.png" width="280" />
+    <img src="images/ArchitectureDiagram.png" width="280"/>
   </a>
 <h5 align="center">Fig 1.1. Architecture Diagram</h5>
 </div>
@@ -58,7 +57,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureSequenceDiagram.png" width="280" />
+    <img src="images/ArchitectureSequenceDiagram.png" width="280"/>
   </a>
 <h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
 </div>
