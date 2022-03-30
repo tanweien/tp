@@ -26,12 +26,12 @@
           </minWidth>
         </Label>
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="favourite" styleClass="cell_small_label" text="\$favourite" />
       </HBox>
       <FlowPane fx:id="tags" />
       <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
       <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
-      <Label fx:id="favourite" styleClass="cell_small_label" text="\$favourite" />
       <Label fx:id="faculty" styleClass="cell_small_label" text="\$faculty" />
       <Label fx:id="role" styleClass="cell_small_label" text="\$role" />
     </VBox>
