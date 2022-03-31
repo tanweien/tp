@@ -18,11 +18,11 @@ public class PersonCard extends UiPart<Region> {
     private static final String FXML = "PersonListCard.fxml";
     private static final String heart = new String(Character.toChars(10084));
     private static final String empty = "";
-    private static final String telegramField = "Telegram : ";
-    private static final String phoneField = "Phone   : ";
-    private static final String emailField = "Email   : ";
-    private static final String facultyField = "Faculty : ";
-    private static final String roleField = "Role    : ";
+    private static final String telegramField = "Telegram: ";
+    private static final String phoneField = "Phone    : ";
+    private static final String emailField = "Email    : ";
+    private static final String facultyField = "Faculty  : ";
+    private static final String roleField = "Role     : ";
 
 
     /**
