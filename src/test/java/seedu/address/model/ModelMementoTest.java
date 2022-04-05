@@ -1,13 +1,14 @@
 package seedu.address.model;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.person.NameFacultyRoleContainsAnyKeywordsPredicate;
-import seedu.address.model.person.Person;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.person.NameFacultyRoleContainsAnyKeywordsPredicate;
+import seedu.address.model.person.Person;
 
 class ModelMementoTest {
 
