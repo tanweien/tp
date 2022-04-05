@@ -59,7 +59,7 @@ This personalised university contact list ensures that users do not have to cont
             <summary>Find Commands</summary>
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
-                    <li><a href="#find-contacts-matching-any-keywords--find-">Find contacts matching ANY keywords</a></li>
+                    <li><a href="#find-contacts-matching-any-keywords--find-wide">Find contacts matching ANY keywords</a></li>
                     <li><a href="#find-contacts-by-tags--find-tag">Find contacts by tags</a></li>
                 </ol>
         </details>
@@ -193,7 +193,7 @@ ________________________________________________________________________________
             <summary>Find Commands</summary>
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
-                    <li><a href="#find-contacts-matching-any-keywords--find-">Find contacts matching ANY keywords</a></li>
+                    <li><a href="#find-contacts-matching-any-keywords--find-wide">Find contacts matching ANY keywords</a></li>
                     <li><a href="#find-contacts-by-tags--find-tag">Find contacts by tags</a></li>
                 </ol>
         </details>
