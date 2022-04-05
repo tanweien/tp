@@ -35,6 +35,7 @@ public class FindWideCommand extends Command {
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
+        modelMemento.setPredicate(model.getModelPredicate());
 
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
@@ -44,7 +45,7 @@ public class FindWideCommand extends Command {
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        model.updateFilteredPersonList(this.predicate);
+        model.updateFilteredPersonList(modelMemento.getPredicate());
         return new CommandResult("Find contacts with specified keywords.");
     }
 

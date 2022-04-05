@@ -103,8 +103,6 @@ public class FindCommandTest {
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         NameFacultyRoleContainsAllKeywordsPredicate predicate = preparePredicateAll("TA");
         FindCommand command = new FindCommand(predicate);
-        //todo: figure out why this test works...
-        expectedModel.updateFilteredPersonList(predicate);
 
         assertCommandUnExecuteSuccess(command, model, expectedModel);
     }
