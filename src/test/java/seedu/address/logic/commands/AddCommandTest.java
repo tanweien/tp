@@ -38,7 +38,8 @@ public class AddCommandTest {
     public void execute_personAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
         Person validPerson = new PersonBuilder().build();
-        CommandResult commandResult = new AddCommand(validPerson).execute(modelStub);
+        Command addCommand = new AddCommand(validPerson);
+        CommandResult commandResult = addCommand.execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validPerson), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validPerson), modelStub.personsAdded);
@@ -142,7 +143,17 @@ public class AddCommandTest {
 
         @Override
         public boolean hasPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
+            return false;
+        }
+
+        @Override
+        public boolean hasEmail(Person person) {
+            return false;
+        }
+
+        @Override
+        public boolean hasPhone(Person person) {
+            return false;
         }
 
         @Override
