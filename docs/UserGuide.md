@@ -9,14 +9,16 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 --------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
-As a NUS student, you may find it tough to manage your university related contacts. 
-There are platforms such as Luminus that provide you with the relevant contacts for the modules that you are taking, however, there is no dedicated system that is customised to assist you with maintaining your NUS contacts. 
-As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs. 
+ As a NUS student, you may find it tough to manage your university related contacts. 
+ There are platforms such as Luminus that provide you with the relevant contacts for the modules that you are taking.
+ However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts. 
 
-Examples of how NUSearch operates as a university specific contact list:
-1. Faculty and role are mandatory fields to be filled in to make sure that each contact has a given faculty and role.
-2. As NUS students and staff often use Telegram as a form a communication, there is an optional field to store each contact's telegram username.
-3. Each user is able to filter out their contacts based on faculty and role.
+ As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs. 
+
+> Examples of how NUSearch operates as a university specific contact list:
+>1. Faculty and role are mandatory fields to be filled in to make sure that each contact has a given faculty and role.
+>2. As NUS students and staff often use Telegram as a form a communication, there is an optional field to store each contact's telegram username.
+>3. Each user is able to filter out their contacts based on faculty and role.
 
 This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list. 
 
@@ -45,17 +47,23 @@ This personalised university contact list ensures that users do not have to cont
         <summary>Basic Commands</summary>
             <ol>
                 <li><a href="#add-a-contact-add-">Add a contact</a></li>
-                <li><a href="#clear-all-entries--clear">Clear all contacts</a></li>
+                <li><a href="#clear-all-contacts--clear">Clear all contacts</a></li>
                 <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
                 <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
-                <li><a href="#find-contacts-by-keywords--find-">Find contacts by keywords</a></li>
-                <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
                 <li><a href="#list-all-contacts--list">List all contacts</a></li>
                 <li><a href="#undo-a-command--undo">Undo a command</a></li>
                 <li><a href="#redo-a-command--redo">Redo a command</a></li>
             </ol>
         </details>
-      <details open>
+        <details open>
+            <summary>Find Commands</summary>
+                <ol>
+                    <li><a href="#find-contacts-by-all-keywords--find-">Find contacts matching ALL keywords</a></li>
+                    <li><a href="#find-contacts-by-any-keywords--find-">Find contacts matching ANY keywords</a></li>
+                    <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+                </ol>
+        </details>
+        <details open>
         <summary>Favourite Commands</summary>
             <ol>
                 <li><a href="#favourite-a-contact--fav-">Favourite a contact</a></li>
@@ -66,11 +74,10 @@ This personalised university contact list ensures that users do not have to cont
       <details open>
         <summary>Copy Commands</summary>
             <ol>
-                <li><a href="#copy-contact-email">Copy a contact's email address</a></li>
-                <li><a href="#copy-contact-phone">Copy a contact's phone number</a></li>
+                <li><a href="#copy-contact-email--copy-email">Copy a contact's email address</a></li>
+                <li><a href="#copy-contact-phone--copy-phone">Copy a contact's phone number</a></li>
             </ol>
         </details>
-      </ul>
     </li>
     <li>
         <a href="#data-matters">Data matters</a>
@@ -128,14 +135,14 @@ _____________________________________________________
 
 <div markdown="block" class="alert alert-info">
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+* Words in `UPPER_CASE` are the information to be supplied by the user.<br>
   e.g. in `add n/NAME`, 
-  > Example: `NAME` is a parameter which can be used as `add n/John Doe`.
+  > Example: `NAME` is a type of input which can be used as `add n/John Doe`.
 
 
 * Items in square brackets are optional.<br>
   e.g `n/NAME [tele/USERNAME]`,
-  > Example: `[tele/TELEGRAM]` is an optional parameter, hence`n/John Doe tele/@JohnDoe` and  `n/John Doe` are both valid commands.
+  > Example: `[tele/TELEGRAM]` is an optional input, hence`n/John Doe tele/@JohnDoe` and  `n/John Doe` are both valid commands.
 
 
 * Items with `…`​ after them can be used multiple times or not at all (i.e zero times).<br>
@@ -151,7 +158,7 @@ _____________________________________________________
   > Example: The Phone Number field only stores 1 phone number. Hence, if you entered 2 phone numbers `p/12341234 p/56785678`, only the last entry `p/56785678` will be stored.
 
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+* Extraneous input for commands that do not take in additional information (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   > Example: if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
@@ -174,15 +181,21 @@ ________________________________________________________________________________
         <summary>Basic Commands</summary>
             <ol>
                 <li><a href="#add-a-contact-add-">Add a contact</a></li>
-                <li><a href="#clear-all-entries--clear">Clear all contacts</a></li>
+                <li><a href="#clear-all-contacts--clear">Clear all contacts</a></li>
                 <li><a href="#delete-a-contact--delete-">Delete a contact</a></li>
                 <li><a href="#edit-a-contact--edit-">Edit a contact</a></li>
-                <li><a href="#find-contacts-by-keywords--find-">Find contacts by keywords</a></li>
-                <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
                 <li><a href="#list-all-contacts--list">List all contacts</a></li>
                 <li><a href="#undo-a-command--undo">Undo a command</a></li>
                 <li><a href="#redo-a-command--redo">Redo a command</a></li>
             </ol>
+        </details>
+        <details open>
+            <summary>Find Commands</summary>
+                <ol>
+                    <li><a href="#find-contacts-by-all-keywords--find-">Find contacts matching ALL keywords</a></li>
+                    <li><a href="#find-contacts-by-any-keywords--find-">Find contacts matching ANY keywords</a></li>
+                    <li><a href="#find-contacts-by-tags-tag-">Find contacts by tags</a></li>
+                </ol>
         </details>
       <details open>
         <summary>Favourite Commands</summary>
@@ -201,6 +214,8 @@ ________________________________________________________________________________
         </details>
   </ol>
 </details>
+
+## General Commands
 
 ### Exiting the program : `exit`
 
@@ -223,6 +238,8 @@ Format: `help`
 
 > :bulb: **TIP:** Click on `Copy URL button to copy the link to our user guide.`
 
+## Basic Commands
+
 ### Add a contact: `add ...`
 
 Adds a contact to the contact list.
@@ -234,9 +251,10 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/T
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
 * `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA tele/@BetsyCrowe t/CS2103T t/KentRidge`
-### Clear all entries : `clear`
 
-Clears all entries from the NUSearch database.
+### Clear all contacts : `clear`
+
+Clears all contacts from the NUSearch database.
 
 Format: `clear`
 
@@ -252,16 +270,16 @@ Deletes a contact from the contact list by an index.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/delete.png" width="80%">
   </a>
-<h5 align="center">Figure 5. Delete a contact</h5>
+<h5 align="center">Figure 3. Delete a contact</h5>
 </div>
 
-* Deletes the person at the specified `<index>`.
+* Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Format: `delete <index>`
+Format: `delete INDEX`
 
-> :bulb: **TIP** Accidentally deleted the wrong contact? Don't worry checkout our <a href="#undo-a-command">undo</a> function!
+> :bulb: **TIP** Accidentally deleted the wrong contact? Don't worry checkout our <a href="#undo-a-command--undo">undo</a> function!
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the NUSearch database.
@@ -272,64 +290,19 @@ Examples:
 Edits an existing contact in NUSearch database.
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
 * Existing values will be updated according to the input values.
 * When editing tags, the existing tags will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without specifying any tags after it.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELEGRAM] [t/TAG]…​`
 
 > :bulb: **TIP** The edit command features multiple permutations, allowing you to edit multiple fields of a single contact in one command.
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
-
-### Find contacts by keywords : `find ...`
-
-Find contacts that contain any of the given keywords.
-
-<div align="center">
-  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/find.png" width="80%">
-  </a>
-<h5 align="center">Figure 3. Finding contacts with the keywords Daniel and TA </h5>
-</div>
-
-* Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
-* The search is case-insensitive. e.g `shur` will match `Shur`
-* The order of the keywords do not matter. e.g. `Wei En` will match `En Wei`
-* Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
-* Persons matching at least one keyword will be returned e.g. `Eug ene` will return `Eug in`, `Nal g ene`
-
-Format: `find <KEYWORD> [MORE_KEYWORDS]`
-
-> :bulb: **TIP** Use more keywords if you want to broaden your search range
-
-Examples:
-* `find John` returns `john` and `John Doe`
-
-### Find contacts by tags: `tag ...`
-
-Find contacts whose attributed tags meet the given keywords.
-
-<div align="center">
-  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/tag-friends.png" width="50%">
-  </a>
-<h5 align="center">Figure 4. Finding contacts with the 'family' tag</h5>
-</div>
-
-* The search is case-insensitive. e.g `shurvir` will match `Shurvir`
-* Only tags are included in the search, other fields are ignored.
-
-Format: `tag <Keyword> [MORE_KEYWORDS]`
-
-> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `CS2103T` tag to your professor's contact.
-
-Examples:
-* `tag CS2103T` Lists all contacts that have CS2103T tag
-* `tag Sheares` Lists all contacts that have Sheares tag
+* `edit 3 f/Computing r/TA` Edits the faculty of the 3rd contact to be `Computing` and role to be `TA`
+* `edit 1 tele/@hackerway101` Edits the Telegram username of the 1st contact to `@hackerway101`
 
 ### List all contacts : `list`
 
@@ -347,7 +320,7 @@ Undo a command that was entered previously.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/undo.png" width="80%">
   </a>
-<h5 align="center">Figure 9. Undo a delete command</h5>
+<h5 align="center">Figure 4. Undo a delete command</h5>
 </div>
 
 Format: `undo`
@@ -367,7 +340,7 @@ Redo a command that was previously done.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/redo.png" width="80%">
   </a>
-<h5 align="center">Figure 10. Redo a delete command</h5>
+<h5 align="center">Figure 5. Redo a delete command</h5>
 </div>
 
 Format: `redo`
@@ -380,6 +353,86 @@ Format: `redo`
 Examples:
 * `If you just added a person named John Doe, proceeded to undo that action, and then perform the "redo" command, the person John Doe will still be added as a contact.`
 
+## Find Commands
+
+### Find contacts matching **ALL** keywords : `find ...`
+
+Find contacts that contain **ALL** the given keywords.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/find.png" width="80%">
+  </a>
+<h5 align="center">Figure 6. Finding contacts with the keywords Daniel and TA </h5>
+</div>
+
+* Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
+* The search is case-insensitive. e.g `shur` will match `Shur`
+* The order of the keywords do not matter. e.g. `Wei En` will match `En Wei`
+* Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
+* Only persons matching ALL keywords will be returned e.g. `find David Computing` will only return contacts with `David` **AND** `Computing` as part of their keywords.
+
+Format: `find KEYWORD [MORE_KEYWORDS]`
+
+> :bulb: **TIP** Use more keywords if you want to **narrow** your search down to a specific  contact.
+
+Examples:
+* `find John` returns `john` and `John Doe`
+* `find John Doe` returns `John Doe Lee`, `John Loo Doe` but not `John Moo`
+* `find David Computing` returns `David` from `Computing` but not `David` from `Business`
+* `find David Professor` returns contacts with the name `David` **and** have `Professor` as their role.
+
+### Find contacts matching **ANY** keywords : `find-wide ...`
+
+Find contacts that contain **ANY** the given keywords.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/find.png" width="80%">
+  </a>
+<h5 align="center">Figure 7. Finding contacts with the keywords Daniel and TA </h5>
+</div>
+
+* Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
+* The search is case-insensitive. e.g `shur` will match `Shur`
+* The order of the keywords do not matter. e.g. `Wei En` will match `En Wei`
+* Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
+* Persons matching at least one keyword will be returned e.g. `find-wide Eug ene` will return `Eug in`, `Nal g ene` and `ene eug`
+
+Format: `find-wide KEYWORD [MORE_KEYWORDS]`
+
+> :bulb: **TIP** Use more keywords if you want to **broaden** your search range
+
+Examples:
+* `find-wide John` returns `john` and `John Doe`
+* `find-wide John Doe` returns `John Doe Lee`, `John Loo Doe` and `John Moo`
+* `find-wide David Computing` returns contacts with the name `David` **or** are from `Computing`
+* `find-wide David Professor` returns contacts with the name `David` **or** have `Professor` as their role
+
+### Find contacts by tags: `find-tag ...`
+
+Find contacts whose attributed tags meet the given keywords.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/tag-friends.png" width="50%">
+  </a>
+<h5 align="center">Figure 8. Finding contacts with the 'family' tag</h5>
+</div>
+
+* The search is case-insensitive. e.g `colleague` will match `Colleague`
+* Only tags are included in the search, other fields are ignored.
+
+Format: `find-tag <TAG> [MORE_TAGS]`
+
+> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `CS2103T` tag to your professor's contact.
+
+Examples:
+* `find-tag CS2103T` Lists all contacts that have `CS2103T` tag
+* `find-tag colleague bestie` Lists all contacts that have `colleague` or `bestie` tag.
+
+## Favourite Commands
+
 ### Favourite a contact : `fav ...`
 
 Adds a contact to the favorite list.
@@ -388,7 +441,7 @@ Adds a contact to the favorite list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/fav.png" width="80%">
   </a>
-<h5 align="center">Figure 6. Favourite contact</h5>
+<h5 align="center">Figure 9. Favourite contact</h5>
 </div>
 
 Format: `fav INDEX`
@@ -407,7 +460,7 @@ Displays all favoured contacts in the contact list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/list-fav.png" width="80%">
   </a>
-<h5 align="center">Figure 8. List favourite contacts</h5>
+<h5 align="center">Figure 10. List favourite contacts</h5>
 </div>
 
 Format: `list-fav`
@@ -420,7 +473,7 @@ Removes a contact from the favorite list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/unfav.png" width="80%">
   </a>
-<h5 align="center">Figure 7. Favourite contact</h5>
+<h5 align="center">Figure 11. Favourite contact</h5>
 </div>
 
 Format: `unfav INDEX`
@@ -428,6 +481,8 @@ Format: `unfav INDEX`
 Examples:
 * `unfav 1`
 * `unfav 2`
+
+## Copy Commands
 
 ### Copy email address : `copy-email ...`
 
@@ -491,6 +546,8 @@ ________________________________________________________________________________
 
 ## Command summary
 
+> :spiral_notepad: **NOTE:** KEYWORD refers to either NAME, ROLE or FACULTY
+
 ### Category: General Commands
 
 The following commands can be used in any context and are for general purposes.
@@ -505,19 +562,26 @@ The following commands can be used in any context and are for general purposes.
 
 The following commands are used in dealing with contacts.
 
-| Function                        | Format Of Command                                                              |
-|---------------------------------|--------------------------------------------------------------------------------|
-| **Add a new contact**           | `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​` |
-| **Clear all entries**           | `clear`                                                                        |
-| **Delete an existing contact**  | `delete INDEX`                                                                 |
-| **Edit an existing contact**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`     |
-| **Find contact(s) by keywords** | `find KEYWORD [MORE_KEYWORDS]`                                                 |
-| **Find contact(s) by tags**     | `tag TAG`                                                                      |
-| **List all contacts**           | `list`                                                                         |
-| **Undo previous commands**      | `undo`                                                                         |
-| **Redo commands**               | `redo`                                                                         |
+| Function                          | Format Of Command                                                              |
+|-----------------------------------|--------------------------------------------------------------------------------|
+| **Add a new contact**             | `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​` |
+| **Clear all contacts**            | `clear`                                                                        |
+| **Delete an existing contact**    | `delete INDEX`                                                                 |
+| **Edit an existing contact**      | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`     |
+| **List all contacts**             | `list`                                                                         |
+| **Undo previous commands**        | `undo`                                                                         |
+| **Redo commands**                 | `redo`                                                                         |
 
-NOTE : KEYWORD refers to either NAME, ROLE or FACULTY
+### Category: Find Commands
+
+The following commands are used in dealing with finding contacts.
+
+| Function                                  | Format Of Command                   |
+|-------------------------------------------|-------------------------------------|
+| **Find contact(s) matching ALL keywords** | `find KEYWORD [MORE_KEYWORDS]`      |
+| **Find contact(s) matching ANY keywords** | `find-wide KEYWORD [MORE_KEYWORDS]` |
+| **Find contact(s) by tags**               | `find-tag TAG`                      |
+
 
 ### Category: Favourite Commands
 
