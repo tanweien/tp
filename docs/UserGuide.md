@@ -59,8 +59,8 @@ This personalised university contact list ensures that users do not have to cont
             <summary>Find Commands</summary>
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
-                    <li><a href="#find-contacts-matching-any-keywords--find-wide">Find contacts matching ANY keywords</a></li>
-                    <li><a href="#find-contacts-by-tags--find-tag">Find contacts by tags</a></li>
+                    <li><a href="#find-contacts-matching-any-keywords--find-wide-">Find contacts matching ANY keywords</a></li>
+                    <li><a href="#find-contacts-by-tags-find-tag-">Find contacts by tags</a></li>
                 </ol>
         </details>
         <details open>
@@ -74,8 +74,8 @@ This personalised university contact list ensures that users do not have to cont
       <details open>
         <summary>Copy Commands</summary>
             <ol>
-                <li><a href="#copy-email-address--copy-email">Copy a contact's email address</a></li>
-                <li><a href="#copy-phone-number--copy-phone">Copy a contact's phone number</a></li>
+                <li><a href="#copy-email-address--copy-email-">Copy a contact's email address</a></li>
+                <li><a href="#copy-phone-number--copy-phone-">Copy a contact's phone number</a></li>
             </ol>
         </details>
     </li>
@@ -194,7 +194,7 @@ ________________________________________________________________________________
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
                     <li><a href="#find-contacts-matching-any-keywords--find-wide-">Find contacts matching ANY keywords</a></li>
-                    <li><a href="#find-contacts-by-tags--find-tag-">Find contacts by tags</a></li>
+                    <li><a href="#find-contacts-by-tags-find-tag-">Find contacts by tags</a></li>
                 </ol>
         </details>
       <details open>
