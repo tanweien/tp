@@ -38,11 +38,39 @@ public class AddCommandTest {
     public void execute_personAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
         Person validPerson = new PersonBuilder().build();
-        Command addCommand = new AddCommand(validPerson);
-        CommandResult commandResult = addCommand.execute(modelStub);
+        CommandResult commandResult = new AddCommand(validPerson).execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validPerson), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validPerson), modelStub.personsAdded);
+    }
+
+    @Test
+    public void execute_duplicateEmail_throwsCommandException() {
+        PersonBuilder validPersonBuilder = new PersonBuilder();
+        PersonBuilder personBuilderWithDiffName = new PersonBuilder().withName("somethingElse");
+        Person validPerson = validPersonBuilder.build();
+        Person diffName = personBuilderWithDiffName.build();
+
+        AddCommand addCommand = new AddCommand(validPerson);
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+        modelStub.addPerson(diffName);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_EMAIL, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_duplicatePhone_throwsCommandException() {
+        PersonBuilder validPersonBuilder = new PersonBuilder();
+        PersonBuilder personBuilderWithDiffName = new PersonBuilder().withName("somethingElse")
+                .withEmail("se@gmail.com");
+        Person validPerson = validPersonBuilder.build();
+        Person diffName = personBuilderWithDiffName.build();
+
+        AddCommand addCommand = new AddCommand(validPerson);
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+        modelStub.addPerson(diffName);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PHONE, () -> addCommand.execute(modelStub));
     }
 
     @Test
@@ -143,17 +171,17 @@ public class AddCommandTest {
 
         @Override
         public boolean hasPerson(Person person) {
-            return false;
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public boolean hasEmail(Person person) {
-            return false;
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public boolean hasPhone(Person person) {
-            return false;
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -211,6 +239,19 @@ public class AddCommandTest {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
         }
+
+        @Override
+        public boolean hasEmail(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSameEmail);
+        }
+
+        @Override
+        public boolean hasPhone(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSamePhone);
+        }
+
 
         @Override
         public void addPerson(Person person) {

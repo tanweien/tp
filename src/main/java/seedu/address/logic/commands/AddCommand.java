@@ -46,11 +46,11 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
-    private static final Logger logger = LogsCenter.getLogger(AddCommand.class);
-    private static final String MESSAGE_DUPLICATE_EMAIL = "A contact with the same email address already "
+    public static final String MESSAGE_DUPLICATE_EMAIL = "A contact with the same email address already "
             + "exists in the address book";
-    private static final String MESSAGE_DUPLICATE_PHONE = "A contact with the same number already "
-            + "exists in the address book";;
+    public static final String MESSAGE_DUPLICATE_PHONE = "A contact with the same number already "
+            + "exists in the address book";
+    private static final Logger logger = LogsCenter.getLogger(AddCommand.class);
 
     private final Person toAdd;
     private ModelMemento modelMemento;
