@@ -60,7 +60,7 @@ This personalised university contact list ensures that users do not have to cont
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
                     <li><a href="#find-contacts-matching-any-keywords--find-wide-">Find contacts matching ANY keywords</a></li>
-                    <li><a href="#find-contacts-by-tags-find-tag-">Find contacts by tags</a></li>
+                    <li><a href="#find-contacts-by-tags--tag-">Find contacts by tags</a></li>
                 </ol>
         </details>
         <details open>
@@ -194,7 +194,7 @@ ________________________________________________________________________________
                 <ol>
                     <li><a href="#find-contacts-matching-all-keywords--find-">Find contacts matching ALL keywords</a></li>
                     <li><a href="#find-contacts-matching-any-keywords--find-wide-">Find contacts matching ANY keywords</a></li>
-                    <li><a href="#find-contacts-by-tags-find-tag-">Find contacts by tags</a></li>
+                    <li><a href="#find-contacts-by-tags--tag-">Find contacts by tags</a></li>
                 </ol>
         </details>
       <details open>
@@ -409,7 +409,7 @@ Examples:
 * `find-wide David Computing` returns contacts with the name `David` **or** are from `Computing`
 * `find-wide David Professor` returns contacts with the name `David` **or** have `Professor` as their role
 
-### Find contacts by tags: `find-tag ...`
+### Find contacts by tags: `tag ...`
 
 Find contacts whose attributed tags meet the given keywords.
 
@@ -423,13 +423,13 @@ Find contacts whose attributed tags meet the given keywords.
 * The search is case-insensitive. e.g `colleague` will match `Colleague`
 * Only tags are included in the search, other fields are ignored.
 
-Format: `find-tag <TAG> [MORE_TAGS]`
+Format: `tag <TAG> [MORE_TAGS]`
 
 > :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `CS2103T` tag to your professor's contact.
 
 Examples:
-* `find-tag CS2103T` Lists all contacts that have `CS2103T` tag
-* `find-tag colleague bestie` Lists all contacts that have `colleague` or `bestie` tag.
+* `tag CS2103T` Lists all contacts that have `CS2103T` tag
+* `tag colleague bestie` Lists all contacts that have `colleague` or `bestie` tag.
 
 ## Favourite Commands
 
@@ -576,11 +576,11 @@ The following commands are used in dealing with contacts.
 
 The following commands are used in dealing with finding contacts.
 
-| Function                                  | Format Of Command                   |
-|-------------------------------------------|-------------------------------------|
-| **Find contact(s) matching ALL keywords** | `find KEYWORD [MORE_KEYWORDS]`      |
-| **Find contact(s) matching ANY keywords** | `find-wide KEYWORD [MORE_KEYWORDS]` |
-| **Find contact(s) by tags**               | `find-tag TAG`                      |
+| Function                                    | Format Of Command                   |
+|---------------------------------------------|-------------------------------------|
+| **Find contact(s) matching ALL keywords**   | `find KEYWORD [MORE_KEYWORDS]`      |
+| **Find contact(s) matching ANY keywords**   | `find-wide KEYWORD [MORE_KEYWORDS]` |
+| **Find contact(s) by tags**                 | `tag TAG`                           |
 
 
 ### Category: Favourite Commands
