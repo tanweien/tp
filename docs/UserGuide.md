@@ -244,7 +244,7 @@ Format: `help`
 
 Adds a contact to the contact list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE tele/TELEGRAM [t/TAG]…​`
 
 > :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
