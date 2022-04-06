@@ -81,8 +81,6 @@ public class FindWideCommandTest {
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         NameFacultyRoleContainsAnyKeywordsPredicate predicate = preparePredicate("TA Kurz");
         FindWideCommand command = new FindWideCommand(predicate);
-        //todo: figure out why this test works...
-        expectedModel.updateFilteredPersonList(predicate);
 
         assertCommandUnExecuteSuccess(command, model, expectedModel);
     }

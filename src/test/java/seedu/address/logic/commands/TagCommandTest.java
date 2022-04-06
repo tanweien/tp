@@ -81,8 +81,6 @@ public class TagCommandTest {
         TagContainsKeywordsPredicate predicate = preparePredicate("friends colleagues");
         TagCommand command = new TagCommand(predicate);
         //todo: figure out why this test works...
-        expectedModel.updateFilteredPersonList(predicate);
-
         assertCommandUnExecuteSuccess(command, model, expectedModel);
     }
 

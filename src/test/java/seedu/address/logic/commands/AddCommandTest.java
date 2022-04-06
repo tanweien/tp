@@ -45,6 +45,35 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_duplicateEmail_throwsCommandException() {
+        PersonBuilder validPersonBuilder = new PersonBuilder();
+        PersonBuilder personBuilderWithDiffName = new PersonBuilder().withName("somethingElse");
+        Person validPerson = validPersonBuilder.build();
+        Person diffName = personBuilderWithDiffName.build();
+
+        AddCommand addCommand = new AddCommand(validPerson);
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+        modelStub.addPerson(diffName);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_EMAIL, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_duplicatePhone_throwsCommandException() {
+        PersonBuilder validPersonBuilder = new PersonBuilder();
+        PersonBuilder personBuilderWithDiffName = new PersonBuilder().withName("somethingElse")
+                .withEmail("se@gmail.com");
+        Person validPerson = validPersonBuilder.build();
+        Person diffName = personBuilderWithDiffName.build();
+
+        AddCommand addCommand = new AddCommand(validPerson);
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+        modelStub.addPerson(diffName);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PHONE, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
     public void execute_duplicatePerson_throwsCommandException() {
         Person validPerson = new PersonBuilder().build();
         AddCommand addCommand = new AddCommand(validPerson);
@@ -146,6 +175,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasEmail(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasPhone(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -200,6 +239,19 @@ public class AddCommandTest {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
         }
+
+        @Override
+        public boolean hasEmail(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSameEmail);
+        }
+
+        @Override
+        public boolean hasPhone(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSamePhone);
+        }
+
 
         @Override
         public void addPerson(Person person) {

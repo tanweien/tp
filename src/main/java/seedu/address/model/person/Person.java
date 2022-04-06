@@ -94,6 +94,32 @@ public class Person {
     }
 
     /**
+     * Returns true if both persons have the same email.
+     * This defines a weaker notion of equality between two persons.
+     */
+    public boolean isSameEmail(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+
+        return otherPerson != null
+                && otherPerson.getEmail().equals(getEmail());
+    }
+
+    /**
+     * Returns true if both persons have the same email.
+     * This defines a weaker notion of equality between two persons.
+     */
+    public boolean isSamePhone(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+
+        return otherPerson != null
+                && otherPerson.getPhone().equals(getPhone());
+    }
+
+    /**
      * Returns true if both persons have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */

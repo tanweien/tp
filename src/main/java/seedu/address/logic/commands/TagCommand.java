@@ -35,6 +35,7 @@ public class TagCommand extends Command {
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
+        modelMemento.setPredicate(model.getModelPredicate());
 
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
@@ -43,8 +44,8 @@ public class TagCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
+        model.updateFilteredPersonList(modelMemento.getPredicate());
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        model.updateFilteredPersonList(this.predicate);
         return new CommandResult("Find contacts with specified tag.");
     }
 

@@ -35,6 +35,8 @@ public class FindCommand extends Command {
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
+        modelMemento.setPredicate(model.getModelPredicate());
+
         model.updateFilteredPersonList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
@@ -42,8 +44,12 @@ public class FindCommand extends Command {
 
     @Override
     public CommandResult unExecute(Model model) throws CommandException {
+        model.updateFilteredPersonList(modelMemento.getPredicate());
         model.setAddressBook(this.modelMemento.getModel().getAddressBook());
-        model.updateFilteredPersonList(this.predicate);
+        //bug above: 2 possibilities:
+        //1. not saving model in execute command
+        //2. Not drawing the right model in unexecute command
+        //3. Not updating filtered person list with the right predicate -> Needs to be pervious predicate
         return new CommandResult("Find contacts with specified keywords.");
     }
 

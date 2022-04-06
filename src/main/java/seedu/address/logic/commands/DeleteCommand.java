@@ -28,7 +28,6 @@ public class DeleteCommand extends Command {
 
     private final Index targetIndex;
     private ModelMemento modelMemento;
-    private Person deletedPerson;
 
     public DeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
@@ -44,7 +43,6 @@ public class DeleteCommand extends Command {
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
-        this.deletedPerson = personToDelete;
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
 

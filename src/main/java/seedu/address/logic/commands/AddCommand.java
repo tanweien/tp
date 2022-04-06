@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FACULTY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -45,6 +46,10 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_EMAIL = "A contact with the same email address already "
+            + "exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PHONE = "A contact with the same number already "
+            + "exists in the address book";
     private static final Logger logger = LogsCenter.getLogger(AddCommand.class);
 
     private final Person toAdd;
@@ -63,9 +68,7 @@ public class AddCommand extends Command {
         requireNonNull(model);
         logger.fine("Adding contact into NUSearch.");
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        }
+        modelContains(toAdd, model);
 
         this.modelMemento = new ModelMemento();
         modelMemento.setModel(new ModelManager(model.makeCopy()));
@@ -84,5 +87,26 @@ public class AddCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof AddCommand // instanceof handles nulls
                 && toAdd.equals(((AddCommand) other).toAdd));
+    }
+
+    /**
+     * The check to check if model contains duplicate contacts. Catches duplicate errors sequentially
+     * @param toAdd the person to check
+     * @param model the model to check against
+     * @throws CommandException exception to throw
+     */
+    public void modelContains(Person toAdd, Model model) throws CommandException {
+        requireAllNonNull(toAdd, model);
+        if (model.hasPerson(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (model.hasEmail(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_EMAIL);
+        }
+
+        if (model.hasPhone(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_PHONE);
+        }
     }
 }
