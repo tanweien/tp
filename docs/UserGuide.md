@@ -546,7 +546,6 @@ ________________________________________________________________________________
 
 ## Command summary
 
-> :spiral_notepad: **NOTE:** KEYWORD refers to either NAME, ROLE or FACULTY
 
 ### Category: General Commands
 
@@ -582,6 +581,7 @@ The following commands are used in dealing with finding contacts.
 | **Find contact(s) matching ANY keywords**   | `find-wide KEYWORD [MORE_KEYWORDS]` |
 | **Find contact(s) by tags**                 | `tag TAG`                           |
 
+> :spiral_notepad: **NOTE:** KEYWORD refers to either NAME, ROLE or FACULTY
 
 ### Category: Favourite Commands
 
