@@ -11,9 +11,13 @@ import java.util.Optional;
  */
 public class Telegram {
 
-    public static final String MESSAGE_CONSTRAINTS = "Following telegram's restrictions,"
-            + " usernames must be 5 to 32 characters long and not ending with an underscore.";
-
+    public static final String MESSAGE_CONSTRAINTS = "Telegram usernames should be of the format @name "
+            + "and adhere to the following constraints:\n"
+            + "- usernames should start with a '@' and followed by a name\n"
+            + "- name should be 5 to 32 characters long.\n"
+            + "- name should be alphanumeric.\n"
+            + "- name should not contain special characters except underscore.\n"
+            + "- name should not end with an underscore.\n";
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
