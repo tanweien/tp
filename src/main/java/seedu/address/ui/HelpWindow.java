@@ -15,7 +15,7 @@ import seedu.address.commons.core.LogsCenter;
  */
 public class HelpWindow extends UiPart<Stage> {
     public static final String USERGUIDE_URL =
-        "https://github.com/AY2122S2-CS2103T-W11-4/tp/blob/master/docs/UserGuide.md";
+        "https://ay2122s2-cs2103t-w11-4.github.io/tp/UserGuide.html";
     private static final String HELP_ADD_MESSAGE =
             "\nTo add contact:\n        add n/{name} e/{email} a/{address}\n";
     private static final String HELP_LIST_MESSAGE =
