@@ -60,6 +60,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Returns true i
+     * f the list contains an equivalent person as the given argument.
+     */
+    public boolean containsFavouriteName(Person toCheck) {
+        requireNonNull(toCheck);
+        return internalList.stream().anyMatch(toCheck::isSameFavouritePerson);
+    }
+
+    /**
      * Returns true if the list contains an equivalent person as the given argument.
      */
     public boolean containsPhone(Person toCheck) {

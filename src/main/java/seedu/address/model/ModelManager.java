@@ -113,6 +113,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasFavouritePerson(Person person) {
+        requireNonNull(person);
+        return addressBook.hasFavouritePerson(person);
+    }
+
+    @Override
     public boolean hasEmail(Person person) {
         requireNonNull(person);
         return addressBook.hasEmail(person);

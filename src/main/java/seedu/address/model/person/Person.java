@@ -94,6 +94,22 @@ public class Person {
     }
 
     /**
+     * Returns true if both persons have the same name, and same favourite
+     * This defines a weaker notion of equality between two persons, but stronger than just name alone.
+     */
+    public boolean isSameFavouritePerson(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+
+        boolean result = otherPerson != null
+                && otherPerson.getName().equals(getName())
+                && otherPerson.getFavourite().equals(getFavourite());
+
+        return result;
+    }
+
+    /**
      * Returns true if both persons have the same email.
      * This defines a weaker notion of equality between two persons.
      */

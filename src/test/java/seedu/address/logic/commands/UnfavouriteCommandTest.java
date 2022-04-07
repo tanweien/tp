@@ -23,6 +23,7 @@ public class UnfavouriteCommandTest {
                 .withEmail("johnd@example.com").withTelegram("@bendsons332")
                 .withPhone("98765432").withFaculty("Computing").withRole("TA")
                 .withFavourite(false).withTags("owesMoney", "friends").build();
+
         UnfavouriteCommand unfavouriteCommand =
                 new UnfavouriteCommand(INDEX_SECOND_PERSON);
 
