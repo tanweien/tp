@@ -161,6 +161,21 @@ _____________________________________________________
 * Extraneous input for commands that do not take in additional information (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   > Example: if the command specifies `help 123`, it will be interpreted as `help`.
 
+* Faculty and Role fields can **only** take the following <span id="acceptable-values">values</span> as input:
+
+|  Faculty  |    Role    |
+|:---------:|:----------:|
+|    CHS    | Professor  |
+| Business  |   Tutor    |
+| Computing |  Lecturer  |
+| Dentistry |     TA     |
+|    CDE    | Researcher |
+|    Law    |   Admin    |
+| Medicine  |   Other    |
+| Pharmacy  |
+|   Music   |          
+|  Others   |            
+
 </div>
 
 __________________________________________________________________________________________________________________________________
@@ -246,11 +261,13 @@ Adds a contact to the contact list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​`
 
+> :spiral_notepad: **NOTE:** When adding faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
+> 
 > :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
-* `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/computing r/professor`
-* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/arts r/TA tele/@BetsyCrowe t/CS2103T t/KentRidge`
+* `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/Computing r/Professor`
+* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/Law r/TA tele/@BetsyCrowe t/CS2103T t/KentRidge`
 
 ### Clear all contacts : `clear`
 
@@ -296,6 +313,8 @@ Edits an existing contact in NUSearch database.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELEGRAM] [t/TAG]…​`
 
+> :spiral_notepad: **NOTE:** When editing the faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
+> 
 > :bulb: **TIP** The edit command features multiple permutations, allowing you to edit multiple fields of a single contact in one command.
 
 Examples:
