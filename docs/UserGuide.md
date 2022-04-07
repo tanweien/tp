@@ -630,7 +630,7 @@ The following commands are used in dealing with copying information of contacts.
 <h3 align="center">NUSearch</h3>
 
   <p align="center">
-    A GUI application to help you quickly search for the contacts of NUS faculty members!
+    A GUI application to help you manage your university contacts!
     <br />
     <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp"><strong>Explore the docs »</strong></a>
     <br />
