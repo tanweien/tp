@@ -275,7 +275,7 @@ Clears all contacts from the NUSearch database.
 
 Format: `clear`
 
-> :exclamation: **WARNING:** This command clears **ALL** contacts in the NUSearch database!
+> :exclamation: **CAUTION:** This command clears **ALL** contacts in the NUSearch database!
 >
 > :bulb: **TIP:** Accidentally cleared the database? Don't worry, checkout our <a href="#undo-a-command--undo">undo</a> function!
 
