@@ -87,12 +87,12 @@ This personalised university contact list ensures that users do not have to cont
         </ul>
     </li>
     <li>
-        <a href="#faq">Frequently asked questions</a>
+        <a href="#faq">Frequently Asked Questions (FAQ)</a>
         <ul>
         </ul>
     </li>
     <li>
-        <a href="#command-summary">Command summary</a>
+        <a href="#command-summary">Command Summary</a>
         <ul>
         </ul>
     </li>
@@ -112,6 +112,7 @@ This personalised university contact list ensures that users do not have to cont
 
 4. Double-click the file to start the app. The GUI (aka Screen) similar to the one below should appear in a few seconds. <br>
 
+> :rainbow: **Colour Scheme:** NUSearch's colour scheme is blue and orange to match the university's traditional colours.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
@@ -120,8 +121,7 @@ This personalised university contact list ensures that users do not have to cont
   <h5 align="center">Figure 1. NUSearch home page</h5>
 </div>
 
-> :rainbow: **Colour Scheme:** NUSearch's colour scheme is blue and orange to match the university's traditional colours.
-> 
+
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    > Some example commands you can try:
    > * **`list`** : Lists all contacts.
@@ -267,7 +267,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/T
 
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/Computing r/Professor`
-* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/Law r/TA tele/@BetsyCrowe t/CS2103T t/KentRidge`
+* `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/Law r/TA tele/@BetsyCrowe t/CS2103T t/Friend`
 
 ### Clear all contacts : `clear`
 
@@ -275,9 +275,9 @@ Clears all contacts from the NUSearch database.
 
 Format: `clear`
 
-> :exclamation: **WARNING** This command clears **ALL** contacts in the NUSearch database!
+> :exclamation: **WARNING:** This command clears **ALL** contacts in the NUSearch database!
 >
-> :bulb: **TIP** Accidentally cleared the database? Don't worry checkout our <a href="#undo-a-command--undo">undo</a> function!
+> :bulb: **TIP:** Accidentally cleared the database? Don't worry, checkout our <a href="#undo-a-command--undo">undo</a> function!
 
 ### Delete a contact : `delete ...`
 
@@ -296,7 +296,7 @@ Deletes a contact from the contact list by an index.
 
 Format: `delete INDEX`
 
-> :bulb: **TIP** Accidentally deleted the wrong contact? Don't worry checkout our <a href="#undo-a-command--undo">undo</a> function!
+> :bulb: **TIP:** Accidentally deleted the wrong contact? Don't worry, checkout our <a href="#undo-a-command--undo">undo</a> function!
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the NUSearch database.
@@ -315,7 +315,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELE
 
 > :spiral_notepad: **NOTE:** When editing the faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
 > 
-> :bulb: **TIP** The edit command features multiple permutations, allowing you to edit multiple fields of a single contact in one command.
+> :bulb: **TIP:** The edit command allows you to edit multiple fields of a single contact in one command.
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
@@ -329,7 +329,7 @@ Displays all contacts in the contact list.
 
 Format: `list`
 
-> :bulb: **TIP:** Contacts listed will be sorted according to the time of addition.
+> :spiral_notepad: **NOTE:** Contacts listed will be sorted according to the time of addition.
 
 ### Undo a command : `undo`
 
@@ -344,8 +344,8 @@ Undo a command that was entered previously.
 
 Format: `undo`
 
-> :bulb: **TIP** This function only works if there are commands to undo.
-> If no command has been previously entered, the undo command will not work.
+> :bulb: **TIP:** This function only works if there are commands to undo.
+> :spiral_notepad: **NOTE:** If no command has been previously entered, the undo command will not work.
 
 Examples:
 * `If you just added a person named John Doe, you can simply revert that action by keying in "undo".`
@@ -364,9 +364,9 @@ Redo a command that was previously done.
 
 Format: `redo`
 
-> :bulb: **TIP** This function only works if there are commands to redo.
+> :bulb: **TIP:** This function only works if there are commands to redo.
 >
-> The “redo” command is the inverse of the “undo” command. It redoes an action that was undone. 
+> :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone. 
 > This is valuable if you accidentally execute the "undo" command too many times.
 
 Examples:
@@ -393,7 +393,7 @@ Find contacts that contain **ALL** the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-> :bulb: **TIP** Use more keywords if you want to **narrow** your search down to a specific  contact.
+> :bulb: **TIP:** Use more keywords if you want to **narrow** your search down to a specific contact.
 
 Examples:
 * `find John` returns `john` and `John Doe`
@@ -420,7 +420,7 @@ Find contacts that contain **ANY** the given keywords.
 
 Format: `find-wide KEYWORD [MORE_KEYWORDS]`
 
-> :bulb: **TIP** Use more keywords if you want to **broaden** your search range
+> :bulb: **TIP:** Use more keywords if you want to **broaden** your search range.
 
 Examples:
 * `find-wide John` returns `john` and `John Doe`
@@ -444,7 +444,9 @@ Find contacts whose attributed tags meet the given keywords.
 
 Format: `tag <TAG> [MORE_TAGS]`
 
-> :bulb: **TIP** Attaching tags to a contact are a way to attach your own meaning to the contact, e.g. Adding the `CS2103T` tag to your professor's contact.
+> :bulb: **TIP:** Attaching tags to a contact is a way for you to attach your own meaning to the contact.
+> 
+>For example, adding the `CS2103T` tag to your professor's contact to indicate that this professor teaches the `CS2103T` module.
 
 Examples:
 * `tag CS2103T` Lists all contacts that have `CS2103T` tag
@@ -465,7 +467,7 @@ Adds a contact to the favorite list.
 
 Format: `fav INDEX`
 
-> :bulb: **TIP** Use this function on contacts that you view frequently!
+> :bulb: **TIP:** Use this function on contacts that you view frequently!
 
 Examples:
 * `fav 1`
@@ -513,7 +515,7 @@ Copies a contact's email address to your clipboard by index
 
 Format: `copy-email INDEX`
 
-> :bulb: **TIP** You can paste the copied email into any text field using the shortcut key combination Ctrl + V on a PC or Command + V on a Mac
+> :bulb: **TIP:** You can paste the copied email into any text field using the shortcut key combination `Ctrl + V` on a PC or `Command + V` on a Mac.
 
 Examples
 * `copy-email 1  will copy the  email of the contact at index 1.`
@@ -529,7 +531,7 @@ Copies a contact's phone number to your clipboard by index
 
 Format: `copy-phone INDEX`
 
-> :bulb: **TIP** You can paste the copied phone number into any text field using the shortcut key combination Ctrl + V on a PC or Command + V on a Mac
+> :bulb: **TIP:** You can paste the copied phone number into any text field using the shortcut key combination `Ctrl + V` on a PC or `Command + V` on a Mac.
 
 Examples
 * `copy-phone 1  will copy the  phone number of the contact at index 1.`
@@ -538,7 +540,7 @@ Examples
 
 ______________________________________________________________________
 
-## Data matters:
+## Data Matters:
 
 ### Saving the data
 
@@ -548,13 +550,13 @@ NUSearch data are saved in the hard disk automatically after any command that ch
 
 NUSearch data are saved as a JSON file `[JAR file location]/data/NUSearch.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, NUSearch will discard all data and start with an empty data file at the next run.
+> :exclamation: **CAUTION:** If your changes to the data file makes its format invalid, NUSearch will discard all data and start with an empty data file at the next run.
+<div markdown="span" class="alert alert-warning">
 </div>
 
 ______________________________________________________________________________________
 
-## FAQ
+## Frequently Asked Questions (FAQ)
 **Q**: Is my data private? <br>
 **A**: Your data is not saved online and is only accessible by you.
 
@@ -563,7 +565,7 @@ ________________________________________________________________________________
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command Summary
 
 
 ### Category: General Commands
