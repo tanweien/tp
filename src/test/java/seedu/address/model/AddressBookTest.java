@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_BOB;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.*;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -76,6 +75,46 @@ public class AddressBookTest {
         Person editedAlice = new PersonBuilder(ALICE).withTelegram(VALID_TELEGRAM_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(addressBook.hasPerson(editedAlice));
+    }
+
+    @Test
+    public void hasFavouritePerson_nullPerson_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> addressBook.hasFavouritePerson(null));
+    }
+
+    @Test
+    public void hasFavouritePerson_personNotInAddressBook_returnsFalse() {
+        assertFalse(addressBook.hasFavouritePerson(ALICE));
+    }
+
+    @Test
+    public void hasFavouritePerson_personInAddressBook_returnsTrue() {
+        addressBook.addPerson(ALICE);
+        assertTrue(addressBook.hasFavouritePerson(ALICE));
+    }
+
+    @Test
+    public void hasFavouritePerson_personWithDifferentFavouriteTrue_returnsFalse() {
+        addressBook.addPerson(ALICE);
+        Person editedAlice = new PersonBuilder(ALICE).withFavourite(true)
+                .build();
+        assertFalse(addressBook.hasFavouritePerson(editedAlice));
+    }
+
+    @Test
+    public void hasFavouritePerson_personWithDifferentFavouriteFalse_returnsFalse() {
+        addressBook.addPerson(BENSON);
+        Person editedBenson = new PersonBuilder(BENSON).withFavourite(false)
+                .build();
+        assertFalse(addressBook.hasFavouritePerson(editedBenson));
+    }
+
+    @Test
+    public void hasFavouritePerson_personWithSameFavourite_returnsTrue() {
+        addressBook.addPerson(ALICE);
+        Person editedAlice = new PersonBuilder(ALICE).withFavourite(false)
+                .build();
+        assertTrue(addressBook.hasFavouritePerson(editedAlice));
     }
 
     @Test
