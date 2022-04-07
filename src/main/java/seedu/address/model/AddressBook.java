@@ -71,6 +71,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Returns true if a person with the same identity and favourite as {@code person} exists in the address book.
+     */
+    public boolean hasFavouritePerson(Person person) {
+        requireNonNull(person);
+        return persons.containsFavouriteName(person);
+    }
+
+    /**
      * Returns true if a person with the same email as {@code person} exists in the address book.
      */
     public boolean hasEmail(Person person) {

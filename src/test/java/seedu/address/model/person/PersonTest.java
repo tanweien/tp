@@ -59,6 +59,38 @@ public class PersonTest {
     }
 
     @Test
+    public void isSameFavouritePerson() {
+        // same object -> returns true
+        assertTrue(ALICE.isSameFavouritePerson(ALICE));
+
+        // null -> returns false
+        assertFalse(ALICE.isSameFavouritePerson(null));
+
+        // same name and favourite, all other attributes different -> returns true
+        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
+                .withFaculty(VALID_FACULTY_BOB).withRole(VALID_ROLE_BOB).withTelegram(VALID_TELEGRAM_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(ALICE.isSameFavouritePerson(editedAlice));
+
+        // same name, different favourite -> returns false
+        editedAlice = new PersonBuilder(ALICE).withFavourite(VALID_FAVOURITE_AMY).build();
+        assertFalse(ALICE.isSameFavouritePerson(editedAlice));
+
+        // different name, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertFalse(ALICE.isSameFavouritePerson(editedAlice));
+
+        // name differs in case, all other attributes same -> returns false
+        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase()).build();
+        assertFalse(BOB.isSameFavouritePerson(editedBob));
+
+        // name has trailing spaces, all other attributes same -> returns false
+        String nameWithTrailingSpaces = VALID_NAME_BOB + " ";
+        editedBob = new PersonBuilder(BOB).withName(nameWithTrailingSpaces).build();
+        assertFalse(BOB.isSameFavouritePerson(editedBob));
+    }
+
+    @Test
     public void equals() {
         // same values -> returns true
         Person aliceCopy = new PersonBuilder(ALICE).build();

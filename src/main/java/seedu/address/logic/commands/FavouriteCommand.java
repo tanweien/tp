@@ -62,12 +62,11 @@ public class FavouriteCommand extends Command {
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         Person favouritedPerson = createFavouritedPerson(personToFavourite);
 
-        if (!personToFavourite.isSamePerson(favouritedPerson) && model.hasPerson(favouritedPerson)) {
+        if (personToFavourite.isSameFavouritePerson(favouritedPerson) && model.hasFavouritePerson(favouritedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
         model.setPerson(personToFavourite, favouritedPerson);
-        // model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, favouritedPerson));
     }
 
