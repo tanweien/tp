@@ -1,7 +1,10 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandUnExecuteSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -36,6 +39,16 @@ public class UnfavouriteCommandTest {
         expectedModel.setPerson(model.getFilteredPersonList().get(1), benson);
 
         assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_personAlreadyUnfavourite_failure() {
+        Person person = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+
+        assertTrue(person.getFavourite().isFavourite == false);
+
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(INDEX_FIRST_PERSON);
+        assertCommandFailure(unfavouriteCommand, model, UnfavouriteCommand.MESSAGE_DUPLICATE_PERSON);
     }
 
     @Test
