@@ -9,18 +9,18 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 --------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
- As a NUS student, you may find it tough to manage your university related contacts. 
+ As a NUS student, you may find it tough to manage your university related contacts.
  There are platforms such as Luminus that provide you with the relevant contacts for the modules that you are taking.
- However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts. 
+ However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts.
 
- As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs. 
+ As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs.
 
 > Examples of how NUSearch operates as a university specific contact list:
 >1. Faculty and role are mandatory fields to be filled in to make sure that each contact has a given faculty and role.
 >2. As NUS students and staff often use Telegram as a form a communication, there is an optional field to store each contact's telegram username.
 >3. Each user is able to filter out their contacts based on faculty and role.
 
-This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list. 
+This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -129,14 +129,14 @@ This personalised university contact list ensures that users do not have to cont
    > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
    > * **`clear`** : Deletes all contacts.
    > * **`exit`** : Exits the app.
-   
+ 
 _____________________________________________________
 ## Notes before use:
 
 <div markdown="block" class="alert alert-info">
 
 * Words in `UPPER_CASE` are the information to be supplied by the user.<br>
-  e.g. in `add n/NAME`, 
+  e.g. in `add n/NAME`,
   > Example: `NAME` is a type of input which can be used as `add n/John Doe`.
 
 
@@ -173,8 +173,8 @@ _____________________________________________________
 |    Law    |   Admin    |
 | Medicine  |   Other    |
 | Pharmacy  |
-|   Music   |          
-|  Others   |            
+|   Music   |
+|  Others   |        
 
 </div>
 
@@ -262,7 +262,7 @@ Adds a contact to the contact list.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​`
 
 > :spiral_notepad: **NOTE:** When adding faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
-> 
+>
 > :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
@@ -314,7 +314,7 @@ Edits an existing contact in NUSearch database.
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELEGRAM] [t/TAG]…​`
 
 > :spiral_notepad: **NOTE:** When editing the faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
-> 
+>
 > :bulb: **TIP:** The edit command allows you to edit multiple fields of a single contact in one command.
 
 Examples:
@@ -366,7 +366,7 @@ Format: `redo`
 
 > :bulb: **TIP:** This function only works if there are commands to redo.
 >
-> :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone. 
+> :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone.
 > This is valuable if you accidentally execute the "undo" command too many times.
 
 Examples:
@@ -445,7 +445,7 @@ Find contacts whose attributed tags meet the given keywords.
 Format: `tag <TAG> [MORE_TAGS]`
 
 > :bulb: **TIP:** Attaching tags to a contact is a way for you to attach your own meaning to the contact.
-> 
+>
 >For example, adding the `CS2103T` tag to your professor's contact to indicate that this professor teaches the `CS2103T` module.
 
 Examples:
