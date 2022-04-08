@@ -115,6 +115,5 @@ public class PersonTest {
         Person y = ALICE;
         assertTrue(x.equals(y) && y.equals(x));
         assertTrue(x.hashCode() == y.hashCode());
-        assertTrue(x.toString().equals(y.toString()));
     }
 }
