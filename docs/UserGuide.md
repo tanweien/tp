@@ -129,7 +129,6 @@ This personalised university contact list ensures that users do not have to cont
    > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
    > * **`clear`** : Deletes all contacts.
    > * **`exit`** : Exits the app.
- 
 _____________________________________________________
 ## Notes before use:
 
@@ -174,7 +173,7 @@ _____________________________________________________
 | Medicine  |   Other    |
 | Pharmacy  |
 |   Music   |
-|  Others   |        
+|  Others   |
 
 </div>
 
