@@ -1,5 +1,7 @@
 package seedu.address.model.person;
 
+import java.util.Locale;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -35,7 +37,13 @@ public class Role {
     public Role(String role) {
         requireNonNull(role);
         checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS);
-        value = role;
+
+        // "TA" is the only unique case where the entire string is in upper case
+        if (role.equalsIgnoreCase("TA")) {
+            value = role.toUpperCase();
+        } else {
+            value = role.substring(0,1).toUpperCase() + role.substring(1).toLowerCase();
+        }
     }
 
     /**
