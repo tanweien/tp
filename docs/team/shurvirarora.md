@@ -16,7 +16,7 @@ Given below are my contributions to the project.
     * Highlights: This enhancement affects some existing commands. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
 
 * **New Feature**: Added the Role field for each contact.
-    * What it does: allows the user to add a role for each contact 
+    * What it does: allows the user to add a role for each contact
     * Justification: This feature improves the product significantly because a user could now further organise their contacts by specifying the role of each contact. This also makes  the application university specific, hence contributing to the  context.
     * Highlights: This enhancement affects some existing commands. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
 
