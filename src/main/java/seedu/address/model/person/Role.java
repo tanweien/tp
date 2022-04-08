@@ -1,6 +1,5 @@
 package seedu.address.model.person;
 
-import java.util.Locale;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
@@ -42,7 +41,7 @@ public class Role {
         if (role.equalsIgnoreCase("TA")) {
             value = role.toUpperCase();
         } else {
-            value = role.substring(0,1).toUpperCase() + role.substring(1).toLowerCase();
+            value = role.substring(0, 1).toUpperCase() + role.substring(1).toLowerCase();
         }
     }
 
@@ -50,14 +49,14 @@ public class Role {
      * Returns true if a given string is a valid role.
      */
     public static boolean isValidRole(String test) {
-        return test.matches(VALIDATION_REGEX) &&
-                (test.equalsIgnoreCase("Professor") ||
-                        test.equalsIgnoreCase("Tutor") ||
-                        test.equalsIgnoreCase("Lecturer") ||
-                        test.equalsIgnoreCase("TA") ||
-                        test.equalsIgnoreCase("Researcher") ||
-                        test.equalsIgnoreCase("Admin") ||
-                        test.equalsIgnoreCase("Other"));
+        return test.matches(VALIDATION_REGEX)
+                && (test.equalsIgnoreCase("Professor")
+                || test.equalsIgnoreCase("Tutor")
+                || test.equalsIgnoreCase("Lecturer")
+                || test.equalsIgnoreCase("TA")
+                || test.equalsIgnoreCase("Researcher")
+                || test.equalsIgnoreCase("Admin")
+                || test.equalsIgnoreCase("Other"));
     }
 
     @Override
