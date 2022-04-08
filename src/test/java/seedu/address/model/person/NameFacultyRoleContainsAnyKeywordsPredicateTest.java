@@ -82,8 +82,8 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
         assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
 
         // Multiple keywords
-        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Computing", "Others"));
-        assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
+        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Medicine", "Others"));
+        assertTrue(predicate.test(new PersonBuilder().withFaculty("Medicine").build()));
         assertTrue(predicate.test(new PersonBuilder().withFaculty("Others").build()));
 
         // Only one matching keyword, other non-faculty
@@ -144,9 +144,9 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
     public void test_nameFacultyRoleContainKeywords_returnsTrue() {
         // Keywords match faculty only
         NameFacultyRoleContainsAnyKeywordsPredicate predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(
-                Arrays.asList("Computing"));
+                Arrays.asList("CDE"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice").withPhone("67891")
-                .withEmail("doesNotMatch@gmail.com").withFaculty("Computing").withRole("Professor")
+                .withEmail("doesNotMatch@gmail.com").withFaculty("CDE").withRole("Professor")
                 .withTelegram("@doesNotMatch").build()));
 
         // Keywords match name only
