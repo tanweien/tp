@@ -17,23 +17,31 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String USERGUIDE_URL =
         "https://ay2122s2-cs2103t-w11-4.github.io/tp/UserGuide.html";
     private static final String HELP_ADD_MESSAGE =
-            "\nTo add contact:\n        add n/{name} e/{email} a/{address}\n";
+            "\nTo add contact:\n        add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE "
+            + "[tele/TELEGRAM] [t/TAG]...\n";
     private static final String HELP_LIST_MESSAGE =
             "\nTo display all contacts:\n        list (IMPT: use 'list' to view index of contact when required)\n";
     private static final String HELP_EDIT_MESSAGE =
-            "\nTo edit:\n        edit {index} [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [t/TAG]\n";
+            "\nTo edit:\n        edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] "
+            + "[tele/TELEGRAM] [t/TAG]...\n";
     private static final String HELP_FAV_MESSAGE =
-            "\nTo add a contact to favourites:\n        fav {index}\n";
+            "\nTo add a contact to favourites:\n        fav INDEX\n";
     private static final String HELP_UNFAV_MESSAGE =
-            "\nTo remove a contact from favourites:\n        unfav {index} (IMPT: use 'list-fav' to view index)\n";
+            "\nTo remove a contact from favourites:\n        unfav INDEX (IMPT: use 'list-fav' to view index)\n";
     private static final String HELP_LISTFAV_MESSAGE =
             "\nTo display all favourite contacts:\n        list-fav\n";
     private static final String HELP_FIND_MESSAGE =
-            "\nTo find contacts that contains any of the given keywords:\n        find {name} [MORE_KEYWORDS]\n";
+            "\nTo find contacts that contains all of the given keywords:\n        find KEYWORD [MORE_KEYWORDS]\n";
+    private static final String HELP_FIND_WIDE_MESSAGE =
+            "\nTo find contacts that contains any of the given keywords:\n        find-wide KEYWORD [MORE_KEYWORDS]\n";
     private static final String HELP_TAG_MESSAGE =
-            "\nTo find contacts that contains any of the given tags:\n        tag {Keyword} [MORE_KEYWORDS]\n";
+            "\nTo find contacts that contains any of the given tags:\n        tag KEYWORD [MORE_KEYWORDS]\n";
+    private static final String HELP_COPY_EMAIL_MESSAGE =
+            "\nTo copy email of a contact:\n        copy-email INDEX\n";
+    private static final String HELP_COPY_PHONE_MESSAGE =
+            "\nTo copy phone number of a contact:\n        copy-phone INDEX\n";
     private static final String HELP_DELETE_MESSAGE =
-            "\nTo delete a contact:\n        delete {index}\n";
+            "\nTo delete a contact:\n        delete INDEX\n";
     private static final String HELP_CLEAR_MESSAGE =
             "\nTo delete all contacts:\n        clear\n";
     private static final String HELP_UNDO_MESSAGE =
@@ -51,7 +59,10 @@ public class HelpWindow extends UiPart<Stage> {
             + HELP_UNFAV_MESSAGE
             + HELP_LISTFAV_MESSAGE
             + HELP_FIND_MESSAGE
+            + HELP_FIND_WIDE_MESSAGE
             + HELP_TAG_MESSAGE
+            + HELP_COPY_EMAIL_MESSAGE
+            + HELP_COPY_PHONE_MESSAGE
             + HELP_DELETE_MESSAGE
             + HELP_CLEAR_MESSAGE
             + HELP_UNDO_MESSAGE
