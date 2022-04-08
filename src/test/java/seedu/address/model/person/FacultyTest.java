@@ -30,8 +30,8 @@ public class FacultyTest {
 
         // valid faculties
         assertTrue(Faculty.isValidFaculty("Computing"));
-        assertTrue(Faculty.isValidFaculty("-")); // one character
-        assertTrue(Faculty.isValidFaculty("College of Humanities and Sciences")); // long faculty
+        assertTrue(Faculty.isValidFaculty("cOMputing")); // different casing
+        assertTrue(Faculty.isValidFaculty("CHS")); // short faculty
     }
 
     @Test

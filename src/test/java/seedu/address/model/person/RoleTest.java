@@ -30,8 +30,8 @@ public class RoleTest {
 
         // valid faculties
         assertTrue(Role.isValidRole("Professor"));
-        assertTrue(Role.isValidRole("-")); // one character
-        assertTrue(Role.isValidRole("Teaching Assistant")); // long role
+        assertTrue(Role.isValidRole("TA")); // short role
+        assertTrue(Role.isValidRole("pROFessor")); // role with different case
     }
 
     @Test
