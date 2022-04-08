@@ -31,6 +31,7 @@ public class FacultyTest {
         assertFalse(Faculty.isValidFaculty(" Computing")); // whitespace before faculty string
         assertFalse(Faculty.isValidFaculty("C HS")); // whitespace between characters in string
         assertFalse(Faculty.isValidFaculty("Computing Business")); // two separate valid faculties
+        assertFalse(Faculty.isValidFaculty("TA")); // role instead of faculty
 
 
         // valid faculties

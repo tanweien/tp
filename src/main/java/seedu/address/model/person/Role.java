@@ -37,7 +37,6 @@ public class Role {
         requireNonNull(role);
         checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS);
 
-        // "TA" is the only unique case where the entire string is in upper case
         if (role.equalsIgnoreCase("TA")) {
             value = role.toUpperCase();
         } else {
