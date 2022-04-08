@@ -27,6 +27,11 @@ public class FacultyTest {
         // invalid faculties
         assertFalse(Faculty.isValidFaculty("")); // empty string
         assertFalse(Faculty.isValidFaculty(" ")); // spaces only
+        assertFalse(Faculty.isValidFaculty("Sociology")); // invalid faculty
+        assertFalse(Faculty.isValidFaculty(" Computing")); // whitespace before faculty string
+        assertFalse(Faculty.isValidFaculty("C HS")); // whitespace between characters in string
+        assertFalse(Faculty.isValidFaculty("Computing Business")); // two separate valid faculties
+
 
         // valid faculties
         assertTrue(Faculty.isValidFaculty("Computing"));
