@@ -37,6 +37,7 @@ public class RoleTest {
         assertTrue(Role.isValidRole("Professor"));
         assertTrue(Role.isValidRole("TA")); // short role
         assertTrue(Role.isValidRole("pROFessor")); // role with different case
+        assertTrue(Role.isValidRole("Others")); // test for others as a valid role
     }
 
     @Test

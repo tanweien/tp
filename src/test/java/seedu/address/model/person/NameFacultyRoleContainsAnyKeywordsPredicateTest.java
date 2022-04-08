@@ -82,9 +82,9 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
         assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
 
         // Multiple keywords
-        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Computing", "Business"));
+        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Computing", "Others"));
         assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
-        assertTrue(predicate.test(new PersonBuilder().withFaculty("Business").build()));
+        assertTrue(predicate.test(new PersonBuilder().withFaculty("Others").build()));
 
         // Only one matching keyword, other non-faculty
         predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Business", "Professor"));
@@ -118,13 +118,13 @@ public class NameFacultyRoleContainsAnyKeywordsPredicateTest {
         assertTrue(predicate.test(new PersonBuilder().withRole("Professor").build()));
 
         // Only one matching keyword
-        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Professor", "TA"));
-        assertTrue(predicate.test(new PersonBuilder().withRole("Professor").build()));
+        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("Tutor", "TA"));
+        assertTrue(predicate.test(new PersonBuilder().withRole("Tutor").build()));
 
         // Mixed-case keywords
-        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("prOfesSor", "tA"));
-        assertTrue(predicate.test(new PersonBuilder().withRole("Professor").build()));
-        assertTrue(predicate.test(new PersonBuilder().withRole("TA").build()));
+        predicate = new NameFacultyRoleContainsAnyKeywordsPredicate(Arrays.asList("oTHErS", "lEctureR"));
+        assertTrue(predicate.test(new PersonBuilder().withRole("Others").build()));
+        assertTrue(predicate.test(new PersonBuilder().withRole("Lecturer").build()));
     }
 
     @Test

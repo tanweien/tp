@@ -38,6 +38,8 @@ public class FacultyTest {
         assertTrue(Faculty.isValidFaculty("Computing"));
         assertTrue(Faculty.isValidFaculty("cOMputing")); // different casing
         assertTrue(Faculty.isValidFaculty("CHS")); // short faculty
+        assertTrue(Faculty.isValidFaculty("Others")); // test for others as a valid faculty
+
     }
 
     @Test

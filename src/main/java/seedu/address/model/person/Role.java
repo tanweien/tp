@@ -55,7 +55,7 @@ public class Role {
                 || test.equalsIgnoreCase("TA")
                 || test.equalsIgnoreCase("Researcher")
                 || test.equalsIgnoreCase("Admin")
-                || test.equalsIgnoreCase("Other"));
+                || test.equalsIgnoreCase("Others"));
     }
 
     @Override
