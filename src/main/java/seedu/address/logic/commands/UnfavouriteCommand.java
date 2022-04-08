@@ -60,7 +60,8 @@ public class UnfavouriteCommand extends Command {
         modelMemento.setModel(new ModelManager(model.makeCopy()));
         Person unfavouritedPerson = createUnfavouritedPerson(personToUnfavourite);
 
-        if (!personToUnfavourite.isSamePerson(unfavouritedPerson) && model.hasPerson(unfavouritedPerson)) {
+        if (personToUnfavourite.isSameFavouritePerson(unfavouritedPerson)
+                && model.hasFavouritePerson(unfavouritedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 

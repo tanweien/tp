@@ -175,6 +175,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasFavouritePerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasEmail(Person person) {
             throw new AssertionError("This method should not be called.");
         }
