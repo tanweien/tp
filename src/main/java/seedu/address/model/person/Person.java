@@ -129,23 +129,23 @@ public class Person {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append("; Phone: ")
+                .append("; \nPhone    : ")
                 .append(getPhone())
-                .append("; Email: ")
+                .append("; \nEmail    : ")
                 .append(getEmail())
-                .append("; Faculty: ")
+                .append("; \nFaculty  : ")
                 .append(getFaculty())
-                .append("; Role: ")
+                .append("; \nRole     : ")
                 .append(getRole())
-                .append("; Telegram: ")
+                .append("; \nTelegram : ")
                 .append(getTelegram())
-                .append("; Favourite: ")
+                .append("; \nFavourite: ")
                 .append(getFavourite());
 
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
-            builder.append("; Tags: ");
+            builder.append("; \nTags     : ");
             tags.forEach(builder::append);
         }
 
