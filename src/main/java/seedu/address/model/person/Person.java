@@ -129,15 +129,15 @@ public class Person {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append("; \nPhone    : ")
+                .append("; \nPhone: ")
                 .append(getPhone())
-                .append("; \nEmail    : ")
+                .append("; \nEmail: ")
                 .append(getEmail())
-                .append("; \nFaculty  : ")
+                .append("; \nFaculty: ")
                 .append(getFaculty())
-                .append("; \nRole     : ")
+                .append("; \nRole: ")
                 .append(getRole())
-                .append("; \nTelegram : ")
+                .append("; \nTelegram: ")
                 .append(getTelegram())
                 .append("; \nFavourite: ")
                 .append(getFavourite());
@@ -145,7 +145,7 @@ public class Person {
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
-            builder.append("; \nTags     : ");
+            builder.append("; \nTags: ");
             tags.forEach(builder::append);
         }
 
