@@ -126,21 +126,21 @@ public class PersonTest {
         Person y = BOB;
         final StringBuilder builder = new StringBuilder();
         builder.append(ALICE.getName())
-                .append("; \nPhone    : ")
+                .append("; \nPhone: ")
                 .append(ALICE.getPhone())
-                .append("; \nEmail    : ")
+                .append("; \nEmail: ")
                 .append(ALICE.getEmail())
-                .append("; \nFaculty  : ")
+                .append("; \nFaculty: ")
                 .append(ALICE.getFaculty())
-                .append("; \nRole     : ")
+                .append("; \nRole: ")
                 .append(ALICE.getRole())
-                .append("; \nTelegram : ")
+                .append("; \nTelegram: ")
                 .append(ALICE.getTelegram())
                 .append("; \nFavourite: ")
                 .append(ALICE.getFavourite());
         Set<Tag> tags = ALICE.getTags();
         if (!tags.isEmpty()) {
-            builder.append("; \nTags     : ");
+            builder.append("; \nTags: ");
             tags.forEach(builder::append);
         }
         String alice = builder.toString();
