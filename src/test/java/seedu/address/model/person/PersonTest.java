@@ -14,8 +14,11 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
@@ -147,5 +150,35 @@ public class PersonTest {
         Person y = ALICE;
         assertTrue(x.equals(y) && y.equals(x));
         assertTrue(x.hashCode() == y.hashCode());
+    }
+
+    @Test
+    public void testToString() {
+        Person x = ALICE;
+        Person y = BOB;
+        final StringBuilder builder = new StringBuilder();
+        builder.append(ALICE.getName())
+                .append("; \nPhone: ")
+                .append(ALICE.getPhone())
+                .append("; \nEmail: ")
+                .append(ALICE.getEmail())
+                .append("; \nFaculty: ")
+                .append(ALICE.getFaculty())
+                .append("; \nRole: ")
+                .append(ALICE.getRole())
+                .append("; \nTelegram: ")
+                .append(ALICE.getTelegram())
+                .append("; \nFavourite: ")
+                .append(ALICE.getFavourite());
+        Set<Tag> tags = ALICE.getTags();
+        if (!tags.isEmpty()) {
+            builder.append("; \nTags: ");
+            tags.forEach(builder::append);
+        }
+        String alice = builder.toString();
+        assertTrue(x.toString().equals(x.toString()));
+        assertTrue(x.toString().equals(alice));
+        assertFalse(x.toString().equals(y.toString()));
+
     }
 }
