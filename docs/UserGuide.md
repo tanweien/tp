@@ -1,26 +1,23 @@
 ---
 layout: page
-title: NUSearch User Guide V1.3
+title: NUSearch User Guide
 ---
 
 NUSearch is a **desktop app for managing NUS staff contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
-If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI apps.
+If you can type fast, NUSearch can get your contact management tasks done faster than traditional GUI applications.
 
 --------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
- As a NUS student, you may find it tough to manage your university related contacts. 
- There are platforms such as Luminus that provide you with the relevant contacts for the modules that you are taking.
- However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts. 
+ NUS students may find it tough to manage university related contacts. 
+ Despite platforms such as Luminus that provides students with relevant contact information for modules, there is no dedicated system that is customised to assist students in maintaining their NUS contacts. 
 
- As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs. 
+ As such, NUSearch is an application that meets this need by allowing students to maintain a university-specific contact list customised to suit the needs of students. 
 
 > Examples of how NUSearch operates as a university specific contact list:
 >1. Faculty and role are mandatory fields to be filled in to make sure that each contact has a given faculty and role.
 >2. As NUS students and staff often use Telegram as a form a communication, there is an optional field to store each contact's telegram username.
 >3. Each user is able to filter out their contacts based on faculty and role.
-
-This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list. 
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -87,7 +84,7 @@ This personalised university contact list ensures that users do not have to cont
         </ul>
     </li>
     <li>
-        <a href="#faq">Frequently Asked Questions (FAQ)</a>
+        <a href="#frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</a>
         <ul>
         </ul>
     </li>
@@ -104,7 +101,7 @@ This personalised university contact list ensures that users do not have to cont
 1. Ensure that you have Java `11` or above installed in your Computer.
 
 
-2. Download the latest `NUSearch.jar` from [here](https://github.com/se-edu/NUSearch/releases).
+2. Download the latest `NUSearch.jar` from [here](https://github.com/AY2122S2-CS2103T-W11-4/tp/releases).
 
 
 3. Copy the file to the folder you want to use to store NUSearch.
@@ -116,21 +113,25 @@ This personalised university contact list ensures that users do not have to cont
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/Ui.png" width="80%">
+    <img src="images/Ui.png" width="90%">
   </a>
   <h5 align="center">Figure 1. NUSearch home page</h5>
 </div>
 
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+
+
    > Some example commands you can try:
-   > * **`list`** : Lists all contacts.
-   > * **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing r/Professor` : Adds a contact named `John Doe` to the NUSearch.
-   > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-   > * **`clear`** : Deletes all contacts.
-   > * **`exit`** : Exits the app.
+   >* **`list`** : Lists all contacts.
+   >* **`add`**`n/John Doe p/98765432 e/johnd@example.com f/Computing r/Professor` : Adds a contact named `John Doe` to the NUSearch.
+   >* **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   >* **`clear`** : Deletes all contacts.
+   >* **`exit`** : Exits the app.
    
 _____________________________________________________
+
+
 ## Notes before use:
 
 <div markdown="block" class="alert alert-info">
@@ -165,15 +166,15 @@ _____________________________________________________
 
 |  Faculty  |    Role    |
 |:---------:|:----------:|
+| Business  |   Admin    |
+|    CDE    |  Lecturer  |
 |    CHS    | Professor  |
-| Business  |   Tutor    |
-| Computing |  Lecturer  |
+| Computing | Researcher |
 | Dentistry |     TA     |
-|    CDE    | Researcher |
-|    Law    |   Admin    |
+|    Law    |   Tutor    |
 | Medicine  |   Other    |
-| Pharmacy  |
-|   Music   |          
+|   Music   |
+| Pharmacy  |          
 |  Others   |            
 
 </div>
@@ -244,7 +245,7 @@ Shows a summative list of available commands for you to input.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/help-message.png" width="80%">
+    <img src="images/help-message.png" width="90%">
   </a>
   <h5 align="center">Figure 2. Help message screen</h5>
 </div>
@@ -299,7 +300,7 @@ Format: `delete INDEX`
 > :bulb: **TIP:** Accidentally deleted the wrong contact? Don't worry, checkout our <a href="#undo-a-command--undo">undo</a> function!
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the NUSearch database.
+* `delete 2` deletes the 2nd person in the current displayed list.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ### Edit a contact : `edit ...`
@@ -318,10 +319,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELE
 > :bulb: **TIP:** The edit command allows you to edit multiple fields of a single contact in one command.
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
-* `edit 3 f/Computing r/TA` Edits the faculty of the 3rd contact to be `Computing` and role to be `TA`
-* `edit 1 tele/@hackerway101` Edits the Telegram username of the 1st contact to `@hackerway101`
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact in the current displayed list to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact in the current displayed list to be `Betsy Crower` and clears all existing tags.
+* `edit 3 f/Computing r/TA` Edits the faculty of the 3rd contact in the current displayed list to be `Computing` and role to be `TA`
+* `edit 1 tele/@hackerway101` Edits the Telegram username of the 1st contact in the current displayed list to `@hackerway101`
 
 ### List all contacts : `list`
 
@@ -337,7 +338,7 @@ Undo a command that was entered previously.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/undo.png" width="80%">
+    <img src="images/undo.png" width="90%">
   </a>
 <h5 align="center">Figure 4. Undo a delete command</h5>
 </div>
@@ -345,7 +346,9 @@ Undo a command that was entered previously.
 Format: `undo`
 
 > :bulb: **TIP:** This function only works if there are commands to undo.
+>
 > :spiral_notepad: **NOTE:** If no command has been previously entered, the undo command will not work.
+> `Undo` does not work on `copy-email` and `copy-phone` commands.
 
 Examples:
 * `If you just added a person named John Doe, you can simply revert that action by keying in "undo".`
@@ -357,7 +360,7 @@ Redo a command that was previously done.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/redo.png" width="80%">
+    <img src="images/redo.png" width="90%">
   </a>
 <h5 align="center">Figure 5. Redo a delete command</h5>
 </div>
@@ -365,9 +368,10 @@ Redo a command that was previously done.
 Format: `redo`
 
 > :bulb: **TIP:** This function only works if there are commands to redo.
->
+> 
 > :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone. 
 > This is valuable if you accidentally execute the "undo" command too many times.
+> `Redo` does not work on `copy-email` and `copy-phone` commands.
 
 Examples:
 * `If you just added a person named John Doe, proceeded to undo that action, and then perform the "redo" command, the person John Doe will still be added as a contact.`
@@ -389,7 +393,7 @@ Find contacts that contain **ALL** the given keywords.
 * The search is case-insensitive. e.g `shur` will match `Shur`
 * The order of the keywords do not matter. e.g. `Wei En` will match `En Wei`
 * Only full words will be matched e.g. `Jiamin` will not match `Jiaming`
-* Only persons matching ALL keywords will be returned e.g. `find David Computing` will only return contacts with `David` **AND** `Computing` as part of their keywords.
+* Only persons matching **ALL** keywords will be returned e.g. `find David Computing` will only return contacts with `David` **AND** `Computing` as part of their keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -407,7 +411,7 @@ Find contacts that contain **ANY** the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/find.png" width="80%">
+    <img src="images/find.png" width="90%">
   </a>
 <h5 align="center">Figure 7. Finding contacts with the keywords Daniel and TA </h5>
 </div>
@@ -425,8 +429,8 @@ Format: `find-wide KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find-wide John` returns `john` and `John Doe`
 * `find-wide John Doe` returns `John Doe Lee`, `John Loo Doe` and `John Moo`
-* `find-wide David Computing` returns contacts with the name `David` **or** are from `Computing`
-* `find-wide David Professor` returns contacts with the name `David` **or** have `Professor` as their role
+* `find-wide David Computing` returns **ALL** contacts with the name `David` **or** are from `Computing`
+* `find-wide David Professor` returns **ALL** contacts with the name `David` **or** have `Professor` as their role
 
 ### Find contacts by tags: `tag ...`
 
@@ -434,7 +438,7 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/tag-friends.png" width="50%">
+    <img src="images/tag-friends.png" width="90%">
   </a>
 <h5 align="center">Figure 8. Finding contacts with the 'family' tag</h5>
 </div>
