@@ -33,11 +33,11 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=shurvirarora&breakdown=true)
 
 * **Project management**:
-    * Managed releases `v1.1` - `v1.3` (4 releases) on GitHub.
+    * Managed releases `v1.1` - `v1.4` (5 releases) on GitHub.
 
 * **Enhancements to existing features**:
     * Improved the Find feature to include Faculty and Role in addition to Name. Users can now find contacts via Name, Role and Faculty.
-    * Wrote additional tests for existing features to increase coverage. (Pull requests [\#101](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/101), [\#77](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/77)), [\#59](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/59))
+    * Wrote additional tests for existing features to increase coverage. (Pull requests [\#101](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/101), [\#77](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/77), [\#59](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/59))
 
 * **Documentation**:
     * User Guide:

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: NUSearch Developer Guide V1.3
+title: NUSearch Developer Guide
 ---
 --------------------------------------------------------------------------------------------------------------------
 
