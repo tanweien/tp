@@ -21,7 +21,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=zoom&zFR=false&zA=tanweien&zR=AY2122S2-CS2103T-W11-4%2Ftp%5Bmaster%5D&zACS=198.13128430296376&zS=2022-02-18&zFS=&zU=2022-04-08&zMG=false&zFTF=commit&zFGS=groupByRepos)
 
 * **Project management**:
-    * Managed releases `v1.1` - `v1.3` (4 releases) on GitHub
+    * Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
 
 * **Enhancements to existing features**:
     * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
