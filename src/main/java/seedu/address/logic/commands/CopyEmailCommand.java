@@ -25,8 +25,10 @@ public class CopyEmailCommand extends Command {
     public static final String COMMAND_WORD = "copy-email";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Copies the email address of person identified by the index number used in the displayed person list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
+            + ": Copies the email address of person identified by the\n"
+            + "            index number used in the displayed person list.\n"
+            + "Parameters: INDEX (must be a positive integer greater than\n"
+            + "            0 and less than 2147483648)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_COPY_PERSON_SUCCESS = "Copied email address: %1$s";

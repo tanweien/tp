@@ -29,9 +29,10 @@ public class FavouriteCommand extends Command {
     public static final String COMMAND_WORD = "fav";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Changes the favourite status of a person identified "
-            + "by the index number used in the displayed person list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
+            + ": Changes the favourite status of a person identified by\n"
+            + "     the index number used in the displayed person list.\n"
+            + "Parameters: INDEX (must be a positive integer greater than\n"
+            + "            0 and less than 2147483648)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
 

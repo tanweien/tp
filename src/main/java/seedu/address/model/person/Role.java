@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -10,13 +11,21 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Role {
 
 
-    public static final String MESSAGE_CONSTRAINTS = "Role can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Role should not be blank "
+            + "and should only have the following values\n"
+            + "1. Professor\n"
+            + "2. Tutor\n"
+            + "3. Lecturer\n"
+            + "4. TA\n"
+            + "3. Researcher\n"
+            + "5. Admin\n"
+            + "6. Other";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "^[A-Za-z]+$";
     public final String value;
 
     /**
@@ -27,14 +36,26 @@ public class Role {
     public Role(String role) {
         requireNonNull(role);
         checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS);
-        value = role;
+
+        if (role.equalsIgnoreCase("TA")) {
+            value = role.toUpperCase();
+        } else {
+            value = role.substring(0, 1).toUpperCase() + role.substring(1).toLowerCase();
+        }
     }
 
     /**
      * Returns true if a given string is a valid role.
      */
     public static boolean isValidRole(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX)
+                && (test.equalsIgnoreCase("Professor")
+                || test.equalsIgnoreCase("Tutor")
+                || test.equalsIgnoreCase("Lecturer")
+                || test.equalsIgnoreCase("TA")
+                || test.equalsIgnoreCase("Researcher")
+                || test.equalsIgnoreCase("Admin")
+                || test.equalsIgnoreCase("Others"));
     }
 
     @Override

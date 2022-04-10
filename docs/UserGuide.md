@@ -9,18 +9,18 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 --------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
- As a NUS student, you may find it tough to manage your university related contacts. 
+ As a NUS student, you may find it tough to manage your university related contacts.
  There are platforms such as Luminus that provide you with the relevant contacts for the modules that you are taking.
- However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts. 
+ However, there is no dedicated system that is customised to assist you with maintaining your NUS contacts.
 
- As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs. 
+ As such, NUSearch is an application that allows you to maintain a university specific contact list that is customised to suit your needs.
 
 > Examples of how NUSearch operates as a university specific contact list:
 >1. Faculty and role are mandatory fields to be filled in to make sure that each contact has a given faculty and role.
 >2. As NUS students and staff often use Telegram as a form a communication, there is an optional field to store each contact's telegram username.
 >3. Each user is able to filter out their contacts based on faculty and role.
 
-This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list. 
+This personalised university contact list ensures that users do not have to continuously look up the university's website for the same contact, whilst making sure that their university contacts do not interfere with their personal contact list.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -129,14 +129,13 @@ This personalised university contact list ensures that users do not have to cont
    > * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
    > * **`clear`** : Deletes all contacts.
    > * **`exit`** : Exits the app.
-   
 _____________________________________________________
 ## Notes before use:
 
 <div markdown="block" class="alert alert-info">
 
 * Words in `UPPER_CASE` are the information to be supplied by the user.<br>
-  e.g. in `add n/NAME`, 
+  e.g. in `add n/NAME`,
   > Example: `NAME` is a type of input which can be used as `add n/John Doe`.
 
 
@@ -173,8 +172,8 @@ _____________________________________________________
 |    Law    |   Admin    |
 | Medicine  |   Other    |
 | Pharmacy  |
-|   Music   |          
-|  Others   |            
+|   Music   |
+|  Others   |
 
 </div>
 
@@ -259,10 +258,17 @@ Format: `help`
 
 Adds a contact to the contact list.
 
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/add.png" width="80%">
+  </a>
+  <h5 align="center">Figure 3. Add a contact</h5>
+</div>
+
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/TAG]…​`
 
 > :spiral_notepad: **NOTE:** When adding faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
-> 
+>
 > :bulb: **TIP:** A contact can have any number of tags, or none at all.
 
 Examples:
@@ -287,7 +293,7 @@ Deletes a contact from the contact list by an index.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/delete.png" width="80%">
   </a>
-<h5 align="center">Figure 3. Delete a contact</h5>
+<h5 align="center">Figure 4. Delete a contact</h5>
 </div>
 
 * Deletes the person at the specified `INDEX`.
@@ -306,6 +312,13 @@ Examples:
 
 Edits an existing contact in NUSearch database.
 
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/edit.png" width="80%">
+  </a>
+<h5 align="center">Figure 5. Edit a contact's information</h5>
+</div>
+
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Existing values will be updated according to the input values.
 * When editing tags, the existing tags will be removed i.e adding of tags is not cumulative.
@@ -314,7 +327,7 @@ Edits an existing contact in NUSearch database.
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [f/FACULTY] [r/ROLE] [tele/TELEGRAM] [t/TAG]…​`
 
 > :spiral_notepad: **NOTE:** When editing the faculty and role of a contact, only the following [values](#acceptable-values) are accepted as input.
-> 
+>
 > :bulb: **TIP:** The edit command allows you to edit multiple fields of a single contact in one command.
 
 Examples:
@@ -326,6 +339,13 @@ Examples:
 ### List all contacts : `list`
 
 Displays all contacts in the contact list.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/list.png" width="80%">
+  </a>
+<h5 align="center">Figure 6. List all contacts</h5>
+</div>
 
 Format: `list`
 
@@ -339,7 +359,7 @@ Undo a command that was entered previously.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/undo.png" width="80%">
   </a>
-<h5 align="center">Figure 4. Undo a delete command</h5>
+<h5 align="center">Figure 7. Undo a delete command</h5>
 </div>
 
 Format: `undo`
@@ -359,14 +379,14 @@ Redo a command that was previously done.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/redo.png" width="80%">
   </a>
-<h5 align="center">Figure 5. Redo a delete command</h5>
+<h5 align="center">Figure 8. Redo a delete command</h5>
 </div>
 
 Format: `redo`
 
 > :bulb: **TIP:** This function only works if there are commands to redo.
 >
-> :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone. 
+> :spiral_notepad: **NOTE:** The “redo” command is the inverse of the “undo” command. It redoes an action that was undone.
 > This is valuable if you accidentally execute the "undo" command too many times.
 
 Examples:
@@ -382,7 +402,7 @@ Find contacts that contain **ALL** the given keywords.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/find.png" width="80%">
   </a>
-<h5 align="center">Figure 6. Finding contacts with the keywords Daniel and TA </h5>
+<h5 align="center">Figure 9. Finding contacts with the keywords Daniel and TA </h5>
 </div>
 
 * Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
@@ -407,9 +427,9 @@ Find contacts that contain **ANY** the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/find.png" width="80%">
+    <img src="images/find-wide.png" width="80%">
   </a>
-<h5 align="center">Figure 7. Finding contacts with the keywords Daniel and TA </h5>
+<h5 align="center">Figure 10. Finding contacts with the keywords Daniel and TA </h5>
 </div>
 
 * Keywords can match names, faculty, role e.g. `Computing` will return all contacts with `Computing` in either their name, faculty or role field.
@@ -434,9 +454,9 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/tag-friends.png" width="50%">
+    <img src="images/tag-friend.png" width="80%">
   </a>
-<h5 align="center">Figure 8. Finding contacts with the 'family' tag</h5>
+<h5 align="center">Figure 11. Finding contacts with the 'friend' tag</h5>
 </div>
 
 * The search is case-insensitive. e.g `colleague` will match `Colleague`
@@ -445,7 +465,7 @@ Find contacts whose attributed tags meet the given keywords.
 Format: `tag <TAG> [MORE_TAGS]`
 
 > :bulb: **TIP:** Attaching tags to a contact is a way for you to attach your own meaning to the contact.
-> 
+>
 >For example, adding the `CS2103T` tag to your professor's contact to indicate that this professor teaches the `CS2103T` module.
 
 Examples:
@@ -462,7 +482,7 @@ Adds a contact to the favorite list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/fav.png" width="80%">
   </a>
-<h5 align="center">Figure 9. Favourite contact</h5>
+<h5 align="center">Figure 12. Favourite contact</h5>
 </div>
 
 Format: `fav INDEX`
@@ -481,7 +501,7 @@ Displays all favoured contacts in the contact list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/list-fav.png" width="80%">
   </a>
-<h5 align="center">Figure 10. List favourite contacts</h5>
+<h5 align="center">Figure 13. List favourite contacts</h5>
 </div>
 
 Format: `list-fav`
@@ -494,7 +514,7 @@ Removes a contact from the favorite list.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/unfav.png" width="80%">
   </a>
-<h5 align="center">Figure 11. Favourite contact</h5>
+<h5 align="center">Figure 14. Favourite contact</h5>
 </div>
 
 Format: `unfav INDEX`
@@ -508,6 +528,13 @@ Examples:
 ### Copy email address : `copy-email ...`
 
 Copies a contact's email address to your clipboard by index
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/copy-email.png" width="80%">
+  </a>
+<h5 align="center">Figure 15. Copy a contact's email address</h5>
+</div>
 
 * Copies the email address of the contact at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
@@ -524,6 +551,13 @@ Examples
 ### Copy phone number : `copy-phone ...`
 
 Copies a contact's phone number to your clipboard by index
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/copy-phone.png" width="80%">
+  </a>
+<h5 align="center">Figure 16. Copy a contact's phone number</h5>
+</div>
 
 * Copies the phone number of the contact at the specified `<index>`.
 * The index refers to the index number shown in the displayed person list.
