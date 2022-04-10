@@ -17,7 +17,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * [[portfolio](team/shurvirarora.md)]
 
 * Role: Developer
-* Responsibilities: `to be confirmed`
+* Responsibilities: `Logic`, `Model` components.
 
 ### Eugene Chia
 
@@ -27,7 +27,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * [[portfolio](team/eugenechiaay.md)]
 
 * Role: Developer
-* Responsibilities: `to be confirmed`
+* Responsibilities: `Logic`, `Storage` components.
 
 ### Jia Ming
 
@@ -37,7 +37,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * [[portfolio](team/simjm.md)]
 
 * Role: Developer
-* Responsibilities: `to be confirmed`
+* Responsibilities: `Model`, `UI` components.
 
 ### Wei En
 
@@ -47,4 +47,4 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * [[portfolio](team/tanweien.md)]
 
 * Role: Developer
-* Responsibilities: `to be confirmed`
+* Responsibilities: `Logic`, `Testing` components.
