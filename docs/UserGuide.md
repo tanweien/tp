@@ -433,11 +433,7 @@ Find contacts that contain **ANY** the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-<<<<<<< HEAD
-    <img src="images/find.png" width="90%">
-=======
-    <img src="images/find-wide.png" width="80%">
->>>>>>> f6ad64a421d445a381b11a808be6272f22e034f2
+    <img src="images/find-wide.png" width="90%">
   </a>
 <h5 align="center">Figure 10. Finding contacts with the keywords Daniel and TA </h5>
 </div>
@@ -464,11 +460,7 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-<<<<<<< HEAD
-    <img src="images/tag-friends.png" width="90%">
-=======
-    <img src="images/tag-friend.png" width="80%">
->>>>>>> f6ad64a421d445a381b11a808be6272f22e034f2
+    <img src="images/tag-friend.png" width="90%">
   </a>
 <h5 align="center">Figure 11. Finding contacts with the 'friend' tag</h5>
 </div>
@@ -476,15 +468,15 @@ Find contacts whose attributed tags meet the given keywords.
 * The search is case-insensitive. e.g `colleague` will match `Colleague`
 * Only tags are included in the search, other fields are ignored.
 
-Format: `tag <TAG> [MORE_TAGS]`
+Format: `tag TAG [MORE_TAGS]`
 
 > :bulb: **TIP:** Attaching tags to a contact is a way for you to attach your own meaning to the contact.
 >
 >For example, adding the `CS2103T` tag to your professor's contact to indicate that this professor teaches the `CS2103T` module.
 
 Examples:
-* `tag CS2103T` Lists all contacts that have `CS2103T` tag
-* `tag colleague bestie` Lists all contacts that have `colleague` or `bestie` tag.
+* `tag CS2103T` Lists all contacts in the current displayed list that have the `CS2103T` tag.
+* `tag colleague bestie` Lists all contacts in the current displayed list that have the `colleague` or `bestie` tag.
 
 ## Favourite Commands
 
@@ -494,7 +486,7 @@ Adds a contact to the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/fav.png" width="80%">
+    <img src="images/fav.png" width="90%">
   </a>
 <h5 align="center">Figure 12. Favourite contact</h5>
 </div>
@@ -504,16 +496,16 @@ Format: `fav INDEX`
 > :bulb: **TIP:** Use this function on contacts that you view frequently!
 
 Examples:
-* `fav 1`
-* `fav 2`
+* `fav 1` adds the 1st contact in the current displayed list to the favourites list.
+* `fav 2` adds the 2nd contact in the current displayed list to the favourites list.
 
 ### List all favourite contacts : `list-fav`
 
-Displays all favoured contacts in the contact list.
+Displays all favourite contacts in the contact list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/list-fav.png" width="80%">
+    <img src="images/list-fav.png" width="90%">
   </a>
 <h5 align="center">Figure 13. List favourite contacts</h5>
 </div>
@@ -526,7 +518,7 @@ Removes a contact from the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/unfav.png" width="80%">
+    <img src="images/unfav.png" width="90%">
   </a>
 <h5 align="center">Figure 14. Favourite contact</h5>
 </div>
@@ -534,14 +526,14 @@ Removes a contact from the favorite list.
 Format: `unfav INDEX`
 
 Examples:
-* `unfav 1`
-* `unfav 2`
+* `unfav 1` unfavourites the 1st contact from the current displayed list.
+* `unfav 2` unfavourites the 2nd contact from the current displayed list.
 
 ## Copy Commands
 
 ### Copy email address : `copy-email ...`
 
-Copies a contact's email address to your clipboard by index
+Copies a contact's email address to your clipboard.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
@@ -550,7 +542,7 @@ Copies a contact's email address to your clipboard by index
 <h5 align="center">Figure 15. Copy a contact's email address</h5>
 </div>
 
-* Copies the email address of the contact at the specified `<index>`.
+* Copies the email address of the contact at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -564,7 +556,7 @@ Examples
 
 ### Copy phone number : `copy-phone ...`
 
-Copies a contact's phone number to your clipboard by index
+Copies a contact's phone number to your clipboard.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
@@ -573,7 +565,7 @@ Copies a contact's phone number to your clipboard by index
 <h5 align="center">Figure 16. Copy a contact's phone number</h5>
 </div>
 
-* Copies the phone number of the contact at the specified `<index>`.
+* Copies the phone number of the contact at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -599,8 +591,6 @@ NUSearch data are saved in the hard disk automatically after any command that ch
 NUSearch data are saved as a JSON file `[JAR file location]/data/NUSearch.json`. Advanced users are welcome to update data directly by editing that data file.
 
 > :exclamation: **CAUTION:** If your changes to the data file makes its format invalid, NUSearch will discard all data and start with an empty data file at the next run.
-<div markdown="span" class="alert alert-warning">
-</div>
 
 ______________________________________________________________________________________
 
@@ -610,6 +600,9 @@ ________________________________________________________________________________
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSearch home folder.
+
+**Q**: How do I report a bug? <br>
+**A**: You can create an `Issue` on our team's Github page [here](https://github.com/AY2122S2-CS2103T-W11-4/tp/issues).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -683,7 +676,7 @@ The following commands are used in dealing with copying information of contacts.
     <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">View Demo</a>
+    <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/releases">View Demo</a>
     ·
     <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Report Bug</a>
     ·
