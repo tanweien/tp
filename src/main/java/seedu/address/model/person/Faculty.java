@@ -10,13 +10,24 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Faculty {
 
 
-    public static final String MESSAGE_CONSTRAINTS = "Faculty can take any values, and it should not be blank";
-
+    public static final String MESSAGE_CONSTRAINTS = "Faculty should not be blank "
+            + "and should only have the following values\n"
+            + "1. CHS\n"
+            + "2. Business\n"
+            + "3. Computing\n"
+            + "4. Dentistry\n"
+            + "5. CDE\n"
+            + "6. Law\n"
+            + "7. Medicine\n"
+            + "8. Nursing\n"
+            + "9. Pharmacy\n"
+            + "10. Music\n"
+            + "11. Others\n";
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "^[A-Za-z]+$";
     public final String value;
 
     /**
@@ -27,14 +38,25 @@ public class Faculty {
     public Faculty(String faculty) {
         requireNonNull(faculty);
         checkArgument(isValidFaculty(faculty), MESSAGE_CONSTRAINTS);
-        value = faculty;
+        value = faculty.substring(0, 1).toUpperCase() + faculty.substring(1).toLowerCase();
     }
 
     /**
      * Returns true if a given string is a valid faculty.
      */
     public static boolean isValidFaculty(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX)
+                && (test.equalsIgnoreCase("CHS")
+                || test.equalsIgnoreCase("Business")
+                || test.equalsIgnoreCase("Computing")
+                || test.equalsIgnoreCase("CDE")
+                || test.equalsIgnoreCase("Dentistry")
+                || test.equalsIgnoreCase("Law")
+                || test.equalsIgnoreCase("Medicine")
+                || test.equalsIgnoreCase("Nursing")
+                || test.equalsIgnoreCase("Pharmacy")
+                || test.equalsIgnoreCase("Music")
+                || test.equalsIgnoreCase("Others"));
     }
 
     @Override

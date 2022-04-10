@@ -27,11 +27,19 @@ public class FacultyTest {
         // invalid faculties
         assertFalse(Faculty.isValidFaculty("")); // empty string
         assertFalse(Faculty.isValidFaculty(" ")); // spaces only
+        assertFalse(Faculty.isValidFaculty("Sociology")); // invalid faculty
+        assertFalse(Faculty.isValidFaculty(" Computing")); // whitespace before faculty string
+        assertFalse(Faculty.isValidFaculty("C HS")); // whitespace between characters in string
+        assertFalse(Faculty.isValidFaculty("Computing Business")); // two separate valid faculties
+        assertFalse(Faculty.isValidFaculty("TA")); // role instead of faculty
+
 
         // valid faculties
         assertTrue(Faculty.isValidFaculty("Computing"));
-        assertTrue(Faculty.isValidFaculty("-")); // one character
-        assertTrue(Faculty.isValidFaculty("College of Humanities and Sciences")); // long faculty
+        assertTrue(Faculty.isValidFaculty("cOMputing")); // different casing
+        assertTrue(Faculty.isValidFaculty("CHS")); // short faculty
+        assertTrue(Faculty.isValidFaculty("Others")); // test for others as a valid faculty
+
     }
 
     @Test

@@ -82,24 +82,17 @@ public class NameFacultyRoleContainsAllKeywordsPredicateTest {
                 Collections.singletonList("Computing"));
         assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
 
-        // Multiple keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("Computing", "Business"));
-        assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing Business").build()));
-
         // Mixed-case keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("cOmpUtinG", "bUsinEsS"));
-        assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing Business").build()));
+        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("cOmpUtinG"));
+        assertTrue(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
+
     }
 
     @Test
     public void test_facultyContainsKeywords_returnsFalse() {
         // Only one matching keyword
         NameFacultyRoleContainsAllKeywordsPredicate predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
-                Arrays.asList("Business", "Arts"));
-        assertFalse(predicate.test(new PersonBuilder().withFaculty("Computing Arts").build()));
-
-        // Multiple keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("Computing", "Business"));
+                Arrays.asList("Business", "Computing"));
         assertFalse(predicate.test(new PersonBuilder().withFaculty("Computing").build()));
     }
 
@@ -110,10 +103,6 @@ public class NameFacultyRoleContainsAllKeywordsPredicateTest {
                 Arrays.asList("Computing"));
         assertFalse(predicate.test(new PersonBuilder().withFaculty("Business").build()));
 
-        // Zero matching keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("Arts"));
-        assertFalse(predicate.test(new PersonBuilder().withFaculty("Computing Business").build()));
-
     }
 
     @Test
@@ -121,40 +110,27 @@ public class NameFacultyRoleContainsAllKeywordsPredicateTest {
         // One keyword
         NameFacultyRoleContainsAllKeywordsPredicate predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
                 Collections.singletonList("Professor"));
-        assertTrue(predicate.test(new PersonBuilder().withRole("Professor TA").build()));
-
-        // Multiple keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("Professor", "TA"));
-        assertTrue(predicate.test(new PersonBuilder().withRole("Professor TA").build()));
+        assertTrue(predicate.test(new PersonBuilder().withRole("Professor").build()));
 
         // Mixed-case keywords
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("prOfesSor", "tA"));
-        assertTrue(predicate.test(new PersonBuilder().withRole("Professor TA").build()));
+        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(Arrays.asList("prOfesSor"));
+        assertTrue(predicate.test(new PersonBuilder().withRole("Professor").build()));
     }
 
     @Test
     public void test_roleContainsKeywords_returnsFalse() {
-        // Zero matching keywords
-        NameFacultyRoleContainsAllKeywordsPredicate predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
-                Arrays.asList("Professor"));
-        assertFalse(predicate.test(new PersonBuilder().withRole("Dean").build()));
         // Only one matching keyword
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
-                Arrays.asList("TA", "Dean"));
-        assertFalse(predicate.test(new PersonBuilder().withRole("Professor Dean").build()));
-
-        // One matching keyword but not a complete match
-        predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
-                Arrays.asList("Professor", "Dean"));
-        assertFalse(predicate.test(new PersonBuilder().withRole("Professor").build()));
+        NameFacultyRoleContainsAllKeywordsPredicate predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
+                Arrays.asList("TA", "Admin"));
+        assertFalse(predicate.test(new PersonBuilder().withRole("Admin").build()));
     }
 
     @Test
     public void test_roleDoesNotContainKeywords_returnsFalse() {
         // Non-matching keyword
         NameFacultyRoleContainsAllKeywordsPredicate predicate = new NameFacultyRoleContainsAllKeywordsPredicate(
-                Arrays.asList("Dean"));
-        assertFalse(predicate.test(new PersonBuilder().withRole("Professor TA").build()));
+                Arrays.asList("Admin"));
+        assertFalse(predicate.test(new PersonBuilder().withRole("Professor").build()));
 
     }
 

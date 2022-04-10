@@ -27,11 +27,17 @@ public class RoleTest {
         // invalid faculties
         assertFalse(Role.isValidRole("")); // empty string
         assertFalse(Role.isValidRole(" ")); // spaces only
+        assertFalse(Role.isValidRole("Dean")); // not in list of roles
+        assertFalse(Role.isValidRole(" Professor")); // whitespace before role
+        assertFalse(Role.isValidRole("Prof essor")); // whitespace in the role
+        assertFalse(Role.isValidRole("TA Professor")); // two separate valid roles
+        assertFalse(Role.isValidRole("Computing")); // faculty instead of role
 
         // valid faculties
         assertTrue(Role.isValidRole("Professor"));
-        assertTrue(Role.isValidRole("-")); // one character
-        assertTrue(Role.isValidRole("Teaching Assistant")); // long role
+        assertTrue(Role.isValidRole("TA")); // short role
+        assertTrue(Role.isValidRole("pROFessor")); // role with different case
+        assertTrue(Role.isValidRole("Others")); // test for others as a valid role
     }
 
     @Test
