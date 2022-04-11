@@ -112,7 +112,7 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/Ui.png" width="90%">
+    <img src="images/Ui.png" width="100%">
   </a>
   <h5 align="center">Figure 1. NUSearch home page</h5>
 </div>
@@ -246,7 +246,7 @@ Shows a summative list of available commands for you to input.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/help-message.png" width="90%">
+    <img src="images/help-message.png" width="100%">
   </a>
   <h5 align="center">Figure 2. Help message screen</h5>
 </div>
@@ -263,7 +263,7 @@ Adds a contact to the contact list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/add.png" width="90%">
+    <img src="images/add.png" width="100%">
   </a>
   <h5 align="center">Figure 3. Add a contact</h5>
 </div>
@@ -294,7 +294,7 @@ Deletes a contact from the contact list by an index.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/delete.png" width="90%">
+    <img src="images/delete.png" width="100%">
   </a>
 <h5 align="center">Figure 4. Delete a contact</h5>
 </div>
@@ -317,7 +317,7 @@ Edits an existing contact in NUSearch database.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/edit.png" width="90%">
+    <img src="images/edit.png" width="100%">
   </a>
 <h5 align="center">Figure 5. Edit a contact's information</h5>
 </div>
@@ -345,7 +345,7 @@ Displays all contacts in the contact list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/list.png" width="90%">
+    <img src="images/list.png" width="100%">
   </a>
 <h5 align="center">Figure 6. List all contacts</h5>
 </div>
@@ -360,7 +360,7 @@ Undo a command that was entered previously.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/undo.png" width="90%">
+    <img src="images/undo.png" width="100%">
   </a>
 <h5 align="center">Figure 7. Undo a delete command</h5>
 </div>
@@ -382,7 +382,7 @@ Redo a command that was previously done.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/redo.png" width="90%">
+    <img src="images/redo.png" width= 100%">
   </a>
 <h5 align="center">Figure 8. Redo a delete command</h5>
 </div>
@@ -406,7 +406,7 @@ Find contacts that contain **ALL** the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/find.png" width="90%">
+    <img src="images/find.png" width="100%">
   </a>
 <h5 align="center">Figure 9. Finding contacts with the keywords Daniel and TA </h5>
 </div>
@@ -433,7 +433,7 @@ Find contacts that contain **ANY** the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/find-wide.png" width="90%">
+    <img src="images/find-wide.png" width="100%">
   </a>
 <h5 align="center">Figure 10. Finding contacts with the keywords Daniel and TA </h5>
 </div>
@@ -460,7 +460,7 @@ Find contacts whose attributed tags meet the given keywords.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/tag-friend.png" width="90%">
+    <img src="images/tag-friend.png" width="100%">
   </a>
 <h5 align="center">Figure 11. Finding contacts with the 'friend' tag</h5>
 </div>
@@ -486,7 +486,7 @@ Adds a contact to the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/fav.png" width="90%">
+    <img src="images/fav.png" width="100%">
   </a>
 <h5 align="center">Figure 12. Favourite contact</h5>
 </div>
@@ -505,7 +505,7 @@ Displays all favourite contacts in the contact list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/list-fav.png" width="90%">
+    <img src="images/list-fav.png" width="100%">
   </a>
 <h5 align="center">Figure 13. List favourite contacts</h5>
 </div>
@@ -518,7 +518,7 @@ Removes a contact from the favorite list.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/unfav.png" width="90%">
+    <img src="images/unfav.png" width="100%">
   </a>
 <h5 align="center">Figure 14. Favourite contact</h5>
 </div>
@@ -537,7 +537,7 @@ Copies a contact's email address to your clipboard.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/copy-email.png" width="80%">
+    <img src="images/copy-email.png" width="100%">
   </a>
 <h5 align="center">Figure 15. Copy a contact's email address</h5>
 </div>
@@ -560,7 +560,7 @@ Copies a contact's phone number to your clipboard.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/copy-phone.png" width="80%">
+    <img src="images/copy-phone.png" width="100%">
   </a>
 <h5 align="center">Figure 16. Copy a contact's phone number</h5>
 </div>
