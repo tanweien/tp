@@ -4,6 +4,60 @@ title: NUSearch Developer Guide
 ---
 --------------------------------------------------------------------------------------------------------------------
 
+<!-- TABLE OF CONTENTS -->
+<details open>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#quick-start">Ackowledgements</a>
+    </li>
+    <li>
+      <a href="#notes-before-use">Setting up, Getting started</a>
+    </li>
+    <li>
+      <a href="#commands">Design</a>
+      <ul>
+        <li><a href="#saving-the-data">Architecture</a></li>
+        <li>
+            <a href="#editing-the-data-file">Components</a>
+            <ul>
+                <li><a href="#editing-the-data-file">UI</a></li>
+                <li><a href="#editing-the-data-file">Logic</a></li>
+                <li><a href="#editing-the-data-file">Model</a></li>
+                <li><a href="#editing-the-data-file">Storage</a></li>
+                <li><a href="#editing-the-data-file">Command Manageable</a></li>
+            </ul>
+        </li>
+        <li><a href="#saving-the-data">Common classes</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#data-matters">Implementation</a>
+        <ul>
+            <li><a href="#saving-the-data">Add Person Feature</a></li>
+            <li><a href="#editing-the-data-file">Favourite/Un-favourite Person Feature</a></li>
+            <li><a href="#saving-the-data">Find Person(s) by Tag Feature</a></li>
+            <li><a href="#saving-the-data">Undo/Redo Command Feature</a></li>
+            <li><a href="#saving-the-data">Copy Email/Phone Number Feature</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#frequently-asked-questions-faq">Documentation, logging, testing, configuration, dev-ops</a>
+    </li>
+    <li>
+        <a href="#command-summary">Appendix</a>
+        <ul>
+            <li><a href="#editing-the-data-file">Product Scope</a></li>
+            <li><a href="#editing-the-data-file">User Stories</a></li>
+            <li><a href="#editing-the-data-file">Use Cases</a></li>
+            <li><a href="#editing-the-data-file">Non-Functional Requirements</a></li>
+            <li><a href="#editing-the-data-file">Glossary</a></li>
+        </ul>
+    </li>
+    <li><a href="#editing-the-data-file">Instructions for manual testing</a></li>
+  </ol>
+</details>
+
 ## **Acknowledgements**
 
 * Adapted from [AddressBook3](https://github.com/nus-cs2103-AY2122S2/tp)
@@ -43,7 +97,7 @@ Given below is a quick overview of Main components and how they interact with ea
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
-The rest of the App consists of four components.
+The rest of the App consists of five components.
 
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
@@ -223,7 +277,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 > find tag
 > Undo/redo
 > Copy
-> 
+
 ### Add Person feature
 
 This section describes how a `Person` object is added to the list of Contacts.
@@ -243,6 +297,15 @@ Here is how an example of how the `add` command behaves:
 7. The `AddCommand` is executed in the `CommandManager` class, whereby a `Person` object with the given fields is constructed and added to the `UniquePersonsList`.
 
 **Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/AddSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
 **Activity Diagram**
 
@@ -269,11 +332,20 @@ Here is how an example of how the `fav` command behaves:
 
 **Sequence Diagram**
 
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/FavSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
+
 **Activity Diagram**
 
 **Design considerations**
 
-### Find Person(s) by Tag feature
+### Find Person(s) by Tag Feature
 
 This section describes how the find by `Tag` feature works.
 
@@ -292,11 +364,20 @@ Here is how an example of how the `tag` command behaves:
 
 **Sequence Diagram**
 
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/TagSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
+
 **Activity Diagram**
 
 **Design considerations**
 
-### Undo/Redo Command feature
+### Undo/Redo Command Feature
 
 This section describes how the Undo/Redo feature works.
 
@@ -304,22 +385,45 @@ This section describes how the Undo/Redo feature works.
 
 Here is how an example of how the `Undo/Redo` command behaves:
 
-Example starting state:
+Example starting state with 2 states prior:
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoRedoState2.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
 1. The user inputs - `Undo`.
 2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
-3. In the `parseCommand` method, the `tag` command format is being matched.
-4. The user's input is used to create a `Predicate` object. With this `Predicate` object, a `TagCommand` is created.
-5. The `TagCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
-6. The `TagCommand` is executed in the `CommandManager` class, whereby the `FilteredPersonsList` is update with the `Predicate` object.
+3. In the `parseCommand` method, the `undo` command format is being matched.
+4. An `UndoCommand` is created.
+5. The `UndoCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `UndoCommand` is executed in the `CommandManager` class, whereby the state of the `Addressbook` is updated to the previous state.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoRedoState3.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
 **Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
 **Activity Diagram**
 
 **Design considerations**
 
-### Copy Email/Phone Number feature
+### Copy Email/Phone Number Feature
 
 This section describes how the Copy Email/Phone Number feature works.
 
@@ -335,6 +439,15 @@ Here is how an example of how the Copy Email/Phone Number command behaves:
 6. The `CopyEmailCommand` is executed in the `CommandManager` class, whereby the `Email` of a `Person` object at the specified index is copied unto the device's clipboard.
 
 **Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/CopyEmailSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+</div>
 
 **Activity Diagram**
 
