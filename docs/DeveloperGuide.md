@@ -4,6 +4,60 @@ title: NUSearch Developer Guide
 ---
 --------------------------------------------------------------------------------------------------------------------
 
+<!-- TABLE OF CONTENTS -->
+<details open>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#quick-start">Ackowledgements</a>
+    </li>
+    <li>
+      <a href="#notes-before-use">Setting up, Getting started</a>
+    </li>
+    <li>
+      <a href="#commands">Design</a>
+      <ul>
+        <li><a href="#saving-the-data">Architecture</a></li>
+        <li>
+            <a href="#editing-the-data-file">Components</a>
+            <ul>
+                <li><a href="#editing-the-data-file">UI</a></li>
+                <li><a href="#editing-the-data-file">Logic</a></li>
+                <li><a href="#editing-the-data-file">Model</a></li>
+                <li><a href="#editing-the-data-file">Storage</a></li>
+                <li><a href="#editing-the-data-file">Command Manageable</a></li>
+            </ul>
+        </li>
+        <li><a href="#saving-the-data">Common classes</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#data-matters">Implementation</a>
+        <ul>
+            <li><a href="#saving-the-data">Add Person Feature</a></li>
+            <li><a href="#editing-the-data-file">Favourite/Un-favourite Person Feature</a></li>
+            <li><a href="#saving-the-data">Find Person(s) by Tag Feature</a></li>
+            <li><a href="#saving-the-data">Undo/Redo Command Feature</a></li>
+            <li><a href="#saving-the-data">Copy Email/Phone Number Feature</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#frequently-asked-questions-faq">Documentation, logging, testing, configuration, dev-ops</a>
+    </li>
+    <li>
+        <a href="#command-summary">Appendix</a>
+        <ul>
+            <li><a href="#editing-the-data-file">Product Scope</a></li>
+            <li><a href="#editing-the-data-file">User Stories</a></li>
+            <li><a href="#editing-the-data-file">Use Cases</a></li>
+            <li><a href="#editing-the-data-file">Non-Functional Requirements</a></li>
+            <li><a href="#editing-the-data-file">Glossary</a></li>
+        </ul>
+    </li>
+    <li><a href="#editing-the-data-file">Instructions for manual testing</a></li>
+  </ol>
+</details>
+
 ## **Acknowledgements**
 
 * Adapted from [AddressBook3](https://github.com/nus-cs2103-AY2122S2/tp)
@@ -25,9 +79,9 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureDiagram.png" width="280"/>
+    <img src="images/ArchitectureDiagram.png" width="90%"/>
   </a>
-<h5 align="center">Fig 1.1. Architecture Diagram</h5>
+<h5 align="center"> 1.1. Architecture Diagram</h5>
 </div>
 
 The ***Architecture Diagram*** given above explains the high-level design of the App.
@@ -43,7 +97,7 @@ Given below is a quick overview of Main components and how they interact with ea
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
-The rest of the App consists of four components.
+The rest of the App consists of five components.
 
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
@@ -57,9 +111,9 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureSequenceDiagram.png" width="280"/>
+    <img src="images/ArchitectureSequenceDiagram.png" width="90%"/>
   </a>
-<h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
+<h5 align="center">Architecture Sequence Diagram (Delete command)</h5>
 </div>
 
 Each of the five main components (also shown in the diagram above),
@@ -75,9 +129,9 @@ The following section gives more details of each component.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ComponentManagers.png" width="280" />
+    <img src="images/ComponentManagers.png" width="90%" />
   </a>
-<h5 align="center">Fig 1.3. Component Managers</h5>
+<h5 align="center">Component Managers</h5>
 </div>
 
 **The UI Component**
@@ -86,9 +140,9 @@ The following section gives more details of each component.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/UiClassDiagram.png" width="280" />
+    <img src="images/UiClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">UI Class Diagram</h5>
 </div>
 
 The UI consists of a MainWindow that is made up of parts e.g.CommandBox, ResultDisplay, PersonListPanel, StatusBarFooter etc. All these, including the MainWindow, inherit from the abstract UiPart class which captures the commonalities between classes that represent parts of the visible GUI.
@@ -112,9 +166,9 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/LogicClassDiagram.png" width="280" />
+    <img src="images/LogicClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.2. Logic Class Diagram (Partial)</h5>
+<h5 align="center">Logic Class Diagram (Partial)</h5>
 </div>
 
 How the `Logic` component works:
@@ -127,9 +181,9 @@ The Sequence Diagram below illustrates the interactions within the `Logic` compo
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/DeleteSequenceDiagram.png" width="280" />
+    <img src="images/DeleteSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.3. Delete Command Sequence Diagram</h5>
+<h5 align="center">Delete Command Sequence Diagram</h5>
 </div>
 
 > :memo: **NOTE:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -138,9 +192,9 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ParserClasses.png" width="280" />
+    <img src="images/ParserClasses.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.4. Parser Class Diagram</h5>
+<h5 align="center">Parser Class Diagram</h5>
 </div>
 
 How the parsing works:
@@ -153,9 +207,9 @@ How the parsing works:
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/CMClassDiagram.png" width="280" />
+    <img src="images/CMClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.5. CM Class Diagram</h5>
+<h5 align="center">CM Class Diagram</h5>
 </div>
 
 The `CommandManageable` component,
@@ -173,9 +227,9 @@ The `CommandManageable` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ModelClassDiagram.png" width="280" />
+    <img src="images/ModelClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.1. Model Class Diagram</h5>
+<h5 align="center">Model Class Diagram</h5>
 </div>
 
 The `Model` component,
@@ -189,9 +243,9 @@ The `Model` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/BetterModelClassDiagram.png" width="280" />
+    <img src="images/BetterModelClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.2. Better Model Class Diagram</h5>
+<h5 align="center">Better Model Class Diagram</h5>
 </div>
 
 **The Storage Component**
@@ -200,9 +254,9 @@ The `Model` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/StorageClassDiagram.png" width="280" />
+    <img src="images/StorageClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.2. Storage Class Diagram</h5>
+<h5 align="center">Storage Class Diagram</h5>
 </div>
 
 The `Storage` component,
@@ -212,23 +266,184 @@ The `Storage` component,
 
 ### Common classes
 
-**The Command classes**
-
-> //todo
-
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
 
-> //todo
-> Add
-> Favourite
-> list favourite
-> Find tag
-> Undo
-> Redo
+### Add Person feature
+
+This section describes how a `Person` object is added to the list of Contacts.
+
+**Implementation**
+
+A `Person` object in NUSearch consists of `Name`, `Phone`, `Faculty`, `Email`, `Role`, `Faculty`, `Tag`, `Telegram`. The latter two fields are Optional fields.
+When a `add` command is being input to the command input box, a `Person` will be added to the `UniquePersonsList`.
+
+Here is how an example of how the `add` command behaves:
+
+1. The user inputs - `add n/Shurvir Arora p/92212429 e/hello@gmail.com r/Professor f/Science t/Hello tele/@Shuvy123`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `add` command format is being matched.
+5. An `AddCommand` object is created using the user's input as arguments.
+6. The `AddCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+7. The `AddCommand` is executed in the `CommandManager` class, whereby a `Person` object with the given fields is constructed and added to the `UniquePersonsList`.
+
+**Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/AddSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Add Sequence Diagram</h5>
+</div>
+
+**Activity Diagram**
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/AddActivityDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Add Activity Diagram</h5>
+</div>
+
+### Favourite/Un-favourite Person Feature
+
+This section describes how a `Person` object is "favourited" or "Un-favourited".
+
+**Implementation**
+
+Apart from the fields stated above, a `Person` object also has a `Favourite` boolean field to indicate whether a person is a favourite one or not.
+
+Here is how an example of how the `fav` command behaves:
+
+1. The user inputs - `fav 1`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `fav` command format is being matched.
+4. A `FavouriteCommand` object is created using the user's input as arguments.
+5. The `FavouriteCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `FavouriteCommand` is executed in the `CommandManager` class, whereby a clone of the target `Person` is created, albeit its `Favourite` field set to true.
+
+> The programme behaves in a similar way for  "Unfavourite" command.
+
+**Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/FavSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fav Sequence Diagram</h5>
+</div>
+
+**Activity Diagram**
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/FavActivityDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fav Activity Diagram</h5>
+</div>
+
+### Find Person(s) by Tag Feature
+
+This section describes how the find by `Tag` feature works.
+
+**Implementation**
+
+The find by`Tag` feature operates through the use of the `Predicate` class. Where a `FilteredPersonsList` is updated using a `Predicate` object.
+
+Here is how an example of how the `tag` command behaves:
+
+1. The user inputs - `tag friends`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `tag` command format is being matched.
+4. The user's input is used to create a `Predicate` object. With this `Predicate` object, a `TagCommand` is created.
+5. The `TagCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `TagCommand` is executed in the `CommandManager` class, whereby the `FilteredPersonsList` is update with the `Predicate` object.
+
+**Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/TagSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Tag Sequence Diagram</h5>
+</div>
+
+### Undo/Redo Command Feature
+
+This section describes how the Undo/Redo feature works.
+
+**Implementation**
+
+Here is how an example of how the `Undo/Redo` command behaves:
+
+Example starting state with 2 states prior:
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoRedoState2.png" width="90%" />
+  </a>
+<h5 align="center">Undo Redo Initial State Diagram</h5>
+</div>
+
+1. The user inputs - `Undo`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `undo` command format is being matched.
+4. An `UndoCommand` is created.
+5. The `UndoCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `UndoCommand` is executed in the `CommandManager` class, whereby the state of the `Addressbook` is updated to the previous state.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoRedoState3.png" width="90%" />
+  </a>
+<h5 align="center">Undo Redo State After Redo Diagram</h5>
+</div>
+
+**Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/UndoSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Undo Sequence Diagram</h5>
+</div>
+
+### Copy Email/Phone Number Feature
+
+This section describes how the Copy Email/Phone Number feature works.
+
+**Implementation**
+
+Here is how an example of how the Copy Email/Phone Number command behaves:
+
+1. The user inputs - `copy-email 2`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `copy-email` command format is being matched.
+4. A `CopyEmailCommand` command is created.
+5. The `CopyEmailCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `CopyEmailCommand` is executed in the `CommandManager` class, whereby the `Email` of a `Person` object at the specified index is copied unto the device's clipboard.
+
+**Sequence Diagram**
+
+The given sequence diagram shows the execution of the feature.
+
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/CopyEmailSequenceDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Copy Email Sequence Diagram</h5>
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -250,11 +465,11 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Has a need to manage a significant number of contacts
+* Prefers desktop apps over other types
+* Can type fast
+* Prefers typing to mouse interactions
+* Is reasonably comfortable using CLI apps
 
 **Value proposition**: manage NUS contacts faster than a typical mouse/GUI driven app
 
@@ -464,7 +679,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-**Instructions for manual testing**
+##**Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -504,6 +719,20 @@ testers are expected to do more *exploratory* testing.
 
     1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
        Expected: Similar to previous.
+
+1. _{ more test cases …​ }_
+
+### Adding a person
+
+1. Adding a person while all persons are being shown
+
+    1. Prerequisites: Person to be added is not a duplicate person.
+
+    1. Test case: `add n/Sim sim e/simsim@gmail.com p/92214993 r/TA f/FASS`<br>
+       Expected: Sim Sim is added.
+
+    1. Other incorrect add commands to try: `add`, `add n/nameWithoutEmailOrPhone`, `...` <br>
+       Expected: Error thrown.
 
 1. _{ more test cases …​ }_
 
