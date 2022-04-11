@@ -17,7 +17,7 @@ Given below are my contributions to the project.
   
 * **New Feature**: Added the ability to copy email of contacts.
   * What it does: allows the user to copy the email of contacts.
-  * Justification: This feature improves the product significantly because a user could now copy email of a contact just by a short command and users to can paste email efficiently on third party applciation should they require it.
+  * Justification: This feature improves the product significantly because a user could now copy email of a contact just by a short command and then paste it efficiently on third party application should they require it.
   * Highlights: This enhancement affects some parts of the model and it required an in-depth analysis of design alternatives. The implementation was challenging as it required imports from java.awt package which was unfamiliar to the team.
   
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=W11-4&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=SimJM&tabRepo=AY2122S2-CS2103T-W11-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)
@@ -28,9 +28,9 @@ Given below are my contributions to the project.
 * **Enhancements to existing features**:
     * Updated the GUI color scheme and interface (Pull requests [\#80](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/80), [\#103](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/103))
       * Justification: This improves the user interface significantly because it binds the culture of the university into NUSearch, allowing users to have sense of their school while using NUSearch.
-      * Highlight: The font used for NUSearch is specially chosen to give off a classy yet bookish vibes to application.
+      * Highlight: The font used for NUSearch is specially chosen to give off a classy yet bookish vibes.
     * Updated the User Inferface of NUSearch Help Window (Pull requests [\#67](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/67))
-      * What is does: This allows the user to learn about basic commands without going to the User Guide
+      * What it does: This allows the user to learn about basic commands without going to the User Guide
       * Justification: This improves the user experience significantly because a user could conveniently access guides for commands with just a command `help`.
       * Highlight: This improvement is accompanied by a scrollable window which allows the user scroll through for help related to commands. 
 
@@ -38,7 +38,6 @@ Given below are my contributions to the project.
     * User Guide:
         * Modified documentation for adaptation from AB-3 to NUSearch [\#52](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/52)
         * Added documentation for the Quick start:  features and future features [\#28](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/28)
-        * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
     * Developer Guide:
         * Added use case for NUSearch [\#38](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/38).
         * Added implementation details of `Components Manager`. [\#91](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/91)
