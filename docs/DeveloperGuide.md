@@ -427,7 +427,7 @@ This section describes how the Copy Email/Phone Number feature works.
 
 Here is how an example of how the Copy Email/Phone Number command behaves:
 
-1. The user inputs - `copy-email 1`.
+1. The user inputs - `copy-email 2`.
 2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
 3. In the `parseCommand` method, the `copy-email` command format is being matched.
 4. A `CopyEmailCommand` command is created.
