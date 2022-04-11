@@ -95,8 +95,6 @@ If you can type fast, NUSearch can get your contact management tasks done faster
   </ol>
 </details>
 
-***
-
 ## Quick start:
 
 1. Ensure that you have Java `11` or above installed in your Computer.
@@ -133,7 +131,6 @@ If you can type fast, NUSearch can get your contact management tasks done faster
 
 _____________________________________________________
 
-***
 
 ## Notes before use:
 
@@ -185,8 +182,6 @@ _____________________________________________________
 
 __________________________________________________________________________________________________________________________________
 
-***
-
 ## Commands:
 
 <details open>
@@ -237,8 +232,6 @@ ________________________________________________________________________________
   </ol>
 </details>
 
-***
-
 ## General Commands
 
 ### Exiting the program : `exit`
@@ -262,8 +255,6 @@ Format: `help`
 
 > :bulb: **TIP:** Click on `Copy URL button to copy the link to our user guide.`
 
-***
-
 ## Basic Commands
 
 ### Add a contact: `add ...`
@@ -286,8 +277,6 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL f/FACULTY r/ROLE [tele/TELEGRAM] [t/T
 Examples:
 * `add n/Shurvir Arora p/98765432 e/shurvir@example.com f/Computing r/Professor`
 * `add n/Betsy Crowe p/98193898 e/betsycrowe@example.com f/Law r/TA tele/@BetsyCrowe t/CS2103T t/Friend`
-
-***
 
 ### Clear all contacts : `clear`
 
@@ -350,8 +339,6 @@ Examples:
 * `edit 3 f/Computing r/TA` Edits the faculty of the 3rd contact in the current displayed list to be `Computing` and role to be `TA`
 * `edit 1 tele/@hackerway101` Edits the Telegram username of the 1st contact in the current displayed list to `@hackerway101`
 
-***
-
 ### List all contacts : `list`
 
 Displays all contacts in the contact list.
@@ -366,8 +353,6 @@ Displays all contacts in the contact list.
 Format: `list`
 
 > :spiral_notepad: **NOTE:** Contacts listed will be sorted according to the time of addition.
-
-***
 
 ### Undo a command : `undo`
 
@@ -391,15 +376,13 @@ Examples:
 * `If you just added a person named John Doe, you can simply revert that action by keying in "undo".`
 * `If you just deleted a person named Jessica Tan, you can simply revert that action by keying in "undo".`
 
-***
-
 ### Redo a command : `redo`
 
 Redo a command that was previously done.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/redo.png" width= 100%">
+    <img src="images/redo.png" width= "100%">
   </a>
 <h5 align="center">Figure 8. Redo a delete command</h5>
 </div>
@@ -414,8 +397,6 @@ Format: `redo`
 
 Examples:
 * `If you just added a person named John Doe, proceeded to undo that action, and then perform the "redo" command, the person John Doe will still be added as a contact.`
-
-***
 
 ## Find Commands
 
@@ -497,8 +478,6 @@ Examples:
 * `tag CS2103T` Lists all contacts in the current displayed list that have the `CS2103T` tag.
 * `tag colleague bestie` Lists all contacts in the current displayed list that have the `colleague` or `bestie` tag.
 
-***
-
 ## Favourite Commands
 
 ### Favourite a contact : `fav ...`
@@ -520,8 +499,6 @@ Examples:
 * `fav 1` adds the 1st contact in the current displayed list to the favourites list.
 * `fav 2` adds the 2nd contact in the current displayed list to the favourites list.
 
-***
-
 ### List all favourite contacts : `list-fav`
 
 Displays all favourite contacts in the contact list.
@@ -534,8 +511,6 @@ Displays all favourite contacts in the contact list.
 </div>
 
 Format: `list-fav`
-
-***
 
 ### Unfavourite a contact : `unfav ...`
 
@@ -553,8 +528,6 @@ Format: `unfav INDEX`
 Examples:
 * `unfav 1` unfavourites the 1st contact from the current displayed list.
 * `unfav 2` unfavourites the 2nd contact from the current displayed list.
-
-***
 
 ## Copy Commands
 
@@ -580,8 +553,6 @@ Format: `copy-email INDEX`
 Examples
 * `copy-email 1  will copy the  email of the contact at index 1.`
 * `copy-email 4  will copy the  email of the contact at index 4.`
-
-***
 
 ### Copy phone number : `copy-phone ...`
 
@@ -609,8 +580,6 @@ Examples
 
 ______________________________________________________________________
 
-***
-
 ## Data Matters:
 
 ### Saving the data
@@ -636,8 +605,6 @@ ________________________________________________________________________________
 **A**: You can create an `Issue` on our team's Github page [here](https://github.com/AY2122S2-CS2103T-W11-4/tp/issues).
 
 --------------------------------------------------------------------------------------------------------------------
-
-***
 
 ## Command Summary
 
@@ -665,8 +632,6 @@ The following commands are used in dealing with contacts.
 | **List all contacts**             | `list`                                                                         |
 | **Undo previous commands**        | `undo`                                                                         |
 | **Redo commands**                 | `redo`                                                                         |
-
-***
 
 ### Category: Find Commands
 
@@ -718,6 +683,8 @@ The following commands are used in dealing with copying information of contacts.
     <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp/issues">Request Feature</a>
   </p>
 </div>
+
+
 
 
 
