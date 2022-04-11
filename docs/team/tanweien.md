@@ -36,10 +36,10 @@ Given below are my contributions to the project.
     * Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
 
 * **Enhancements to existing features**:
-    * Improved the `role` feature by allowing users to only select from a limited selection of pre-determined roles to reduce bugs (Pull requests [\#165]())
-    * Improved the `faculty` feature by allowing users to only select from a limited selection of pre-determined faculties to reduce bugs (Pull requests [\#165]())
-    * Improved how the `role` and `faculty` fields are displayed in the UI. (Pull requests [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165))
-    * Wrote additional tests for existing features to increase coverage (Pull requests [\#74](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/74), [\#97](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/97), [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165))
+    * Improved the `role` feature by allowing users to only select from a limited selection of pre-determined roles to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
+    * Improved the `faculty` feature by allowing users to only select from a limited selection of pre-determined faculties to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
+    * Improved how the `role` and `faculty` fields are displayed in the UI: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
+    * Wrote additional tests for existing features to increase coverage: [\#74](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/74), [\#97](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/97), [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
 
 * **Documentation**:
     * User Guide:
