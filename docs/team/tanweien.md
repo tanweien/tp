@@ -47,7 +47,7 @@ Given below are my contributions to the project.
         * Improved on Frequently Asked Questions: [\#33](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/33)
         * Added a command summary table for existing commands: [\#33](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/33)
     * Developer Guide:
-        * Added description of the BetterModelClass and ComponentManagers Diagram: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88)
+        * Updated `Design` and `Architecture` sections in the Developer Guide: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88)
         * Updated non-functional requirements in the Developer Guide: [\#36](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/36)
     * Diagrams:
         * Updated BetterModelClass Diagram: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88), [\#89](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/89)
