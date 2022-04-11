@@ -9,52 +9,52 @@ title: NUSearch Developer Guide
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#quick-start">Ackowledgements</a>
+      <a href="#acknowledgements">Acknowledgements</a>
     </li>
     <li>
-      <a href="#notes-before-use">Setting up, Getting started</a>
+      <a href="#setting-up-getting-started">Setting up, Getting started</a>
     </li>
     <li>
-      <a href="#commands">Design</a>
+      <a href="#design">Design</a>
       <ul>
-        <li><a href="#saving-the-data">Architecture</a></li>
+        <li><a href="#architecture">Architecture</a></li>
         <li>
-            <a href="#editing-the-data-file">Components</a>
+            <a href="#components">Components</a>
             <ul>
-                <li><a href="#editing-the-data-file">UI</a></li>
-                <li><a href="#editing-the-data-file">Logic</a></li>
-                <li><a href="#editing-the-data-file">Model</a></li>
-                <li><a href="#editing-the-data-file">Storage</a></li>
-                <li><a href="#editing-the-data-file">Command Manageable</a></li>
+                <li><a href="#the-ui-component">UI</a></li>
+                <li><a href="#the-logic-component">Logic</a></li>
+                <li><a href="#the-commandmanageable-component">Command Manageable</a></li>
+                <li><a href="#the-model-component">Model</a></li>
+                <li><a href="#the-storage-component">Storage</a></li>
             </ul>
         </li>
-        <li><a href="#saving-the-data">Common classes</a></li>
+        <li><a href="#common-classes">Common classes</a></li>
       </ul>
     </li>
     <li>
-        <a href="#data-matters">Implementation</a>
+        <a href="#implementation">Implementation</a>
         <ul>
-            <li><a href="#saving-the-data">Add Person Feature</a></li>
-            <li><a href="#editing-the-data-file">Favourite/Un-favourite Person Feature</a></li>
-            <li><a href="#saving-the-data">Find Person(s) by Tag Feature</a></li>
-            <li><a href="#saving-the-data">Undo/Redo Command Feature</a></li>
-            <li><a href="#saving-the-data">Copy Email/Phone Number Feature</a></li>
+            <li><a href="#add-person-feature">Add Person Feature</a></li>
+            <li><a href="#favouriteun-favourite-person-feature">Favourite/Un-favourite Person Feature</a></li>
+            <li><a href="#find-persons-by-tag-feature">Find Person(s) by Tag Feature</a></li>
+            <li><a href="#undoredo-command-feature">Undo/Redo Command Feature</a></li>
+            <li><a href="#copy-emailphone-number-feature">Copy Email/Phone Number Feature</a></li>
         </ul>
     </li>
     <li>
-        <a href="#frequently-asked-questions-faq">Documentation, logging, testing, configuration, dev-ops</a>
+        <a href="#documentation-logging-testing-configuration-dev-ops">Documentation, logging, testing, configuration, dev-ops</a>
     </li>
     <li>
-        <a href="#command-summary">Appendix</a>
+        <a href="#appendix">Appendix</a>
         <ul>
-            <li><a href="#editing-the-data-file">Product Scope</a></li>
-            <li><a href="#editing-the-data-file">User Stories</a></li>
-            <li><a href="#editing-the-data-file">Use Cases</a></li>
-            <li><a href="#editing-the-data-file">Non-Functional Requirements</a></li>
-            <li><a href="#editing-the-data-file">Glossary</a></li>
+            <li><a href="#product-scope">Product Scope</a></li>
+            <li><a href="#user-stories">User Stories</a></li>
+            <li><a href="#use-cases">Use Cases</a></li>
+            <li><a href="#non-functional-requirements">Non-Functional Requirements</a></li>
+            <li><a href="#glossary">Glossary</a></li>
         </ul>
     </li>
-    <li><a href="#editing-the-data-file">Instructions for manual testing</a></li>
+    <li><a href="#instructions-for-manual-testing">Instructions for manual testing</a></li>
   </ol>
 </details>
 
@@ -134,7 +134,7 @@ The following section gives more details of each component.
 <h5 align="center">Component Managers</h5>
 </div>
 
-**The UI Component**
+#### **The UI Component**
 
 **API** : [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
@@ -158,7 +158,7 @@ The UI component,
 
 > :memo: **NOTE** The Command Manager component is not reflected in the diagram since there are no direct dependencies with the UI component
 
-**The Logic Component**
+#### **The Logic Component**
 
 **API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
@@ -201,7 +201,7 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
-**The CommandManageable Component**
+#### **The CommandManageable Component**
 
 **API** : [`CommandManageable.java`](https://github.com/eugenechiaay/tp/blob/master/src/main/java/seedu/address/logic/commands/CommandManageable.java)
 
@@ -221,7 +221,7 @@ The `CommandManageable` component,
 
 > :bulb: **COOL:** The Command Manager component was built as a means to support the newly implemented undo and redo functions!
 
-**The Model Component**
+#### **The Model Component**
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
@@ -248,7 +248,7 @@ The `Model` component,
 <h5 align="center">Better Model Class Diagram</h5>
 </div>
 
-**The Storage Component**
+#### **The Storage Component**
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
@@ -679,7 +679,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-##**Instructions for manual testing**
+## **Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
