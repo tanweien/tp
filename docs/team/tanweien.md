@@ -36,8 +36,8 @@ Given below are my contributions to the project.
     * Managed releases `v1.1` - `v1.4` (5 releases) on GitHub
 
 * **Enhancements to existing features**:
-    * Improved the `role` feature by allowing users to only select from a limited selection of pre-determined roles to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
-    * Improved the `faculty` feature by allowing users to only select from a limited selection of pre-determined faculties to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
+    * Improved the `role` feature by allowing users to only select from a limited selection of pre-determined roles and faculties to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
+    * Improved the `faculty` feature by allowing users to only select from a limited selection of pre-determined roles and faculties to reduce bugs: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
     * Improved how the `role` and `faculty` fields are displayed in the UI: [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
     * Wrote additional tests for existing features to increase coverage: [\#74](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/74), [\#97](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/97), [\#165](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/165)
 
@@ -47,7 +47,7 @@ Given below are my contributions to the project.
         * Improved on Frequently Asked Questions: [\#33](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/33)
         * Added a command summary table for existing commands: [\#33](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/33)
     * Developer Guide:
-        * Added description of the BetterModelClass and ComponentManagers Diagram: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88)
+        * Updated `Design` and `Architecture` sections in the Developer Guide: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88)
         * Updated non-functional requirements in the Developer Guide: [\#36](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/36)
     * Diagrams:
         * Updated BetterModelClass Diagram: [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88), [\#89](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/89)
