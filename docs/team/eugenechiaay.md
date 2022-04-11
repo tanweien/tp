@@ -37,7 +37,14 @@ Given below are my contributions to the project.
     * Developer Guide:
         * Added implementation details of the `delete` feature.
 
+* **Team-Based tasks**:
+  * Maintained the issue tracker
+  * Managed releases
+  * Assigned and delegated issues to members
+
 * **Community**:
-    * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-    * Contributed to forum discussions (examples: [1](https://github.com/nus-cs2103-AY2122S2/forum/issues/191), [2](https://github.com/nus-cs2103-AY2122S2/forum/issues/117), [3](), [4]())
-    * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
+    * PRs reviewed (with non-trivial review comments): [\#23](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/23), [\#74](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/74), [\#77](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/77), [\#80](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/80)
+    * Number of PRs reviewed and approved: 22 [\#23](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/23), [\#29](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/29), [\#36](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/36), [\#37](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/37), [\#38](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/38), [\#74](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/74), [\#77](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/77), [\#80](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/80), [\#87](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/87), [\#88](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/88), [\#89](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/89), [\#90](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/90), [\#91](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/91), [\#93](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/93), [\#98](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/98), [\#99](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/99), [\#103](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/103), [\#154](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/154), [\#157](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/157), [\#160](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/160), [\#162](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/162), [\#166](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/166)
+    * Contributed to forum discussions (examples: [1](https://github.com/nus-cs2103-AY2122S2/forum/issues/191), [2](https://github.com/nus-cs2103-AY2122S2/forum/issues/117))
+    * Reported bugs and suggestions for other teams in the class: [1](https://github.com/eugenechiaay/ped/issues/1), [2](https://github.com/eugenechiaay/ped/issues/2), [3](https://github.com/eugenechiaay/ped/issues/3), [4](https://github.com/eugenechiaay/ped/issues/4), [5](https://github.com/eugenechiaay/ped/issues/5), [6](https://github.com/eugenechiaay/ped/issues/6), [7](https://github.com/eugenechiaay/ped/issues/7), [8](https://github.com/eugenechiaay/ped/issues/8), [9](https://github.com/eugenechiaay/ped/issues/9), [10](https://github.com/eugenechiaay/ped/issues/10), [11](https://github.com/eugenechiaay/ped/issues/11), [12](https://github.com/eugenechiaay/ped/issues/12), [13](https://github.com/eugenechiaay/ped/issues/13), [14](https://github.com/eugenechiaay/ped/issues/14), [15](https://github.com/eugenechiaay/ped/issues/15)
+    
