@@ -19,4 +19,5 @@ Person *--> Phone
 Person *--> Email
 Person *--> Role
 Person *--> Faculty
+Person *--> "<color:maroon>0..1" Telegram
 @enduml
