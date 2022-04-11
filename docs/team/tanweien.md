@@ -55,12 +55,11 @@ Given below are my contributions to the project.
 
 * **Community**:
     * PRs reviewed (with non-trivial review comments): [#164](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/164)
-    * Reported bugs and suggestions for other teams in the class
+    * Reported bugs and suggestions for other teams in the class: [1](https://github.com/tanweien/ped/issues/1), [2](https://github.com/tanweien/ped/issues/2), [3](https://github.com/tanweien/ped/issues/3), [4](https://github.com/tanweien/ped/issues/4), [5](https://github.com/tanweien/ped/issues/5), [6](https://github.com/tanweien/ped/issues/6), [7](https://github.com/tanweien/ped/issues/7), [8](https://github.com/tanweien/ped/issues/8)
     * Reviewed and approved PRs: [\#22](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/22), [\#30](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/30), [\#35](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/35), [\#38](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/38), [\#164](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/164), [\#168](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/168), [\#169](https://github.com/AY2122S2-CS2103T-W11-4/tp/pull/169)
 
 * **Team-based tasked**:
     * Maintained the issue tracker
     * Managed and published releases
     * Assigned tasks to members
-    
-    
+  
