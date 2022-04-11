@@ -81,7 +81,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/ArchitectureDiagram.png" width="90%"/>
   </a>
-<h5 align="center">Fig 1.1. Architecture Diagram</h5>
+<h5 align="center"> 1.1. Architecture Diagram</h5>
 </div>
 
 The ***Architecture Diagram*** given above explains the high-level design of the App.
@@ -113,7 +113,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/ArchitectureSequenceDiagram.png" width="90%"/>
   </a>
-<h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
+<h5 align="center">Architecture Sequence Diagram (Delete command)</h5>
 </div>
 
 Each of the five main components (also shown in the diagram above),
@@ -131,7 +131,7 @@ The following section gives more details of each component.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/ComponentManagers.png" width="90%" />
   </a>
-<h5 align="center">Fig 1.3. Component Managers</h5>
+<h5 align="center">Component Managers</h5>
 </div>
 
 **The UI Component**
@@ -142,7 +142,7 @@ The following section gives more details of each component.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/UiClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">UI Class Diagram</h5>
 </div>
 
 The UI consists of a MainWindow that is made up of parts e.g.CommandBox, ResultDisplay, PersonListPanel, StatusBarFooter etc. All these, including the MainWindow, inherit from the abstract UiPart class which captures the commonalities between classes that represent parts of the visible GUI.
@@ -168,7 +168,7 @@ Here's a (partial) class diagram of the `Logic` component:
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/LogicClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.2. Logic Class Diagram (Partial)</h5>
+<h5 align="center">Logic Class Diagram (Partial)</h5>
 </div>
 
 How the `Logic` component works:
@@ -183,7 +183,7 @@ The Sequence Diagram below illustrates the interactions within the `Logic` compo
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/DeleteSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.3. Delete Command Sequence Diagram</h5>
+<h5 align="center">Delete Command Sequence Diagram</h5>
 </div>
 
 > :memo: **NOTE:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -194,7 +194,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/ParserClasses.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.4. Parser Class Diagram</h5>
+<h5 align="center">Parser Class Diagram</h5>
 </div>
 
 How the parsing works:
@@ -209,7 +209,7 @@ How the parsing works:
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/CMClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.5. CM Class Diagram</h5>
+<h5 align="center">CM Class Diagram</h5>
 </div>
 
 The `CommandManageable` component,
@@ -229,7 +229,7 @@ The `CommandManageable` component,
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/ModelClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.1. Model Class Diagram</h5>
+<h5 align="center">Model Class Diagram</h5>
 </div>
 
 The `Model` component,
@@ -245,7 +245,7 @@ The `Model` component,
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/BetterModelClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.2. Better Model Class Diagram</h5>
+<h5 align="center">Better Model Class Diagram</h5>
 </div>
 
 **The Storage Component**
@@ -256,7 +256,7 @@ The `Model` component,
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/StorageClassDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.6.2. Storage Class Diagram</h5>
+<h5 align="center">Storage Class Diagram</h5>
 </div>
 
 The `Storage` component,
@@ -271,12 +271,6 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
-
-> Add contact
-> fav/unfav
-> find tag
-> Undo/redo
-> Copy
 
 ### Add Person feature
 
@@ -304,12 +298,17 @@ The given sequence diagram shows the execution of the feature.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/AddSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Add Sequence Diagram</h5>
 </div>
 
 **Activity Diagram**
 
-**Design considerations**
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/AddActivityDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Add Activity Diagram</h5>
+</div>
 
 ### Favourite/Un-favourite Person Feature
 
@@ -338,12 +337,17 @@ The given sequence diagram shows the execution of the feature.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/FavSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Fav Sequence Diagram</h5>
 </div>
 
 **Activity Diagram**
 
-**Design considerations**
+<div align="center">
+  <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
+    <img src="images/FavActivityDiagram.png" width="90%" />
+  </a>
+<h5 align="center">Fav Activity Diagram</h5>
+</div>
 
 ### Find Person(s) by Tag Feature
 
@@ -370,12 +374,8 @@ The given sequence diagram shows the execution of the feature.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/TagSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Tag Sequence Diagram</h5>
 </div>
-
-**Activity Diagram**
-
-**Design considerations**
 
 ### Undo/Redo Command Feature
 
@@ -391,7 +391,7 @@ Example starting state with 2 states prior:
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/UndoRedoState2.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Undo Redo Initial State Diagram</h5>
 </div>
 
 1. The user inputs - `Undo`.
@@ -405,7 +405,7 @@ Example starting state with 2 states prior:
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/UndoRedoState3.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Undo Redo State After Redo Diagram</h5>
 </div>
 
 **Sequence Diagram**
@@ -416,12 +416,8 @@ The given sequence diagram shows the execution of the feature.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/UndoSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Undo Sequence Diagram</h5>
 </div>
-
-**Activity Diagram**
-
-**Design considerations**
 
 ### Copy Email/Phone Number Feature
 
@@ -446,12 +442,8 @@ The given sequence diagram shows the execution of the feature.
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
     <img src="images/CopyEmailSequenceDiagram.png" width="90%" />
   </a>
-<h5 align="center">Fig 2.1. UI Class Diagram</h5>
+<h5 align="center">Copy Email Sequence Diagram</h5>
 </div>
-
-**Activity Diagram**
-
-**Design considerations**
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -473,11 +465,11 @@ The given sequence diagram shows the execution of the feature.
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Has a need to manage a significant number of contacts
+* Prefers desktop apps over other types
+* Can type fast
+* Prefers typing to mouse interactions
+* Is reasonably comfortable using CLI apps
 
 **Value proposition**: manage NUS contacts faster than a typical mouse/GUI driven app
 
@@ -687,7 +679,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-**Instructions for manual testing**
+##**Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -727,6 +719,20 @@ testers are expected to do more *exploratory* testing.
 
     1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
        Expected: Similar to previous.
+
+1. _{ more test cases …​ }_
+
+### Adding a person
+
+1. Adding a person while all persons are being shown
+
+    1. Prerequisites: Person to be added is not a duplicate person.
+
+    1. Test case: `add n/Sim sim e/simsim@gmail.com p/92214993 r/TA f/FASS`<br>
+       Expected: Sim Sim is added.
+
+    1. Other incorrect add commands to try: `add`, `add n/nameWithoutEmailOrPhone`, `...` <br>
+       Expected: Error thrown.
 
 1. _{ more test cases …​ }_
 
