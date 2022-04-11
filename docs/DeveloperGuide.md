@@ -25,7 +25,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureDiagram.png" width="280"/>
+    <img src="images/ArchitectureDiagram.png" width="90%"/>
   </a>
 <h5 align="center">Fig 1.1. Architecture Diagram</h5>
 </div>
@@ -57,7 +57,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ArchitectureSequenceDiagram.png" width="280"/>
+    <img src="images/ArchitectureSequenceDiagram.png" width="90%"/>
   </a>
 <h5 align="center">Fig 1.2. Architecture Sequence Diagram (Delete command)</h5>
 </div>
@@ -75,7 +75,7 @@ The following section gives more details of each component.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ComponentManagers.png" width="280" />
+    <img src="images/ComponentManagers.png" width="90%" />
   </a>
 <h5 align="center">Fig 1.3. Component Managers</h5>
 </div>
@@ -86,7 +86,7 @@ The following section gives more details of each component.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/UiClassDiagram.png" width="280" />
+    <img src="images/UiClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.1. UI Class Diagram</h5>
 </div>
@@ -112,7 +112,7 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/LogicClassDiagram.png" width="280" />
+    <img src="images/LogicClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.2. Logic Class Diagram (Partial)</h5>
 </div>
@@ -127,7 +127,7 @@ The Sequence Diagram below illustrates the interactions within the `Logic` compo
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/DeleteSequenceDiagram.png" width="280" />
+    <img src="images/DeleteSequenceDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.3. Delete Command Sequence Diagram</h5>
 </div>
@@ -138,7 +138,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ParserClasses.png" width="280" />
+    <img src="images/ParserClasses.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.4. Parser Class Diagram</h5>
 </div>
@@ -153,7 +153,7 @@ How the parsing works:
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/CMClassDiagram.png" width="280" />
+    <img src="images/CMClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.5. CM Class Diagram</h5>
 </div>
@@ -173,7 +173,7 @@ The `CommandManageable` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/ModelClassDiagram.png" width="280" />
+    <img src="images/ModelClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.6.1. Model Class Diagram</h5>
 </div>
@@ -189,7 +189,7 @@ The `Model` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/BetterModelClassDiagram.png" width="280" />
+    <img src="images/BetterModelClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.6.2. Better Model Class Diagram</h5>
 </div>
@@ -200,7 +200,7 @@ The `Model` component,
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/StorageClassDiagram.png" width="280" />
+    <img src="images/StorageClassDiagram.png" width="90%" />
   </a>
 <h5 align="center">Fig 2.6.2. Storage Class Diagram</h5>
 </div>
@@ -212,23 +212,133 @@ The `Storage` component,
 
 ### Common classes
 
-**The Command classes**
-
-> //todo
-
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
 
-> //todo
-> Add
-> Favourite
-> list favourite
-> Find tag
-> Undo
-> Redo
+> Add contact
+> fav/unfav
+> find tag
+> Undo/redo
+> Copy
+> 
+### Add Person feature
+
+This section describes how a `Person` object is added to the list of Contacts.
+
+**Implementation**
+
+A `Person` object in NUSearch consists of `Name`, `Phone`, `Faculty`, `Email`, `Role`, `Faculty`, `Tag`, `Telegram`. The latter two fields are Optional fields.
+When a `add` command is being input to the command input box, a `Person` will be added to the `UniquePersonsList`.
+
+Here is how an example of how the `add` command behaves:
+
+1. The user inputs - `add n/Shurvir Arora p/92212429 e/hello@gmail.com r/Professor f/Science t/Hello tele/@Shuvy123`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `add` command format is being matched.
+5. An `AddCommand` object is created using the user's input as arguments.
+6. The `AddCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+7. The `AddCommand` is executed in the `CommandManager` class, whereby a `Person` object with the given fields is constructed and added to the `UniquePersonsList`.
+
+**Sequence Diagram**
+
+**Activity Diagram**
+
+**Design considerations**
+
+### Favourite/Un-favourite Person Feature
+
+This section describes how a `Person` object is "favourited" or "Un-favourited".
+
+**Implementation**
+
+Apart from the fields stated above, a `Person` object also has a `Favourite` boolean field to indicate whether a person is a favourite one or not.
+
+Here is how an example of how the `fav` command behaves:
+
+1. The user inputs - `fav 1`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `fav` command format is being matched.
+4. A `FavouriteCommand` object is created using the user's input as arguments.
+5. The `FavouriteCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `FavouriteCommand` is executed in the `CommandManager` class, whereby a clone of the target `Person` is created, albeit its `Favourite` field set to true.
+
+> The programme behaves in a similar way for  "Unfavourite" command.
+
+**Sequence Diagram**
+
+**Activity Diagram**
+
+**Design considerations**
+
+### Find Person(s) by Tag feature
+
+This section describes how the find by `Tag` feature works.
+
+**Implementation**
+
+The find by`Tag` feature operates through the use of the `Predicate` class. Where a `FilteredPersonsList` is updated using a `Predicate` object.
+
+Here is how an example of how the `tag` command behaves:
+
+1. The user inputs - `tag friends`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `tag` command format is being matched.
+4. The user's input is used to create a `Predicate` object. With this `Predicate` object, a `TagCommand` is created.
+5. The `TagCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `TagCommand` is executed in the `CommandManager` class, whereby the `FilteredPersonsList` is update with the `Predicate` object.
+
+**Sequence Diagram**
+
+**Activity Diagram**
+
+**Design considerations**
+
+### Undo/Redo Command feature
+
+This section describes how the Undo/Redo feature works.
+
+**Implementation**
+
+Here is how an example of how the `Undo/Redo` command behaves:
+
+Example starting state:
+
+1. The user inputs - `Undo`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `tag` command format is being matched.
+4. The user's input is used to create a `Predicate` object. With this `Predicate` object, a `TagCommand` is created.
+5. The `TagCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `TagCommand` is executed in the `CommandManager` class, whereby the `FilteredPersonsList` is update with the `Predicate` object.
+
+**Sequence Diagram**
+
+**Activity Diagram**
+
+**Design considerations**
+
+### Copy Email/Phone Number feature
+
+This section describes how the Copy Email/Phone Number feature works.
+
+**Implementation**
+
+Here is how an example of how the Copy Email/Phone Number command behaves:
+
+1. The user inputs - `copy-email 1`.
+2. The user's input is received by the `LogicManager` class and passed into the `parseCommand` method of the `AddressBookParser` class.
+3. In the `parseCommand` method, the `copy-email` command format is being matched.
+4. A `CopyEmailCommand` command is created.
+5. The `CopyEmailCommand` object is then returned to the `LogicManager` class and then passed to the `CommandManager` class.
+6. The `CopyEmailCommand` is executed in the `CommandManager` class, whereby the `Email` of a `Person` object at the specified index is copied unto the device's clipboard.
+
+**Sequence Diagram**
+
+**Activity Diagram**
+
+**Design considerations**
 
 --------------------------------------------------------------------------------------------------------------------
 
