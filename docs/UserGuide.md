@@ -382,7 +382,7 @@ Redo a command that was previously done.
 
 <div align="center">
   <a href="https://github.com/AY2122S2-CS2103T-W11-4/tp">
-    <img src="images/redo.png" width= 100%">
+    <img src="images/redo.png" width= "100%">
   </a>
 <h5 align="center">Figure 8. Redo a delete command</h5>
 </div>
